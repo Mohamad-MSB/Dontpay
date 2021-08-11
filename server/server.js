@@ -11,10 +11,10 @@ app.use(express.json());
 
 
 const userRoutes = require("./routes/userRoutes");
-
+const articleRoutes = require("./routes/articleRoutes");
 
 app.use('/user', userRoutes);
-
+app.use('/article', articleRoutes);
 
 
 
@@ -28,4 +28,4 @@ mongoose
   .then(() => console.log("Database connected! 😍☕"))
   .catch((error) => console.log(error, "Database did not connect! ☹️❌"));
 
-app.listen(3001, () => console.log("The server is listening... 🐒"));
+app.listen(3001, () => console.log("The server is listening on port 3001... 🐒"));

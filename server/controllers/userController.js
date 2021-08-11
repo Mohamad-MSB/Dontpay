@@ -30,7 +30,7 @@ exports.register = async (req, res) => {
 
         // waiting for work shop from gilles
         // const image = {
-        //     name: req.body.name,
+        //     imagename: req.body.imagename,
         // desc: req.body.description,
         // img:
         // {

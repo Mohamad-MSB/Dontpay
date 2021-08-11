@@ -6,6 +6,7 @@ const addressSchema = mongoose.Schema({
     zipcode: {type: Number, required: true},
     city: {type: String, required: true},
     land: {type: String, required: true},
+    created: {type: Date, default: Date.now()},
     user_id: {type: mongoose.Schema.Types.ObjectId, ref: 'user', required: false}
 })
 

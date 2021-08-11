@@ -7,7 +7,8 @@ const userSchema = mongoose.Schema({
     hash: { type: String, required: true },
     age: { type: Number, min: 18, required: true },
     email: { type: String, unique: true, required: true },
-    phone: { type: Number }
+    phone: { type: Number },
+    created: {type: Date, default: Date.now()}
 })
 
 const userModel = new mongoose.model('user', userSchema);

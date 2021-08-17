@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
 
+
+// function to generate Token to use in user login page
 exports.generateToken = (user) => {
 
     return jwt.sign({

@@ -28,7 +28,7 @@ exports.register = async (req, res) => {
             user_id: user._id
         })
 
-        // waiting for work shop from gilles
+        // waiting for work shop from gilles to allow the user upload his image
         // const image = {
         //     imagename: req.body.imagename,
         // desc: req.body.description,
@@ -72,6 +72,7 @@ exports.login = async (req,res) => {
     }
 }
 
+// it i not finish yet
 exports.resetPassword = async(req, res) => {
 
     const user = await userModel.findOne({
@@ -84,14 +85,7 @@ exports.resetPassword = async(req, res) => {
         const checkPasswordReset = await userModel.findOne({email: req.body.email})
         if(checkPasswordReset){
             const newPass = await bcrypt.hash(req.body.password, 10);
-            const newPassword = await userModel.findByIdAndUpdate(req.body.id,{hash: newPass},function (err, docs) {
-                if (err){
-                    console.log(err)
-                }
-                else{
-                    console.log("Updated User : ", docs);
-                }
-            })
+            const newPassword = await userModel.findByIdAndUpdate(req.body.id,{hash: newPass},{new : true})
             res.status(200).json({message: "password is successfully reset", newpassword: newPassword})
         }
     } catch (error) {

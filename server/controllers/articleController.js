@@ -2,6 +2,8 @@ const articleModel = require('../models/articleModel');
 const imageModel = require('../models/imageArticleModel');
 const userModel = require('../models/userModel');
 
+
+//  to add an article from the user 
 exports.add = async (req, res) => {
 
     try {
@@ -34,6 +36,7 @@ exports.add = async (req, res) => {
 }
 
 
+//  to edit an article from the user 
 
 exports.update = async (req, res) => {
     const article = await articleModel.findById(req.body.id)

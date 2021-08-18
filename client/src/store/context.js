@@ -8,16 +8,16 @@ export const FirstContext = createContext();
 
 
 
-export default function PayContext() {
+export default function DataContext({children}) {
     return (
        
 
-        <payContext.Provider value={{
+        <DataContext.Provider value={{
 
         }}>
 
             {children}
-        </payContext.Provider>
+        </DataContext.Provider>
 
     )
 }

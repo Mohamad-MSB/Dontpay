@@ -1,26 +1,26 @@
 
 
-import  {useState, createContext} from 'react';
+// import  {useState, createContext} from 'react';
 
 
-export const FirstContext = createContext();
+// export const FirstContext = createContext();
 
 
 
 
-export default function DataContext({children}) {
-    return (
+// export default function DataContext({children}) {
+//     return (
        
 
-        <DataContext.Provider value={{
+//         <DataContext.Provider value={{
 
-        }}>
+//         }}>
 
-            {children}
-        </DataContext.Provider>
+//             {children}
+//         </DataContext.Provider>
 
-    )
-}
+//     )
+// }
 
 
 

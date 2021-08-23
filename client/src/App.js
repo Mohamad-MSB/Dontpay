@@ -1,11 +1,15 @@
-import React,{useState, useEffect} from 'react'
+import React from 'react'
 import './App.css';
+
+
+
+import Navbar from './components/navbar/Navbar';
 
 function App() {
   return (
     <div className="App">
-     <h1> welcome to our web application</h1>
-     <h2> Hallo Shabab</h2>
+     
+   <Navbar/>
 
     </div>
   );

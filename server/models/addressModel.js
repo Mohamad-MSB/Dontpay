@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const addressSchema = mongoose.Schema({
+const addressSchema = new mongoose.Schema({
     streetname: {type: String, required: true},
     hausnumber: {type: Number, required: true},
     zipcode: {type: Number, required: true},
@@ -10,6 +10,8 @@ const addressSchema = mongoose.Schema({
     user_id: {type: mongoose.Schema.Types.ObjectId, ref: 'user', required: false}
 })
 
-const addressModel = new mongoose.model('address',addressSchema);
+// const addressModel = new mongoose.model('address',addressSchema);
 
-module.exports = addressModel;
+// module.exports = addressModel;
+
+module.exports = addressSchema; 

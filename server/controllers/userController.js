@@ -5,7 +5,15 @@ const authHelper = require('../helpers/jwtissuer');
 const jwt = require('jsonwebtoken')
 
 // user register function controller
+//  need to check email address
 exports.register = async (req, res) => {
+
+    const checkusername = await userModel.findOne({username: req.body.username});
+
+    console.log(checkusername);
+    if(checkusername != null) {
+        return res.status(404).json({message: "the user is exist"})
+    } 
 
     const hashPassword = await bcrypt.hash(req.body.password, 10)
     try {
@@ -16,17 +24,24 @@ exports.register = async (req, res) => {
             hash: hashPassword,
             age: req.body.age,
             email: req.body.email,
-            phone: req.body.phone
+            phone: req.body.phone,
+            address: {
+            streetname: req.body.address.streetname,
+            hausnumber: req.body.address.hausnumber,
+            zipcode: req.body.address.zipcode,
+            city: req.body.address.city,
+            land: req.body.address.land,
+            }
         })
 
-        await addressModel.create({
-            streetname: req.body.streetname,
-            hausnumber: req.body.hausnumber,
-            zipcode: req.body.zipcode,
-            city: req.body.city,
-            land: req.body.land,
-            user_id: user._id
-        })
+        // await addressModel.create({
+            // streetname: req.body.streetname,
+            // hausnumber: req.body.hausnumber,
+            // zipcode: req.body.zipcode,
+            // city: req.body.city,
+            // land: req.body.land,
+        //     user_id: user._id
+        // })
 
         // waiting for work shop from gilles to allow the user upload his image
         // const image = {
@@ -39,9 +54,9 @@ exports.register = async (req, res) => {
         // },
         // }
 
-        res.status(200).json({message: "the user has been successfully added to the database",id: user._id})
+      return  res.status(200).json({message: "the user has been successfully added to the database",id: user._id})
     } catch (error) {
-        res.status(400).json({message: "there is an error", error: error.message})        
+      return  res.status(400).json({message: "there is an error", error: error.message})        
     }
 }
 
@@ -52,27 +67,27 @@ exports.login = async (req,res) => {
         username: req.body.username
     })
     if(user === null){
-        res.status(400).json({message: "unser does not exist"})
+      return  res.status(400).json({message: "unser does not exist"})
     }
     try {
         const checkPassword = await bcrypt.compare(req.body.password, user.hash)
         if(checkPassword){
             const token = authHelper.generateToken(user);
-            // console.log('the token Is ', token);
+            console.log('the token Is ', token);
             jwt.verify(token, process.env.SECRET_KEY, (err, user) =>{
                 if(err) console.log("there was an error")
-                // console.log('the content ', user)
+                console.log('the content ', user)
             })
-            res.status(200).json({message: "user is logged in", token : token})
+            return     res.status(200).json({message: "user is logged in", token : token})
         } else {
-            res.status(400).json({message: "user or password does not match"})
+            return     res.status(400).json({message: "user or password does not match"})
         }
     } catch (error) {
-        res.status(500).json({message: "error happens when password is incorrect", error: error.message})
+        return   res.status(500).json({message: "error happens when password is incorrect", error: error.message})
     }
 }
 
-// it i not finish yet
+// it is not finish yet
 exports.resetPassword = async(req, res) => {
 
     const user = await userModel.findOne({
@@ -92,3 +107,4 @@ exports.resetPassword = async(req, res) => {
         res.status(400).json({message: "error happend", error: error.message})
     }
 }
+

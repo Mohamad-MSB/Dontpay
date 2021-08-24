@@ -1,7 +1,7 @@
 
 
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './navbar.scss';
 
 
@@ -18,16 +18,16 @@ function Navbar() {
                 <div className="nav_links_container">
                     <div className="nav_links">
                         <ul>
-                            <Link>Categories</Link>
-                            <Link>Favorites</Link>
-                            <Link>Premium Finds</Link>
-                            <Link>About Us</Link>
+                            <Link to="/">Categories</Link>
+                            <Link to="/">Favorites</Link>
+                            <Link to="/">Premium Finds</Link>
+                            <Link to="/">About Us</Link>
                         </ul>
                     </div>
                     <div className="nav_login">
                         <ul>
-                            <Link>Login</Link>
-                            <Link>Register</Link>
+                            <Link to="/login">Login</Link>
+                            <Link to="/">Register</Link>
                         </ul>
                     </div>
                 </div>
@@ -39,8 +39,10 @@ function Navbar() {
                     </div>
 
                     <div className="media chat">
-                        <Link>Social Media</Link>
-                        <Link>Live Chat</Link>
+                        <ul>
+                            <Link to="/">Social Media</Link>
+                            <Link to="/">Live Chat</Link>
+                        </ul>
                     </div>
                 </div>
             </div>

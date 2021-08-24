@@ -13,5 +13,7 @@ router.post('/add', controller.add);
 
 router.put('/update', controller.update);
 
+router.delete('/delete', controller.remove);
+
 
 module.exports = router;

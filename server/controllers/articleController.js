@@ -4,6 +4,7 @@ const userModel = require('../models/userModel');
 
 
 //  to add an article from the user 
+// need to add image upload code 
 exports.add = async (req, res) => {
 
     try {
@@ -65,4 +66,20 @@ exports.update = async (req, res) => {
 }
 
 
+// remove items 
 
+exports.remove = async (req, res) => {
+
+    try {
+        const article = await articleModel.findByIdAndDelete(req.body.id);
+
+    if(!article){
+      return res.status(404).json({ message: "there is no article to delete"})
+    }
+
+    return res.status(200).json({ message: "the article has been deleted"})
+    } catch (error) {
+        res.status(500).json({ message: "error happend"})
+    }
+
+}

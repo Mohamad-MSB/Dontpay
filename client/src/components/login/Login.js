@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axios from "../../util/axiosInstance";
 
 function Login() {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
-    const login = async () => {
+    const handleSubmitForm = async (e) => {
+        e.preventDefault();
 
-        await axios.post('http://localhost/3001/user/login', {
-            username: username,
-            password: password
-        })
-            .then((response) => {
-                console.log(response);
-            }, (error) => {
-                console.log(error);
-            });
+        try {
+            const response = await axios.post('/user/login', {
+                username: username,
+                password: password
+            })
+
+            console.log(response.data.token, response.data);
+
+
+        } catch (error) {
+            console.log(error.message);
+        }
     }
 
 
@@ -27,7 +31,7 @@ function Login() {
 
             <div className="form">
 
-                <form>
+                <form onSubmit={handleSubmitForm}>
 
                     <div className="username">
                         <label htmlFor="username">Username</label>
@@ -40,7 +44,7 @@ function Login() {
                     </div>
 
                     <div className="login">
-                        <input onClick={() => login()} type="submit" value="Login" />
+                        <button type="submit">Login</button>
                         <input type="checkbox" name="" id="loggedIn" />
                         <label htmlFor="loggedIn">Keep me logged in</label>
                     </div>

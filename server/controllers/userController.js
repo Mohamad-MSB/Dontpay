@@ -54,7 +54,7 @@ exports.register = async (req, res) => {
         // },
         // }
 
-      return  res.status(200).json({message: "the user has been successfully added to the database",id: user._id})
+      return  res.status(200).json({message: "the user has been successfully added to the database"});
     } catch (error) {
       return  res.status(400).json({message: "there is an error", error: error.message})        
     }

@@ -3,6 +3,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './navbar.scss';
+import logo from '../../Images/final_logo.svg';
 
 
 function Navbar() {
@@ -11,7 +12,7 @@ function Navbar() {
 
             {/*logo container*/}
             <div className="logo">
-                LOGO
+            <img src={logo} alt=""/>
             </div>
             {/** it contains the right side after logo links, login , register and search bar */}
             <div className="nav_right">

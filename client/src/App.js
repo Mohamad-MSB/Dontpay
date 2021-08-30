@@ -6,6 +6,7 @@ import HomePage from "./pages/homepage/HomePage";
 import LoginPage from './pages/loginPage/LoginPage';
 import RegisterPage from './pages/registerPage/RegisterPage';
 import Article from './components/article/Article';
+import AddarticlePage from './pages/addArticlePage/AddarticlePage';
 
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/:id" component={Article} />
 
       </Switch>
+      <AddarticlePage/>
     </div>
   );
 }

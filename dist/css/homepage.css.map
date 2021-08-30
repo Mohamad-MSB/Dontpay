@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../client/src/pages/homepage/homepage.scss"
+    ],
+    "names": [],
+    "file": "homepage.css"
+}

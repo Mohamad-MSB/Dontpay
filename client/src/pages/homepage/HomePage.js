@@ -1,6 +1,5 @@
 import React from 'react';
 import './homepage.scss';
-import hero from '../../Images/tree-736885__480.jpg';
 
 function HomePage() {
     return (

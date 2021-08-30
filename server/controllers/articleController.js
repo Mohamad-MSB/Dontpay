@@ -83,3 +83,29 @@ exports.remove = async (req, res) => {
     }
 
 }
+
+// review article 
+exports.view = async (req, res) => {
+
+    try {
+        const article = await articleModel.find({category : ["Electronics", "Sports", "Collectables", "Home", "fashion"]}).populate("user");
+        
+        const category = await articleModel.schema.path("category").enumValues;
+        
+        return res.status(200).json({ message: "All Article", article: article, option: category})
+        
+    } catch (error) {
+        return res.status(400).json({ message: "error happend"})
+    }
+}
+
+exports.category = async (req, res) => {
+    try {
+        const article = await articleModel.find({category : req.params.category}).populate("user");
+        
+        return res.status(200).json({ message: "All Article", article: article})
+        
+    } catch (error) {
+        return res.status(400).json({ message: "error happend"})
+    }
+}

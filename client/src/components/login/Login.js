@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from 'react';
+import { Link, useHistory } from "react-router-dom";
 import axios from "../../util/axiosInstance";
+import { ContextAPI } from "../../store/context";
 
 function Login() {
+
+    const history = useHistory();
+    const {handleLogin} = useContext(ContextAPI); 
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -16,11 +20,19 @@ function Login() {
                 password: password
             })
 
-            console.log(response.data.token, response.data);
+            // console.log(response.data.token, response.data);
+            if(response.status === 200){
+                console.log("logged in");
+                handleLogin(true, response.data.token)
+
+                history.push('/review')
+            }
 
 
         } catch (error) {
             console.log(error.message);
+            handleLogin(false, null)
+
         }
     }
 

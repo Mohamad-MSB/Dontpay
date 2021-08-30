@@ -10,7 +10,7 @@ axiosApiInstance.defaults.headers.post['Content-Type'] = 'application/json';
 
 axiosApiInstance.interceptors.request.use(config => {
     config.headers.Authorization = `Bearer ${window.localStorage.getItem('token')}`;
-    console.log("a request has been made and we added following token: ", window.localStorage.getItem('token'));
+    // console.log("a request has been made and we added following token: ", window.localStorage.getItem('token'));
     return config;
 }, error => {
     return Promise.reject(error);

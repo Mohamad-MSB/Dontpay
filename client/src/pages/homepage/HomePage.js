@@ -1,7 +1,9 @@
 import React from 'react';
 import './homepage.scss';
+
 // import hero from '../../Images/tree-736885__480.jpg';
 import Article from '../../components/article/Article';
+
 
 function HomePage() {
     return (

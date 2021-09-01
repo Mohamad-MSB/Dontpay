@@ -17,7 +17,7 @@ import visa from '../../Images/Icons/Visa_logo.png';
 
 function Footer() {
     return (
-        <div>
+        <footer>
             <div className="footer">
                 <div className="container">
                     <div className="footerSection">
@@ -75,7 +75,7 @@ function Footer() {
                     <p>Copyright &copy; 2021 Don't Pay</p>
                 </div>
             </div>
-        </div>
+        </foot>
     )
 }
 

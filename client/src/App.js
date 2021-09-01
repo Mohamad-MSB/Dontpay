@@ -11,6 +11,8 @@ import Footer from './components/footer/Footer';
 
 
 import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
+
 
 function App({children}) {
 
@@ -26,7 +28,9 @@ function App({children}) {
         <Route exact path="/:id" component={Main} />
 
       </Switch>
+
       {children}
+
       <Footer />
     </div>
   );

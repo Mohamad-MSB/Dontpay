@@ -75,7 +75,7 @@ function Footer() {
                     <p>Copyright &copy; 2021 Don't Pay</p>
                 </div>
             </div>
-        </foot>
+        </footer>
     )
 }
 

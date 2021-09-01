@@ -6,7 +6,7 @@ import dontpayVec from '../../Images/dontpay.svg'
 
 function Footer() {
     return (
-        <div>
+        <footer>
             <div className="footer">
                 <div className="container">
                     <div className="footerSection">
@@ -48,7 +48,7 @@ function Footer() {
 
 
             </div>
-        </div>
+        </footer>
     )
 }
 

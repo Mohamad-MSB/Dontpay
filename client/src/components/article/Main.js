@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../util/axiosInstance';
 import { Link, useParams, useHistory } from 'react-router-dom';
-import TestCategory from './TestCategory';
+import Category from './Category';
+import './article.scss';
 
-function Article() {
+function Main() {
 
     const [article, setArticle] = useState([]);
     const [category, setCategory] = useState("main")
@@ -45,13 +46,14 @@ function Article() {
 
 
     return (
-        <div>
+        <div className="atricl_container">
           
             <select onChange={(e) => handleChange(e.target.value)} name="category" id="category">
                 <option value="main">... choose one option ...</option>
                {option.map(item => <option key={item} value={item}>{item}</option>)}
             </select>
 
+            <div className="category">
             {option.map(item => {
                 return (
                     <div key={item} className="item">
@@ -60,14 +62,15 @@ function Article() {
                     </div>
                 )
             })}
+            </div>
 
-            <TestCategory article={article} id={id}/>
-
+            
+            {category === id ? <Category article={article} id={id}/> : null}
         </div>
     )
 }
 
-export default Article
+export default Main
 
 
 // <option value="Electronics">Electronics</option>

@@ -10,6 +10,8 @@ import Article from './components/article/Article';
 
 
 import Navbar from './components/navbar/Navbar';
+import Footer from './components/footer/Footer';
+
 
 function App() {
 
@@ -25,6 +27,7 @@ function App() {
         <Route exact path="/:id" component={Article} />
 
       </Switch>
+      <Footer />
     </div>
   );
 }

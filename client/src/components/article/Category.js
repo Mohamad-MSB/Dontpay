@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import SelectedArticle from './SelectedArticle';
+import { useParams, useHistory } from 'react-router-dom';
 
-function TestCategory({article}) {
+function Category({article, id}) {
 
     const [selectedArticle, setSelectedArticle] = useState(article)
+
 
     // const item = selectedArticle.filter(item => item.id)
 
@@ -13,6 +14,7 @@ function TestCategory({article}) {
 
         console.log("hello hi ", item);
     }
+
 
     return (
         <div>
@@ -25,10 +27,10 @@ function TestCategory({article}) {
                 )
             })}
 
-            <SelectedArticle selected={selectedArticle}/>
+            <SelectedArticle selected={selectedArticle} id={id}/>
 
         </div>
     )
 }
 
-export default TestCategory
+export default Category

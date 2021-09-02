@@ -28,7 +28,10 @@ exports.add = async (req, res) => {
                 articleimage_id:image._id,
                 category: req.body.category
             })
-            res.status(200).json({ message: "article added successfully", article: article })
+
+            const status = await articleModel.schema.path("status").enumValues;
+
+            res.status(200).json({ message: "article added successfully", article: article, status: status})
         }
         
     } catch (error) {
@@ -85,14 +88,12 @@ exports.remove = async (req, res) => {
 }
 
 // review article 
-exports.view = async (req, res) => {
+exports.categorieslist = async (req, res) => {
 
     try {
-        const article = await articleModel.find({category : ["Electronics", "Sports", "Collectables", "Home", "fashion"]}).populate("user");
+        const categories = await articleModel.schema.path("category").enumValues;
         
-        const category = await articleModel.schema.path("category").enumValues;
-        
-        return res.status(200).json({ message: "All Article", article: article, option: category})
+        return res.status(200).json({ message: "All Article", categories: categories})
         
     } catch (error) {
         return res.status(400).json({ message: "error happend"})
@@ -101,9 +102,22 @@ exports.view = async (req, res) => {
 
 exports.category = async (req, res) => {
     try {
-        const article = await articleModel.find({category : req.params.category}).populate("user");
+        const articles = await articleModel.find({category : req.params.category}).populate("user");
         
-        return res.status(200).json({ message: "All Article", article: article})
+        return res.status(200).json({ message: "All Article", articles: articles})
+        
+    } catch (error) {
+        return res.status(400).json({ message: "error happend"})
+    }
+}
+
+exports.article = async (req, res) => {
+    try {
+        const article = await articleModel.findById(req.params.article).populate("user");
+
+        const user = await userModel.findById(article.user_id);
+        
+        return res.status(200).json({ message: "signle Article", article: article, user: user });
         
     } catch (error) {
         return res.status(400).json({ message: "error happend"})

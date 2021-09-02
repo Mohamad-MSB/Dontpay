@@ -4,9 +4,11 @@ const controller = require('../controllers/articleController');
 const passport = require('passport');
 
 
-router.get('/view', controller.view);
+router.get('/categorieslist', controller.categorieslist);
 
 router.get('/category/:category', controller.category);
+
+router.get('/category/:category/:article', controller.article);
 
 
 // to authorize the user with the token /// and will protect every line below this function

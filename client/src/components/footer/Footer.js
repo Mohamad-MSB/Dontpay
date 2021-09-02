@@ -1,7 +1,7 @@
 import React from 'react';
 import './footer.scss';
 import { Link } from 'react-router-dom';
-import footerImg from '../../Images/footer_vec.svg';
+import footerVector from '../../Images/footer_vec.svg';
 import dontpayVec from '../../Images/dontpay.svg';
 
 import americanExpress from '../../Images/Icons/American_express_logo.png';
@@ -22,7 +22,7 @@ function Footer() {
                 <div className="container">
                     <div className="footerSection">
                         <div className="footerImgTitle"><img src={dontpayVec} alt="Don'T pay footer"/></div>
-                        <div className="footerImg"><img src={footerImg} alt="footer image"/></div>
+                        <div className="footerImg"><img src={footerVector} alt="footer"/></div>
 
                     </div>
                     <div className="footerSection">

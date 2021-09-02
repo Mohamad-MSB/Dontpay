@@ -1,12 +1,14 @@
-
-
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import './navbar.scss';
 import logo from '../../Images/final_logo.svg';
-
+import { PublicNavigation, PrivateNavigation} from '../../components/navigation/index';
+import { ContextAPI } from "../../store/context";
 
 function Navbar() {
+
+    const { loggedIn, user } = useContext(ContextAPI);
+
     return (
         <nav>
 
@@ -19,7 +21,7 @@ function Navbar() {
                 <div className="nav_links_container">
                     <div className="nav_links">
                         <ul>
-                            <Link to="/">Categories</Link>
+                            <Link to="/category">Categories</Link>
                             <Link to="/">Favorites</Link>
                             <Link to="/">Premium Finds</Link>
                             <Link to="/">About Us</Link>
@@ -27,8 +29,7 @@ function Navbar() {
                     </div>
                     <div className="nav_login">
                         <ul>
-                            <Link to="/login">Login</Link>
-                            <Link to="/register">Register</Link>
+                        {loggedIn ? <PrivateNavigation user={user}/> : <PublicNavigation />}
                         </ul>
                     </div>
                 </div>
@@ -52,3 +53,5 @@ function Navbar() {
 }
 
 export default Navbar
+
+

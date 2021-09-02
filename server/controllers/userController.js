@@ -78,7 +78,7 @@ exports.login = async (req,res) => {
                 if(err) console.log("there was an error")
                 console.log('the content ', user)
             })
-            return     res.status(200).json({message: "user is logged in", token : token})
+            return     res.status(200).json({message: "user is logged in", token : token, userID: user._id})
         } else {
             return     res.status(400).json({message: "user or password does not match"})
         }

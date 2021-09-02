@@ -6,7 +6,7 @@ import { ContextAPI } from "../../store/context";
 function Login() {
 
     const history = useHistory();
-    const {handleLogin} = useContext(ContextAPI); 
+    const {handleLogin, setUser} = useContext(ContextAPI); 
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -23,11 +23,11 @@ function Login() {
             // console.log(response.data.token, response.data);
             if(response.status === 200){
                 console.log("logged in");
-                handleLogin(true, response.data.token)
-
-                history.push('/review')
+                setUser(username)
+                handleLogin(true, response.data.token, response.data.userID);
+                console.log(response.data.userID);
+                history.push('/')
             }
-
 
         } catch (error) {
             console.log(error.message);

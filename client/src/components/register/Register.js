@@ -9,7 +9,6 @@ function Register() {
     const [ email, setEmail ] = useState("");
     const [ username, setUsername ] = useState("");
     const [ password, setPassword ] = useState("");
-    // const [ confirmpassword, setConfirmpassword ] = useState("");
     const [ phoneNumber, setPhoneNumber ] = useState("");
     const [ streetname, setStreetname ] = useState("");
     const [ hausnumber, setHausnumber ] = useState("");

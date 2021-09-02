@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import axios from '../../util/axiosInstance';
 import { useParams } from 'react-router-dom';
 
+// 2 september
+
 function SingleArticle() {
 
     const [selectedArticle, setSelectedArticle] = useState([]);

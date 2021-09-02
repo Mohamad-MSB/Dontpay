@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import axios from '../../util/axiosInstance';
 import { Link } from 'react-router-dom';
 
+
+// 2 september
+
 function CategoriesList() {
 
     const [categories, setCategories] = useState([])

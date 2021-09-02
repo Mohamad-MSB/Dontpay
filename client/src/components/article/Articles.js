@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// 2 september
+
 
 function Articles({article, category, itemId}) {
     return (

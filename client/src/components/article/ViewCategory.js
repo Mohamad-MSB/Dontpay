@@ -3,7 +3,7 @@ import axios from '../../util/axiosInstance';
 import { useParams } from 'react-router-dom';
 import Articles from './Articles';
 
-
+// 2 september
 
 function ViewCategory() {
 

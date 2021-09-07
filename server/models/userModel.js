@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
     phone: { type: Number, unique: true },
     rating: { type: String },
     created: {type: Date, default: Date.now()},
+    favorite: [{ type: mongoose.SchemaTypes.ObjectId, ref: "article"}],
     mempership: {type: String, enum: ["basic", "premium", "premium plus"], default: "basic"},
     address: addressSchema
 })

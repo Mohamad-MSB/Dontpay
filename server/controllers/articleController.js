@@ -9,12 +9,12 @@ exports.add = async (req, res) => {
 
     try {
 
-        const user = await userModel.findById(req.body.user_id)
+        const user = await userModel.findById(req.body.user_id);
 
-        if(user == null){
-            res.status(400).json({message: 'user not found'});
+        if (user == null) {
+            res.status(400).json({ message: 'user not found' });
         } else {
-        
+
             const image = await imageModel.create({
                 imagename: req.body.imagename
             })
@@ -22,18 +22,16 @@ exports.add = async (req, res) => {
                 user_id: req.body.user_id,
                 articlename: req.body.articlename,
                 description: req.body.description,
-                status: req.body.status,
+                status: req.body.status.toLowerCase(),
                 note: req.body.note,
                 quantity: req.body.quantity,
-                articleimage_id:image._id,
-                category: req.body.category
+                articleimage_id: image._id,
+                category: req.body.category.toLowerCase()
             })
 
-            const status = await articleModel.schema.path("status").enumValues;
-
-            res.status(200).json({ message: "article added successfully", article: article, status: status})
+            res.status(200).json({ message: "article added successfully", article: article})
         }
-        
+
     } catch (error) {
         res.status(500).json({ message: "error happend", error: error.message })
     }
@@ -55,9 +53,9 @@ exports.update = async (req, res) => {
             note: req.body.note,
             quantity: req.body.quantity,
             category: req.body.category,
-        }, {new : true})
+        }, { new: true })
 
-        await imageModel.findByIdAndUpdate(articleUpdated.articleimage_id,{
+        await imageModel.findByIdAndUpdate(articleUpdated.articleimage_id, {
             imagename: req.body.imagename,
         })
 
@@ -71,18 +69,22 @@ exports.update = async (req, res) => {
 
 // remove items 
 
-exports.remove = async (req, res) => {
+exports.removearticle = async (req, res) => {
 
+    // console.log(req.user._id);
     try {
-        const article = await articleModel.findByIdAndDelete(req.body.id);
 
-    if(!article){
-      return res.status(404).json({ message: "there is no article to delete"})
-    }
+        const article = await articleModel.findById(req.params.id);
+        console.log(req.user._id, article.user_id)
+        if (req.user._id.toString() == article.user_id.toString()) {
+            await articleModel.findByIdAndDelete(req.params.id);
+            return res.status(200).json({ message: "the article has been deleted" })
+        }
 
-    return res.status(200).json({ message: "the article has been deleted"})
+        return res.status(400).json({ message: "you are not allowed to delete" })
+
     } catch (error) {
-        res.status(500).json({ message: "error happend"})
+        res.status(500).json({ message: "error happend", error: error.message })
     }
 
 }
@@ -92,34 +94,96 @@ exports.categorieslist = async (req, res) => {
 
     try {
         const categories = await articleModel.schema.path("category").enumValues;
-        
-        return res.status(200).json({ message: "All Article", categories: categories})
-        
+        const status = await articleModel.schema.path("status").enumValues;
+
+        return res.status(200).json({ message: "All Article", categories: categories, status: status })
+
     } catch (error) {
-        return res.status(400).json({ message: "error happend"})
+        return res.status(400).json({ message: "error happend" })
     }
 }
 
 exports.category = async (req, res) => {
     try {
-        const articles = await articleModel.find({category : req.params.category}).populate("user");
-        
-        return res.status(200).json({ message: "All Article", articles: articles})
-        
+        const articles = await articleModel.find({ category: req.params.category }).populate("user");
+
+        return res.status(200).json({ message: "All Article", articles: articles })
+
     } catch (error) {
-        return res.status(400).json({ message: "error happend"})
+        return res.status(400).json({ message: "error happend" })
     }
 }
 
 exports.article = async (req, res) => {
     try {
-        const article = await articleModel.findById(req.params.article).populate("user");
+        const article = await articleModel.findById(req.params.article).populate("user_id").populate("articleimage_id");
 
-        const user = await userModel.findById(article.user_id);
+        const address = article.user_id.address;
         
-        return res.status(200).json({ message: "signle Article", article: article, user: user });
+        return res.status(200).json({ message: "signle Article", article: article, address: address });
         
+
     } catch (error) {
-        return res.status(400).json({ message: "error happend"})
+        return res.status(400).json({ message: "error happend", error: error.message })
     }
 }
+
+exports.newArticle = async (req, res) => {
+    try {
+        const articles = await articleModel.find().populate("user_id").populate("articleimage_id")
+            .limit(20)
+            .sort('-created');
+
+       return res.status(200).json({ message: "last article found", articles: articles });
+    } catch (error) {
+        return res.status(400).json({ message: "error happend", error: error.message })
+    }
+}
+
+// exports.makefavorite = async (req, res) => {
+//     try {
+//         const article = await articleModel.findByIdAndUpdate(req.params.article, {
+//             favorite: req.params.true
+//         }, { new: true });
+
+//         return res.status(200).json({ message: "signle Article", article: article });
+
+//     } catch (error) {
+//         return res.status(400).json({ message: "error happend", error: error.message });
+//     }
+// }
+
+
+// exports.favoritelist = async (req, res) => {
+//     try {
+//         const article = await articleModel.find({ favorite: true });
+
+//         return res.status(200).json({ message: "favorite Article list", article: article });
+
+//     } catch (error) {
+//         return res.status(400).json({ message: "error happend", error: error.message });
+//     }
+// }
+
+// exports.favoritearticle = async (req, res) => {
+//     try {
+//         const article = await articleModel.findById(req.params.id);
+
+//         return res.status(200).json({ message: "single favorite Article", article: article });
+
+//     } catch (error) {
+//         return res.status(400).json({ message: "error happend", error: error.message });
+//     }
+// }
+
+// exports.removefromfavorites = async (req, res) => {
+//     try {
+//         const article = await articleModel.findByIdAndUpdate(req.params.id, {
+//             favorite: req.params.favorite,
+//         })
+
+//         return res.status(200).json({ message: "article removed successfully from favorite", article: article });
+//     } catch (error) {
+//         return res.status(400).json({ message: "error happend", error: error.message });
+//     }
+// }

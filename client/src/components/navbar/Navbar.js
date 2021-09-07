@@ -14,7 +14,7 @@ function Navbar() {
 
             {/*logo container*/}
             <div className="logo">
-            <img src={logo} alt=""/>
+            <Link to="/" ><img src={logo} alt=""/></Link>
             </div>
             {/** it contains the right side after logo links, login , register and search bar */}
             <div className="nav_right">
@@ -22,7 +22,7 @@ function Navbar() {
                     <div className="nav_links">
                         <ul>
                             <Link to="/category">Categories</Link>
-                            <Link to="/">Favorites</Link>
+                            <Link to="/favorites">Favorites</Link>
                             <Link to="/">Premium Finds</Link>
                             <Link to="/">About Us</Link>
                         </ul>
@@ -38,13 +38,6 @@ function Navbar() {
                 <div className="nav_search_container">
                     <div className="search_input">
                         <input type="search" name="" id="" placeholder="Search for anything" />
-                    </div>
-
-                    <div className="media chat">
-                        <ul>
-                            <Link to="/">Social Media</Link>
-                            <Link to="/">Live Chat</Link>
-                        </ul>
                     </div>
                 </div>
             </div>

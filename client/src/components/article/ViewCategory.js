@@ -28,7 +28,7 @@ function ViewCategory() {
         <div className="atricl_container">
 
         <div className="category">
-            {articles.map((article) => <Articles key={article._id} article={article} category={category} itemId={id}/>)}
+            {articles.length === 0 ? <h1>there is no articles in this category</h1> : articles.map((article) => <Articles key={article._id} article={article} category={category} itemId={id}/>)}
         </div>
         </div>
 

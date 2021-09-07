@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from '../../util/axiosInstance';
 
 // 2 september
@@ -6,56 +6,114 @@ import axios from '../../util/axiosInstance';
 
 function AddArticle() {
 
-    const [articlename, setArticlename] = useState("")
-    const [description, setDescription] = useState("")
-    const [status, setStatus] = useState("")
-    const [note, setNote] = useState("")
-    const [quantity, setQuantity] = useState("")
-    const [imagename, setImagename] = useState("")
-    const [category, setCategory] = useState("")
-    const [alert, setAlert] = useState("")
-  
+    const [articlename, setArticlename] = useState("");
+    const [description, setDescription] = useState("");
+    const [status, setStatus] = useState("");
+    const [note, setNote] = useState("");
+    const [quantity, setQuantity] = useState("");
+    const [imagename, setImagename] = useState("");
+    const [category, setCategory] = useState("");
+    const [alert, setAlert] = useState("");
+
+    const [categoriesOption, setCategoriesOption] = useState([]);
+    const [statusOption, setStatusOption] = useState([]);
+
 
     const addhandler = async (e) => {
-
         e.preventDefault();
-
         try {
             let data = {
-            user_id: window.localStorage.getItem("userID"),
-            articlename: articlename,
-            description: description,
-            status: status,
-            note: note,
-            quantity: quantity,
-            imagename: imagename,
-            category: category};
+                user_id: window.localStorage.getItem("userID"),
+                articlename: articlename,
+                description: description,
+                status: status,
+                note: note,
+                quantity: quantity,
+                imagename: imagename,
+                category: category
+            };
 
             const response = await axios.post('/article/add', data)
             setAlert(response.data.message);
             e.target.reset();
-            
         } catch (error) {
             console.log(error.message);
         }
     }
 
+    const getOptions = async () => {
+        try {
+            const response = await axios.get('/article/categorieslist');
+            setCategoriesOption(response.data.categories)
+            setStatusOption(response.data.status)
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
+    useEffect(() => {
+        getOptions()
+    }, [])
+
+
 
     return (
         <div>
-        <form onSubmit={addhandler}>
-        <input onChange={(e) => setArticlename(e.target.value)} type="text" name="articlename" placeholder="articlename" />
-        <input onChange={(e) => setDescription(e.target.value)} type="text" name="description" placeholder="description" />
-        <input onChange={(e) => setStatus(e.target.value)} type="text" name="status" placeholder="status" />
-        <input onChange={(e) => setNote(e.target.value)} type="text" name="note" placeholder="note" />
-        <input onChange={(e) => setQuantity(e.target.value)} type="text" name="quantity" placeholder="quantity"/>
-        <input onChange={(e) => setImagename(e.target.value)} type="text" name="imagename" placeholder="imagename"/>
-        <input onChange={(e) => setCategory(e.target.value)} type="text" name="category" placeholder="category"/>
-        <input type="submit" value="add article name" />
-        </form>
-        <div className="alert">
-        {alert ? <h4>{alert}</h4> : ""}
-        </div>
+            <form onSubmit={addhandler}>
+
+                <div className="article_name">
+                    <label htmlFor="articlename">Article Name</label>
+                    <input onChange={(e) => setArticlename(e.target.value)} type="text" name="articlename" placeholder="articlename" />
+                </div>
+
+                <div className="options">
+
+                    <div className="category">
+                        <select onChange={(e) => setCategory(e.target.value)} name="categories">
+                            <option value={null}>choose category</option>
+                            {categoriesOption && categoriesOption.map(category => <option key={category} value={category}>{category}</option>)}
+                        </select>
+                    </div>
+
+                    <div className="status">
+                        <select onChange={(e) => setStatus(e.target.value)} name="status">
+                            <option value={null}>choose status</option>
+                            {statusOption && statusOption.map(status => <option key={status} value={status}>{status}</option>)}
+                        </select>
+                    </div>
+
+                </div>
+
+                <div className="quantity">
+                    <label htmlFor="quantity">Quantity:</label>
+                    <input onChange={(e) => setQuantity(e.target.value)} type="text" name="quantity" placeholder="quantity" />
+                </div>
+
+                <div className="description">
+                    <label htmlFor="description">Description</label>
+                    <textarea onChange={(e) => setDescription(e.target.value)} name="description" id="description" cols="30" rows="10">article details</textarea>
+                </div>
+
+                <div className="note">
+                    <label htmlFor="note">Note</label>
+                    <input onChange={(e) => setNote(e.target.value)} type="text" name="note" placeholder="note" />
+                </div>
+
+                <div className="upload">
+                    <input type="file" name="uploadfile" id="img1" style={{ display: "none" }} /> <label htmlFor="img1">Click hier to upload image 1</label>
+                    <input type="file" name="uploadfile" id="img2" style={{ display: "none" }} /> <label htmlFor="img2">Click hier to upload image 2</label>
+                    <input type="file" name="uploadfile" id="img3" style={{ display: "none" }} /> <label htmlFor="img3">Click hier to upload image 3</label>
+                </div>
+
+                <div className="submit">
+                    <input type="submit" value="add Article" />
+                </div>
+
+            </form>
+            <div className="alert">
+                {alert ? <h4>{alert}</h4> : ""}
+            </div>
+
         </div>
     )
 }

@@ -1,45 +1,101 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from '../../util/axiosInstance';
-import { useParams } from 'react-router-dom';
+import { useParams, Link, useHistory } from 'react-router-dom';
+import './SingleArticleStyle.scss'
 
 // 2 september
 
 function SingleArticle() {
 
+    const history = useHistory();
+
     const [selectedArticle, setSelectedArticle] = useState([]);
-    const [user, setuser] = useState([]);
+    const [user, setUser] = useState([]);
+    const [address, setAddress] = useState({});
 
-    const {articlename, description, status, note, quantity, imagename } = selectedArticle;
+    const [remove, setRemove] = useState(false);
 
-    const {category, id} = useParams();
+    const { articlename, description, status, note, quantity, imagename, created,  } = selectedArticle;
+
+    const { category, id } = useParams();
 
     const singleArticle = async (category, id) => {
         try {
             const response = await axios.get(`/article/category/${category}/${id}`);
             setSelectedArticle(response.data.article);
-            setuser(response.data.user)
+            setUser(response.data.article.user_id);
+            setAddress(response.data.address)
         } catch (error) {
             console.log(error.message);
         }
     }
 
-     useEffect(() => {
-            singleArticle(category, id)
-     }, [id])
+    const makeFavorite = async (id) => {
+        try {
+            await axios.put(`/user/addToFavorite/${id}`);
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
+    const removeArticle = async (category, id) => {
+        try {
+            await axios.delete(`/article/category/${category}/${id}`);
+            history.push(`/category/${category}`);
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
+    const removedArticle = () => {
+        setRemove(true)
+        removeArticle(category, id)
+    }
+
+
+    useEffect(() => {
+        singleArticle(category, id)
+    }, [id, remove])
 
 
     return (
-        <div >
-        
-            <h1>username :  {user.username} </h1>
-            <h1>selected article name:  {articlename} </h1>
-            <h1>selected article description:  {description} </h1>
-            <h1>selected article status:  {status} </h1>
-            <h1>selected article note:  {note} </h1>
-            <h1>selected article quantity:  {quantity} </h1>
-            <h1>selected article imagename:  {imagename} </h1>
-            <h1>selected article category:  {category} </h1>
+        <div className="single_article">
 
+            <div className="image_offer">
+                <div className="image">article image</div>
+                <div className="offer">
+                    <Link to="/">send message</Link>
+                    <Link to="/">make a new offer</Link>
+
+                    <button onClick={() => makeFavorite(id)}>Add to Favorites</button>
+                    <button onClick={() => removedArticle()}>Delete item</button>
+
+                    <button>report advert</button>
+                    <div className="user">
+                        <h3>{user.username}</h3>
+                        <p>
+                           <span>{address.zipcode}</span>
+                           <span>{address.city}</span>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div className="details">
+                <div className="title">
+                    <h2>{articlename}</h2>
+                    <p>Status: {status}</p>
+                    <p>Note : {note}</p>
+                    <p>Created at : {created}</p>
+
+                </div>
+                <div className="description">
+                    <h3>Description</h3>
+                    <p>{description}</p>
+                </div>
+            </div>
+
+            {console.log(selectedArticle, address)}
         </div>
     )
 }

@@ -78,7 +78,7 @@ exports.login = async (req,res) => {
                 if(err) console.log("there was an error")
                 console.log('the content ', user)
             })
-            return     res.status(200).json({message: "user is logged in", token : token, userID: user._id})
+            return     res.status(200).json({message: "user is logged in", token : token, userID: user._id , username: user.username})
         } else {
             return     res.status(400).json({message: "user or password does not match"})
         }
@@ -108,3 +108,26 @@ exports.resetPassword = async(req, res) => {
     }
 }
 
+exports.addToFavorites = async(req, res) => {
+    try {
+        const user = await userModel.findByIdAndUpdate(req.user._id, {
+            $push: { favorite: req.params.article_id } },
+            { new: true });
+
+        return res.status(200).json({ message: "Article added to favorites", user: user });
+
+    } catch (error) {
+        return res.status(400).json({ message: "error happend", error: error.message });
+    }
+}
+
+exports.favoritesList = async(req, res) => {
+    try {
+        const user = await userModel.findById(req.user._id).populate('favorite');
+
+        return res.status(200).json({ message: "Favorites list", favorite: user.favorite });
+
+    } catch (error) {
+        return res.status(400).json({ message: "error happend", error: error.message });
+    }
+}

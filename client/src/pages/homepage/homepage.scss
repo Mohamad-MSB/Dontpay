@@ -1,0 +1,55 @@
+.homepage{ 
+    
+
+    .heroImage {
+        height: 222px;
+        margin: 50px 0 50px 0;
+
+        img { 
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .container_articles {
+        width: 100%;
+        padding: 20px;
+        background-color:#DBEEFF;
+
+        display: grid;
+        grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+
+        
+        .article {
+            height: 200px;
+            margin: 10px;
+            background-color:#fff;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.5s ease;
+
+                .card {
+                    width: 100%;
+                    height: 100%;
+
+
+                    img{
+                        width: 100%;
+                        height: 150px;
+                        background-color:orange;
+                    }
+
+                    p {
+                        color: #EB8E69;
+                    }
+                }
+
+                &:hover {
+                    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                    transform: scale(1.1);
+                    border: 1px solid red;
+                }
+        }
+
+    }
+}

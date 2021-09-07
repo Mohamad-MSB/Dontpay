@@ -28,7 +28,6 @@ function Footer() {
                     <div className="footerSection">
                         <h4 className="footerTitle">Support</h4>
                         <Link to='/faq'>FAQ</Link>
-                        <Link to='/livechat'>Live Chat</Link>
                         <Link to='/reportbugs'>Report Bugs</Link>
                         <Link to='/cookiespolicy'>Cookies Policy</Link>
                     </div>
@@ -42,14 +41,14 @@ function Footer() {
                         <h4 className="footerTitle">Payment Methods</h4>
                         <div className="paymentFooter">
                             <div>
-                            <Link to='Payment'><img src={visa} alt="Visa Payment"/></Link>
-                            <Link to='Payment'><img src={masterCard} alt="Master Card Payment"/></Link>
-                            <Link to='Payment'><img src={americanExpress} alt="American Express Payment"/></Link>
+                            <Link to='/'><img src={visa} alt="Visa Payment"/></Link>
+                            <Link to='/'><img src={masterCard} alt="Master Card Payment"/></Link>
+                            <Link to='/'><img src={americanExpress} alt="American Express Payment"/></Link>
                             </div>
                             <div>
-                            <Link to='Payment'><img src={klarna} alt="Klarna Payment"/></Link>
-                            <Link to='Payment'><img src={paypal} alt="PayPal Payment"/></Link>
-                            <Link to='Payment'><img src={applePay} alt="Apple Pay Payment"/></Link>
+                            <Link to='/'><img src={klarna} alt="Klarna Payment"/></Link>
+                            <Link to='/'><img src={paypal} alt="PayPal Payment"/></Link>
+                            <Link to='/'><img src={applePay} alt="Apple Pay Payment"/></Link>
                             </div>
                         </div>
                         

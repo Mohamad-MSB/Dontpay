@@ -11,7 +11,7 @@ function AddArticle() {
     const [status, setStatus] = useState("");
     const [note, setNote] = useState("");
     const [quantity, setQuantity] = useState("");
-    const [imagename, setImagename] = useState("");
+    const [imagename, setImagename] = useState(null);
     const [category, setCategory] = useState("");
     const [alert, setAlert] = useState("");
 
@@ -19,8 +19,21 @@ function AddArticle() {
     const [statusOption, setStatusOption] = useState([]);
 
 
+    
+
     const addhandler = async (e) => {
-        e.preventDefault();
+        e.preventDefault();   
+        
+        
+        const formData = new FormData(e.target);
+
+        axios.post('http://localhost:3001/user/imageUpload', formData, {
+            headers: {
+                "content-Type":"multipart/form-data"
+            }
+        });
+
+
         try {
             let data = {
                 user_id: window.localStorage.getItem("userID"),
@@ -100,7 +113,7 @@ function AddArticle() {
                 </div>
 
                 <div className="upload">
-                    <input type="file" name="uploadfile" id="img1" style={{ display: "none" }} /> <label htmlFor="img1">Click hier to upload image 1</label>
+                    <input accept='image/*'  type="file" name="photo" id="img1" style={{ display: "none" }} /> <label htmlFor="img1">Click hier to upload image 1</label>
                     <input type="file" name="uploadfile" id="img2" style={{ display: "none" }} /> <label htmlFor="img2">Click hier to upload image 2</label>
                     <input type="file" name="uploadfile" id="img3" style={{ display: "none" }} /> <label htmlFor="img3">Click hier to upload image 3</label>
                 </div>

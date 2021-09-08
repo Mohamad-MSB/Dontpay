@@ -11,13 +11,20 @@ dotenv.config();
 app.use(cors());
 app.use(express.json());
 authenticate(passport)
+app.use(express.static(__dirname + '/uploads'));
+app.use('/uploads', express.static('uploads'));
 
 
 const userRoutes = require("./routes/userRoutes");
 const articleRoutes = require("./routes/articleRoutes");
 
+// import image route 
+const userUploadRoutes = require("./routes/userUploadRoutes");
+
 app.use('/user', userRoutes);
 app.use('/article', articleRoutes);
+// upload userRoute
+app.use('/user', userUploadRoutes);
 
 
 

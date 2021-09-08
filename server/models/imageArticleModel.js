@@ -9,6 +9,7 @@ const imageSchema = mongoose.Schema({
             contentType: String
         },
         created: {type: Date, default: Date.now()},
+        
 })
 
 const imageModel = new mongoose.model('articleimage', imageSchema);

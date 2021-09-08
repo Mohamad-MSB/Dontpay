@@ -12,7 +12,7 @@ router.post('/login', controller.login);
 router.post('/resetpassword', controller.resetPassword);
 
 // to authorize the user with the token /// and will protect every line below this function
-router.use(passport.authenticate('articleToken',{session: false}));
+//router.use(passport.authenticate('articleToken',{session: false}));
 
 router.put('/addToFavorite/:article_id', controller.addToFavorites);
 

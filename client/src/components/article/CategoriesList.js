@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from '../../util/axiosInstance';
 import { Link } from 'react-router-dom';
+import './categoriesList.scss';
+import testImage from '../../Images/laptop.jpg';
 
 
 // 2 september
@@ -29,7 +31,7 @@ function CategoriesList() {
         <div className="category">
             {categories.map(item => (
                 <div key={item} className="item">
-                    <img src="" alt={item} />
+                    <img src={testImage} alt={item} />
                     <Link to={`/category/${item}`}>{item}</Link>
                 </div>
             )

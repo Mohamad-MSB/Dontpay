@@ -1,0 +1,29 @@
+
+
+.category{
+
+ border: 1px solid ;
+    margin-top: 50px;
+
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+    padding:10px;
+   
+   .item{
+       display: flex;
+       flex-direction: column;
+       border: 1px solid ;
+       margin:5px;
+       box-shadow:5px 4px 6px gray ;
+
+
+       a{
+           text-align: center;
+           color: yellow;
+           padding:10px 0;
+       }
+      
+
+       
+   }
+}

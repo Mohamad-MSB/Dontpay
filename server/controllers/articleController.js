@@ -1,6 +1,7 @@
 const articleModel = require('../models/articleModel');
 const imageModel = require('../models/imageArticleModel');
 const userModel = require('../models/userModel');
+const multer = require('multer')
 
 
 //  to add an article from the user 
@@ -8,15 +9,12 @@ const userModel = require('../models/userModel');
 exports.add = async (req, res) => {
 
     try {
-
         const user = await userModel.findById(req.body.user_id);
-
         if (user == null) {
             res.status(400).json({ message: 'user not found' });
         } else {
-
             const image = await imageModel.create({
-                imagename: req.body.imagename
+                articleimage: req.body.articleimage
             })
             const article = await articleModel.create({
                 user_id: req.body.user_id,
@@ -28,10 +26,8 @@ exports.add = async (req, res) => {
                 articleimage_id: image._id,
                 category: req.body.category.toLowerCase()
             })
-
-            res.status(200).json({ message: "article added successfully", article: article})
+            res.status(200).json({ message: "article added successfully", article: article })
         }
-
     } catch (error) {
         res.status(500).json({ message: "error happend", error: error.message })
     }
@@ -39,7 +35,6 @@ exports.add = async (req, res) => {
 
 
 //  to edit an article from the user 
-
 exports.update = async (req, res) => {
     const article = await articleModel.findById(req.body.id)
     if (article === null) {
@@ -54,44 +49,34 @@ exports.update = async (req, res) => {
             quantity: req.body.quantity,
             category: req.body.category,
         }, { new: true })
-
         await imageModel.findByIdAndUpdate(articleUpdated.articleimage_id, {
             imagename: req.body.imagename,
         })
-
         res.status(200).json({ message: "article updated successfully", article: articleUpdated })
-
     } catch (error) {
         res.status(500).json({ message: "error happend", error: error.message })
     }
 }
 
 
-// remove items 
+// remove items need to check not finished yet 
 
 exports.removearticle = async (req, res) => {
-
-    // console.log(req.user._id);
     try {
-
         const article = await articleModel.findById(req.params.id);
         console.log(req.user._id, article.user_id)
         if (req.user._id.toString() == article.user_id.toString()) {
             await articleModel.findByIdAndDelete(req.params.id);
             return res.status(200).json({ message: "the article has been deleted" })
         }
-
         return res.status(400).json({ message: "you are not allowed to delete" })
-
     } catch (error) {
         res.status(500).json({ message: "error happend", error: error.message })
     }
-
 }
 
 // review article 
 exports.categorieslist = async (req, res) => {
-
     try {
         const categories = await articleModel.schema.path("category").enumValues;
         const status = await articleModel.schema.path("status").enumValues;
@@ -106,9 +91,7 @@ exports.categorieslist = async (req, res) => {
 exports.category = async (req, res) => {
     try {
         const articles = await articleModel.find({ category: req.params.category }).populate("user");
-
         return res.status(200).json({ message: "All Article", articles: articles })
-
     } catch (error) {
         return res.status(400).json({ message: "error happend" })
     }
@@ -117,12 +100,8 @@ exports.category = async (req, res) => {
 exports.article = async (req, res) => {
     try {
         const article = await articleModel.findById(req.params.article).populate("user_id").populate("articleimage_id");
-
         const address = article.user_id.address;
-        
         return res.status(200).json({ message: "signle Article", article: article, address: address });
-        
-
     } catch (error) {
         return res.status(400).json({ message: "error happend", error: error.message })
     }
@@ -134,56 +113,65 @@ exports.newArticle = async (req, res) => {
             .limit(20)
             .sort('-created');
 
-       return res.status(200).json({ message: "last article found", articles: articles });
+        return res.status(200).json({ message: "last article found", articles: articles });
     } catch (error) {
         return res.status(400).json({ message: "error happend", error: error.message })
     }
 }
 
-// exports.makefavorite = async (req, res) => {
-//     try {
-//         const article = await articleModel.findByIdAndUpdate(req.params.article, {
-//             favorite: req.params.true
-//         }, { new: true });
-
-//         return res.status(200).json({ message: "signle Article", article: article });
-
-//     } catch (error) {
-//         return res.status(400).json({ message: "error happend", error: error.message });
-//     }
-// }
 
 
-// exports.favoritelist = async (req, res) => {
-//     try {
-//         const article = await articleModel.find({ favorite: true });
 
-//         return res.status(200).json({ message: "favorite Article list", article: article });
 
-//     } catch (error) {
-//         return res.status(400).json({ message: "error happend", error: error.message });
-//     }
-// }
 
-// exports.favoritearticle = async (req, res) => {
-//     try {
-//         const article = await articleModel.findById(req.params.id);
+// new from saif multer
 
-//         return res.status(200).json({ message: "single favorite Article", article: article });
 
-//     } catch (error) {
-//         return res.status(400).json({ message: "error happend", error: error.message });
-//     }
-// }
 
-// exports.removefromfavorites = async (req, res) => {
-//     try {
-//         const article = await articleModel.findByIdAndUpdate(req.params.id, {
-//             favorite: req.params.favorite,
-//         })
+const multerConfig = multer.diskStorage({
 
-//         return res.status(200).json({ message: "article removed successfully from favorite", article: article });
-//     } catch (error) {
-//         return res.status(400).json({ message: "error happend", error: error.message });
-//     }
-// }
+    destination: (req, file, callback) => {
+        callback(null, 'uploads/articleimages/');
+    },
+    filename: (req, file, callback) => {
+        const ext = file.mimetype.split('/')[1];
+        callback(null, `image-${Date.now()}.${ext}`);
+    },
+});
+
+const isImage = (req, file, callback) => {
+    if (file.mimetype.startsWith('image')) {
+        callback(null, true)
+    } else {
+        callback(new Error('Only Image is Allowed..'));
+    }
+}
+
+
+const upload = multer({
+    storage: multerConfig,
+    fileFilter: isImage,
+});
+
+exports.uploadImage = upload.single('photo')
+
+
+
+exports.upload = (req, res) => {
+
+    console.log(req.file)
+
+    res.status(200).json({ success: 'Success' })
+}
+
+exports.getImage = async (req, res) => {
+
+    try {
+        const article = await articleModel.findById(req.params["userId"]);
+
+        res.sendFile(`${__dirname}/uploads/articleimages/${article.articleimage}`);
+    } catch (error) {
+        console.log(error)
+    }
+}
+

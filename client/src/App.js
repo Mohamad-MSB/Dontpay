@@ -13,6 +13,7 @@ import CategoriesList from './components/article/CategoriesList';
 import ViewCategory from './components/article/ViewCategory';
 import SingleArticle from './components/article/SingleArticle';
 import FavoriteList from './components/article/FavoriteList';
+import UserProfile from './components/userProfile/UserProfile';
 
 
 function App({children}) {
@@ -33,9 +34,9 @@ function App({children}) {
         <Route exact path="/category/:category/:id" component={SingleArticle} />
         <Route exact path="/category/:category/:id/:favorite" component={SingleArticle} />
         <Route exact path="/favorites" component={FavoriteList} />
+        <Route exact path="/userprofile/:id" component={UserProfile} />
 
       </Switch>
-
 
       {children}
 

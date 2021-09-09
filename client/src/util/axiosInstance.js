@@ -2,7 +2,8 @@ import axios from 'axios';
 
 const axiosApiInstance = axios.create();
 
-axiosApiInstance.defaults.baseURL = 'http://localhost:3001';
+// axiosApiInstance.defaults.baseURL = 'http://localhost:3001';
+axiosApiInstance.defaults.baseURL = `${process.env.REACT_APP_SERVER_URL}`;
 
 axiosApiInstance.defaults.headers.post['Content-Type'] = 'application/json';
 

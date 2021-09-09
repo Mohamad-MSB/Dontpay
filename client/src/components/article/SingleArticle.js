@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../util/axiosInstance';
 import { useParams, Link, useHistory } from 'react-router-dom';
-import './SingleArticleStyle.scss'
+import './SingleArticleStyle.scss';
+import HeroImage from '../heroImage/HeroImage';
 
 // 2 september
 
@@ -15,7 +16,7 @@ function SingleArticle() {
 
     const [remove, setRemove] = useState(false);
 
-    const { articlename, description, status, note, quantity, imagename, created,  } = selectedArticle;
+    const { articlename, description, status, note, quantity, imagename, created, } = selectedArticle;
 
     const { category, id } = useParams();
 
@@ -59,23 +60,26 @@ function SingleArticle() {
 
 
     return (
-        <div className="single_article">   
+        <div className="single_article">
+
+
+            <HeroImage />
 
             <div className="image_offer">
                 <div className="image"> <img src="http://localhost:3001/uploads/articleimages/image-1631093043504.png" alt="" /> </div>
                 <div className="offer">
-                    <Link to="/">send message</Link>
-                    <Link to="/">make a new offer</Link>
+                    <Link to="/">Send Message</Link>
+                    <Link to="/">Make Offer</Link>
 
                     <button onClick={() => makeFavorite(id)}>Add to Favorites</button>
-                    <button onClick={() => removedArticle()}>Delete item</button>
+                    <button onClick={() => removedArticle()}>Delete Item</button>
 
-                    <button>report advert</button>
+                    <button>Report Advert</button>
                     <div className="user">
                         <h3>{user.username}</h3>
-                        <p>
-                           <span>{address.zipcode}</span>
-                           <span>{address.city}</span>
+                        <p className="address">
+                            <span>{address.zipcode}</span>
+                            <span>{address.city}</span>
                         </p>
                     </div>
 
@@ -86,7 +90,7 @@ function SingleArticle() {
                     <h2>{articlename}</h2>
                     <p>Status: {status}</p>
                     <p>Note : {note}</p>
-                    <p>Created at : {created}</p>
+                    <span className="create_date"> {new Date(created).toLocaleDateString()}</span>
 
                 </div>
                 <div className="description">

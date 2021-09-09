@@ -35,11 +35,16 @@ function HomePage() {
             <div className="container_articles">
             {newArticles.length === 0 ? <h1>there is no articles</h1> : newArticles.map(article => {
                 return (
-                    <Link to={`/category/${article.category}/${article._id}`} key={article._id} className="article"><div className="card">
+                    <Link to={`/category/${article.category}/${article._id}`} key={article._id} className="article">
+                        
                     <img src={firasIMG} alt="test for now" />
+                  
+                    
+                    <div className="thumbnail_text">
                     <p>{article.articlename}</p>
                     <p>Note : {article.note}</p>
-                    </div></Link>
+                    </div>
+                    </Link>
                 )
             })}
             </div>

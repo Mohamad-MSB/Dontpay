@@ -12,7 +12,7 @@ function HeroImage() {
     
     return (
         <>
-        <img src={image[random(image)]} alt="homepage hero" />
+        <img src={image[random(image)]} alt="homepage hero" style={{width:"100%", margin:"15px 0"}}/>
         </>
     )
 }

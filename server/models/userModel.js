@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
     hash: { type: String, required: true },
     age: { type: Number, min: 18, max: 80, required: true },
     email: { type: String, unique: true, required: true },
+    userimage: { type: String },
     phone: { type: Number, unique: true },
     rating: { type: String },
     created: {type: Date, default: Date.now()},

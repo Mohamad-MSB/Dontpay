@@ -11,7 +11,7 @@ function AddArticle() {
     const [status, setStatus] = useState("");
     const [note, setNote] = useState("");
     const [quantity, setQuantity] = useState("");
-    const [imagename, setImagename] = useState(null);
+    const [articleimage, setArticleimage] = useState(null);
     const [category, setCategory] = useState("");
     const [alert, setAlert] = useState("");
 
@@ -42,7 +42,7 @@ function AddArticle() {
                 status: status,
                 note: note,
                 quantity: quantity,
-                imagename: imagename,
+                articleimage: articleimage,
                 category: category
             };
 

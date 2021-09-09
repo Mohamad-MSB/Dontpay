@@ -17,15 +17,6 @@ router.use(passport.authenticate('articleToken',{session: false}));
 
 router.delete('/category/:category/:id', controller.removearticle);
 
-// router.get('/favoritelist', controller.favoritelist);
-
-// router.get('/favoritelist/:id', controller.favoritearticle);
-
-// router.put('/category/:category/:article/:favorite', controller.makefavorite);
-
-// router.put('/favoritelist/:id/:favorite', controller.removefromfavorites)
-
-
 router.post('/add', controller.add);
 
 router.put('/update', controller.update);

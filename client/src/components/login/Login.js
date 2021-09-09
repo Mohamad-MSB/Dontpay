@@ -24,7 +24,6 @@ function Login() {
             if(response.status === 200){
                 console.log("logged in");
                 handleLogin(true, response.data.token, response.data.userID, response.data.username);
-                console.log(response.data.userID);
                 history.push('/')
             }
 

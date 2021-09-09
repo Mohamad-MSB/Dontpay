@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './navbar.scss';
 import logo from '../../Images/final_logo.svg';
@@ -7,7 +7,8 @@ import { ContextAPI } from "../../store/context";
 
 function Navbar() {
 
-    const { loggedIn, user } = useContext(ContextAPI);
+    const { loggedIn, user, id } = useContext(ContextAPI);
+    
 
     return (
         <nav>
@@ -29,7 +30,7 @@ function Navbar() {
                     </div>
                     <div className="nav_login">
                         <ul>
-                        {loggedIn ? <PrivateNavigation user={user}/> : <PublicNavigation />}
+                        {loggedIn ? <PrivateNavigation user={user} id={id}/> : <PublicNavigation />}
                         </ul>
                     </div>
                 </div>

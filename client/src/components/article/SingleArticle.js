@@ -62,7 +62,7 @@ function SingleArticle() {
         <div className="single_article">   
 
             <div className="image_offer">
-                <div className="image"> <img src="http://localhost:3001/uploads/images/image-1631085937286.jpeg" alt="" /> </div>
+                <div className="image"> <img src="http://localhost:3001/uploads/articleimages/image-1631093043504.png" alt="" /> </div>
                 <div className="offer">
                     <Link to="/">send message</Link>
                     <Link to="/">make a new offer</Link>

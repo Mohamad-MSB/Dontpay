@@ -1,5 +1,6 @@
 const userModel = require('../models/userModel');
 const addressModel = require('../models/addressModel');
+const articleModel = require('../models/articleModel');
 const bcrypt = require('bcrypt');
 const authHelper = require('../helpers/jwtissuer');
 const jwt = require('jsonwebtoken')
@@ -122,7 +123,7 @@ exports.favoritesList = async (req, res) => {
     try {
         const user = await userModel.findById(req.user._id).populate('favorite');
 
-        return res.status(200).json({ message: "Favorites list", favorite: user.favorite });
+        return res.status(200).json({ message: "Favorites list", favorite: user.favorite});
 
     } catch (error) {
         return res.status(400).json({ message: "error happend", error: error.message });

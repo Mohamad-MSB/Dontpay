@@ -31,6 +31,7 @@ function FavoriteList() {
                     </div>
                 )
             }) : <h1>there is no favorite articles</h1>}
+            {console.log(articles)}
         </div>
     )
 }

@@ -17,25 +17,18 @@ function Register() {
     const [age, setAge] = useState("");
     const [land, setLand] = useState("");
 
-    const[userimage, setUserimage] = useState("")
-
-
 
     const handelRegister = async (e) => {
         e.preventDefault();
 
-
         const formData = new FormData(e.target);
-
-        const res = await axios.post('/user/imageupload', formData, {
-            headers: {
-                "content-Type":"multipart/form-data"
-            }
-        });
-        setUserimage(res.data.image)
-
         try {
 
+            const res = await axios.post('/user/imageupload', formData, {
+                headers: {
+                    "content-Type":"multipart/form-data"
+                }
+            });
 
             await axios.post('/user/register', {
                 firstname: firstname,
@@ -45,8 +38,7 @@ function Register() {
                 age: age,
                 email: email,
                 phone: phoneNumber,
-                userimage: userimage,
-
+                userimage: res.data.image,
                 address: {
                     streetname: streetname,
                     hausnumber: hausnumber,
@@ -130,7 +122,7 @@ function Register() {
                 <div className="button">
                     <button type="submit">Create</button>
                 </div>
-                {console.log(userimage)}
+
             </form>
         </div>
     )

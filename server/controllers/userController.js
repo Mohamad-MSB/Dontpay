@@ -121,7 +121,7 @@ exports.addToFavorites = async (req, res) => {
 // get the favorite list
 exports.favoritesList = async (req, res) => {
     try {
-        const user = await userModel.findById(req.user._id).populate('favorite');
+        const user = await userModel.findById(req.user._id).populate({ path: 'favorite', populate: { path: 'user_id' }});
 
         return res.status(200).json({ message: "Favorites list", favorite: user.favorite});
 

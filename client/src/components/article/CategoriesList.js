@@ -30,10 +30,15 @@ function CategoriesList() {
     return (
         <div className="category">
             {categories.map(item => (
-                <div key={item} className="item">
-                    <img src={testImage} alt={item} />
-                    <Link to={`/category/${item}`}>{item}</Link>
-                </div>
+                <Link key={item} to={`/category/${item}`} className="link">
+                    <div className="image">
+                        <img src={testImage} alt={item} />
+                    </div>
+                    <div className="title">
+                    <p>{item}</p>
+                    </div>
+                </Link>
+
             )
             )}
         </div>

@@ -14,6 +14,9 @@ import ViewCategory from './components/article/ViewCategory';
 import SingleArticle from './components/article/SingleArticle';
 import FavoriteList from './components/article/FavoriteList';
 import UserProfile from './components/userProfile/UserProfile';
+import EditUser from './components/userProfile/EditUser';
+import UserArticleList from './components/userarticle/UserArticleList';
+import MakeOffer from './components/offer/MakeOffer';
 
 
 function App({children}) {
@@ -35,6 +38,9 @@ function App({children}) {
         <Route exact path="/category/:category/:id/:favorite" component={SingleArticle} />
         <Route exact path="/favorites" component={FavoriteList} />
         <Route exact path="/userprofile/:id" component={UserProfile} />
+        <Route exact path="/userprofile/:id/edituser" component={EditUser} />
+        <Route exact path="/myarticle" component={UserArticleList} />
+        <Route exact path="/makeoffer" component={MakeOffer} />
 
       </Switch>
 

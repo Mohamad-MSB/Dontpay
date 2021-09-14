@@ -69,6 +69,41 @@ exports.login = async (req, res) => {
     }
 }
 
+
+exports.editUser = async (req, res) => {
+
+    try {
+
+        const user = await userModel.findById(req.user._id);
+
+        const checkPassword = await bcrypt.compare(req.body.password, user.hash)
+
+        if(user !== null && checkPassword){
+
+            const updateduser = await userModel.findByIdAndUpdate(req.user._id, { 
+                email: req.body.email,
+                phone: req.body.phone,
+                userimage: req.body.userimage,
+                address: {
+                    streetname: req.body.address.streetname,
+                    hausnumber: req.body.address.hausnumber,
+                    zipcode: req.body.address.zipcode,
+                    city: req.body.address.city,
+                    land: req.body.address.land
+                }
+        },{ new: true});
+
+        return res.status(200).json({ message: "user is successfully updated", user, updateduser})
+        
+        }
+
+        return res.status(500).json({ message: "user not found no exist"})
+
+    } catch (error) {
+        return res.status(400).json({ message: "error happend", error: error.message })
+    }
+}
+
 // profile setting
 exports.profileSetting = async (req, res) => {
    try {
@@ -121,7 +156,9 @@ exports.addToFavorites = async (req, res) => {
 // get the favorite list
 exports.favoritesList = async (req, res) => {
     try {
-        const user = await userModel.findById(req.user._id).populate({ path: 'favorite', populate: { path: 'user_id' }});
+
+        const user = await userModel.findById(req.user._id).populate({path: 'favorite', populate : { path: "user_id"}});
+
 
         return res.status(200).json({ message: "Favorites list", favorite: user.favorite});
 
@@ -161,13 +198,6 @@ exports.upload = async (req, res) => {
     res.status(200).json({success: 'Success', image: req.file.filename});
 }
 
-
-
-
-
-
-
-
 exports.getImage = async (req, res) => {
 
     try {
@@ -179,3 +209,29 @@ exports.getImage = async (req, res) => {
     }
 }
 
+
+exports.userArticle = async (req, res) => {
+
+    try {
+
+        const article = await articleModel.find({user_id: req.params.id}).populate('user_id');
+
+        return res.status(200).json({success: 'Success', article : article})
+
+    } catch (error) {
+        return res.status(400).json({ message: "error happend", error: error.message });
+    }
+}
+
+// exports.makeOffer = async (req, res) => {
+//     try {
+
+//         const user = await userModel.findById(req.params.id);
+
+//         const article = await articleModel.findByIdAndUpdate(req.body.article, {
+//             $push: { user: req.params.article_id }
+//         })
+//     } catch (error) {
+        
+//     }
+// }

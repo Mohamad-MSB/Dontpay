@@ -1,29 +1,47 @@
-
-
 .category{
 
- border: 1px solid ;
-    margin-top: 50px;
-
+    width: 100%;
     display: grid;
     grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
-    padding:10px;
+    
+
+    .link {
+
+        padding: 10px;
+        margin: 10px;
+        border-radius: 8px;
+        text-align: center;
+
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+
+        .image {
+            width: 100%;
+            padding: 5px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+        
+        .title {
+
+            p {
+                padding: 10px;
+                text-transform: uppercase;
+                color: #000;
+            }
+        }
+
+
+        &:hover {
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            transition: all 0.5s linear;
+
+        }
+    }
    
-   .item{
-       display: flex;
-       flex-direction: column;
-       border: 1px solid ;
-       margin:5px;
-       box-shadow:5px 4px 6px gray ;
-
-
-       a{
-           text-align: center;
-           color: yellow;
-           padding:10px 0;
-       }
-      
-
-       
-   }
+   
+  
 }

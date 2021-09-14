@@ -69,7 +69,7 @@ function SingleArticle() {
                 <div className="image"> <img src="http://localhost:3001/uploads/articleimages/image-1631093043504.png" alt="" /> </div>
                 <div className="offer">
                     <Link to="/">Send Message</Link>
-                    <Link to="/">Make Offer</Link>
+                    <Link to="/makeoffer">Make Offer</Link>
 
                     <button onClick={() => makeFavorite(id)}>Add to Favorites</button>
                     <button onClick={() => removedArticle()}>Delete Item</button>

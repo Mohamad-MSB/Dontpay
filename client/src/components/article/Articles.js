@@ -1,15 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './articles.scss';
+import firasIMG from './dont-pay.jpg'
 
 // 2 september
 
 
-function Articles({article, category, itemId}) {
+function Articles({ article, category, itemId }) {
     return (
-        <div key={itemId}>
-            <h3>{article.articlename}</h3>
-            <Link to={`/category/${category}/${article._id}`}>article name {article.articlename}</Link>
-        </div>
+        <Link key={itemId} to={`/category/${category}/${article._id}`} className="article">
+            <img src={firasIMG} alt="test for now" />
+            <div className="thumbnail_text">
+                <p>{article.articlename}</p>
+                <p>Note : {article.note}</p>
+
+            </div>
+
+        </Link>
     )
 }
 

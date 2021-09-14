@@ -11,6 +11,7 @@ export default function PrivateNavigation({ user, id }) {
             <div className="dropdown">
                 <button className="dropbtn">My Profile</button>
                 <div className="dropdown-content">
+                    <Link to="/myarticle">My Items</Link>
                     <Link to="/add">Add item</Link>
                     <Link to={`/userprofile/${id}`}>Setting</Link>
                     <Link to="/inbox">Inbox</Link>

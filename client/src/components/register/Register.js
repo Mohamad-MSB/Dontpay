@@ -23,6 +23,11 @@ function Register() {
 
         const formData = new FormData(e.target);
         try {
+            const res = await axios.post('/user/imageupload', formData, {
+                headers: {
+                    "content-Type":"multipart/form-data"
+                }
+            });
 
             const res = await axios.post('/user/imageupload', formData, {
                 headers: {
@@ -100,6 +105,8 @@ function Register() {
                 </div>
 
 
+
+
                 <div className="address">
                     <label htmlFor="address">Address</label>
                     <input onChange={(e) => setStreetname(e.target.value)} type="text" placeholder="street" name="street" required />
@@ -124,7 +131,9 @@ function Register() {
                 </div>
 
             </form>
-        </div>
+
+{            console.log(streetname)
+}        </div>
     )
 }
 

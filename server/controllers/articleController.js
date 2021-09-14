@@ -26,7 +26,8 @@ exports.add = async (req, res) => {
                 articleimage_id: image._id,
                 category: req.body.category.toLowerCase()
             })
-            res.status(200).json({ message: "article added successfully", article: article })
+            
+            return res.status(200).json({ message: "article added successfully", article: article })
         }
     } catch (error) {
         res.status(500).json({ message: "error happend", error: error.message })

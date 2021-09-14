@@ -16,8 +16,13 @@ router.post('/imageupload',controller.uploadImage, controller.upload);  // new f
 
 router.get("/profileImage/:id", controller.getImage);  // new from saif multer
 
+router.get('/myarticle/:id', controller.userArticle)
+
+
 // to authorize the user with the token /// and will protect every line below this function
 router.use(passport.authenticate('articleToken',{session: false}));
+
+router.put("/userprofile/:id/edituser", controller.editUser)
 
 router.put('/addToFavorite/:article_id', controller.addToFavorites);
 

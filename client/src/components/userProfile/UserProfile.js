@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../../util/axiosInstance';
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
+import './userprofile.scss'
 
 function UserProfile() {
 
@@ -8,13 +9,19 @@ function UserProfile() {
 
     const [user, setUser] = useState([]);
     const [image, setImage] = useState("")
-    const getuser = async () =>{
+    const [address, setAddress] = useState([])
+
+
+    const getuser = async () => {
 
         const response = await axios.get(`/user/userprofile/${id}`);
         console.log(response.data.user)
         setUser(response.data.user)
         setImage(response.data.user.userimage)
+        setAddress(response.data.user.address)
     }
+
+
 
     useEffect(() => {
         getuser()
@@ -22,10 +29,23 @@ function UserProfile() {
 
 
     return (
-        <div>
-            user profile page
-
+        <div className="user_profile">
+            <h1>My Profile setting</h1>
             <img src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMG}/${image}`} alt="" />
+
+            <h3>username: {user.username}</h3>
+            <h3>firstname:  {user.firstname}</h3>
+            <h3>lastname: {user.lastname}</h3>
+            <h3>email: {user.email}</h3>
+            <h3>city: {address.city}</h3>
+            <h3>hausnumber: {address.hausnumber}</h3>
+            <h3>land: {address.land}</h3>
+            <h3>streetname: {address.streetname}</h3>
+
+            
+            <Link to={`/userprofile/${id}/edituser`}>Edit</Link>
+
+
         </div>
     )
 }

@@ -15,7 +15,6 @@ function UserProfile() {
     const getuser = async () => {
 
         const response = await axios.get(`/user/userprofile/${id}`);
-        console.log(response.data.user)
         setUser(response.data.user)
         setImage(response.data.user.userimage)
         setAddress(response.data.user.address)
@@ -29,6 +28,7 @@ function UserProfile() {
 
 
     return (
+
         <div className="user_profile">
             <h1>My Profile setting</h1>
             <img src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMG}/${image}`} alt="" />
@@ -45,6 +45,13 @@ function UserProfile() {
             
             <Link to={`/userprofile/${id}/edituser`}>Edit</Link>
 
+
+
+        <div>
+            user profile page
+
+            <img src={`${process.env.REACT_APP_SERVER_URL}${process.env.REACT_APP_IMG}/${image}`} alt="" />
+            {console.log(user,image)}
 
         </div>
     )

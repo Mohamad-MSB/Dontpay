@@ -21,9 +21,7 @@ function Register() {
     const handelRegister = async (e) => {
         e.preventDefault();
 
-
         const formData = new FormData(e.target);
-
         try {
             const res = await axios.post('/user/imageupload', formData, {
                 headers: {
@@ -31,6 +29,11 @@ function Register() {
                 }
             });
 
+            const res = await axios.post('/user/imageupload', formData, {
+                headers: {
+                    "content-Type":"multipart/form-data"
+                }
+            });
 
             await axios.post('/user/register', {
                 firstname: firstname,
@@ -41,7 +44,6 @@ function Register() {
                 email: email,
                 phone: phoneNumber,
                 userimage: res.data.image,
-
                 address: {
                     streetname: streetname,
                     hausnumber: hausnumber,
@@ -103,6 +105,8 @@ function Register() {
                 </div>
 
 
+
+
                 <div className="address">
                     <label htmlFor="address">Address</label>
                     <input onChange={(e) => setStreetname(e.target.value)} type="text" placeholder="street" name="street" required />
@@ -125,6 +129,7 @@ function Register() {
                 <div className="button">
                     <button type="submit">Create</button>
                 </div>
+
             </form>
 
 {            console.log(streetname)

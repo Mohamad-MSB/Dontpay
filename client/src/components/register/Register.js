@@ -29,12 +29,6 @@ function Register() {
                 }
             });
 
-            const res = await axios.post('/user/imageupload', formData, {
-                headers: {
-                    "content-Type":"multipart/form-data"
-                }
-            });
-
             await axios.post('/user/register', {
                 firstname: firstname,
                 lastname: lastname,

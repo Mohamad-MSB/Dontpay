@@ -47,7 +47,7 @@ function UserProfile() {
 
 
 
-        <div>
+       
             user profile page
 
             <img src={`${process.env.REACT_APP_SERVER_URL}${process.env.REACT_APP_IMG}/${image}`} alt="" />

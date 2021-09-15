@@ -15,6 +15,8 @@ import pinterest from '../../Images/Icons/Pinterest_logo.png';
 import twitter from '../../Images/Icons/Twitter_logo.png';
 import visa from '../../Images/Icons/Visa_logo.png';
 
+
+
 function Footer() {
     return (
         <footer>
@@ -35,7 +37,7 @@ function Footer() {
                         <h4 className="footerTitle">About Us</h4>
                         <Link to='/agb'>AGB</Link>
                         <Link to='/impressum'>Impressum</Link>
-                        <Link to='/liveChat'>Terms and Privecy</Link>
+                        <Link to='/Terms'>Terms and Privecy</Link>
                     </div>
                     <div className="footerSection">
                         <h4 className="footerTitle">Payment Methods</h4>

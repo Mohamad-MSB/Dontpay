@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../../util/axiosInstance';
-import { useParams,Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import './userprofile.scss'
 
 function UserProfile() {
@@ -42,17 +42,18 @@ function UserProfile() {
             <h3>land: {address.land}</h3>
             <h3>streetname: {address.streetname}</h3>
 
-            
+
             <Link to={`/userprofile/${id}/edituser`}>Edit</Link>
 
 
 
-        <div>
-            user profile page
+            <div>
+                user profile page
 
-            <img src={`${process.env.REACT_APP_SERVER_URL}${process.env.REACT_APP_IMG}/${image}`} alt="" />
-            {console.log(user,image)}
+                <img src={`${process.env.REACT_APP_SERVER_URL}${process.env.REACT_APP_IMG}/${image}`} alt="" />
+                {console.log(user, image)}
 
+            </div>
         </div>
     )
 }

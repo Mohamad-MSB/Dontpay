@@ -58,6 +58,8 @@ function Register() {
 
   return (
     <div className="register">
+
+
       <div className="heroImage">
         <HeroImage />
       </div>

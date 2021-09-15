@@ -17,6 +17,8 @@ import UserProfile from './components/userProfile/UserProfile';
 import EditUser from './components/userProfile/EditUser';
 import UserArticleList from './components/userarticle/UserArticleList';
 import MakeOffer from './components/offer/MakeOffer';
+import ContactPage from './pages/contactPage/ContactPage';
+
 
 
 function App({children}) {
@@ -41,6 +43,7 @@ function App({children}) {
         <Route exact path="/userprofile/:id/edituser" component={EditUser} />
         <Route exact path="/myarticle" component={UserArticleList} />
         <Route exact path="/makeoffer" component={MakeOffer} />
+        <Route exact path="/contactus" component={ContactPage} />
 
       </Switch>
 

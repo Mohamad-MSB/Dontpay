@@ -5,6 +5,7 @@ import HeroImage from "../../components/heroImage/HeroImage";
 import './register.scss';
 
 function Register() {
+
   const [firstname, setfirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");

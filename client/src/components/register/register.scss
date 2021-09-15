@@ -1,0 +1,125 @@
+
+
+.container_register{
+
+    border: solid;
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+
+    h1{
+        text-align: center;
+        color: white;
+        margin-bottom: 15px;
+    }
+
+    form{
+
+        margin-left: 3px;
+
+        .fullname,
+        .age,
+        .email,
+        .username,
+        .password,
+        .phone {
+
+            label{
+
+                display: block;
+                margin: 1px 0;
+                color: white;
+                margin-left: 1px;
+            }
+            input{
+
+                width: 40%;
+                height: 25px;
+            }
+        }
+
+        .address {
+            label{
+
+                display: block;
+                margin: 1px 0;
+                color: white;
+                margin-left: 1px;
+            }
+            
+
+            .street{        
+                width: 40%;
+                height: 25px;   
+                margin-right: 5px;  
+                margin-bottom: 5px;         
+
+            }
+
+            .house{        
+                width: 20%;
+                height: 25px; 
+                margin-right: 5px;              
+
+            }
+
+            .code{        
+                width: 20%;
+                height: 25px; 
+                margin-right: 5px;              
+
+            }
+
+            .city, .land{        
+                width: 30%;
+                height: 25px; 
+                margin-right: 5px;              
+
+            }
+        }
+
+        .upload{
+
+            margin-top: 20px;
+
+            label{
+                background-color:#342d72;
+                padding: 6px 10px;
+                color : white;
+               
+            }
+
+        }
+
+        .agree{
+
+            margin-top: 20px;
+            color: white;
+            label{
+                margin-left: 3px;
+            }
+        }
+
+        .button{
+
+            margin-top: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+
+            button{
+                font-size: 18px;
+                padding:6px 20px;
+                background-color:#342d72;
+                color: white;
+
+            }
+            button:hover{
+
+                outline:none;
+                background-color:#316c9c;
+     
+                transition: all 1s ease;
+                cursor: pointer;
+             }
+
+        }
+    }
+}

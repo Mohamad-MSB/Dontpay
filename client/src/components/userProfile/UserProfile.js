@@ -1,8 +1,10 @@
+
 import React, { useEffect, useState } from "react";
 import axios from "../../util/axiosInstance";
 import { useParams, Link } from "react-router-dom";
 import "./userprofile.scss";
 import HeroImage from "../../components/heroImage/HeroImage";
+
 
 function UserProfile() {
 
@@ -24,6 +26,7 @@ function UserProfile() {
     }, []);
 
     return (
+
         <div className="profile_sitting">
             <div className="heroImage">
                 <HeroImage />
@@ -60,6 +63,7 @@ function UserProfile() {
 
                     </div>
                 </div>
+
             </div>
         </div>
     );

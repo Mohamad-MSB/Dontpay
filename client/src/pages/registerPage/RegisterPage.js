@@ -4,7 +4,7 @@ import Register from '../../components/register/Register'
 function RegisterPage() {
     return (
         <div>
-            User Register bug
+           
             <Register/>
         </div>
     )

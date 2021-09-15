@@ -5,6 +5,7 @@ import "./userprofile.scss";
 import HeroImage from "../../components/heroImage/HeroImage";
 
 function UserProfile() {
+
     const { id } = useParams();
 
     const [user, setUser] = useState([]);

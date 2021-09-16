@@ -30,6 +30,7 @@ import FAQ from './components/footer/Support/FAQ/FAQ';
 import Cookies from "./components/cookies/Cookies";
 
 import Messages from './components/offer/Messages';
+import UserSingleArticle from './components/userarticle/UserSingleArticle';
 
 
 
@@ -54,6 +55,7 @@ function App({children}) {
         <Route exact path="/userprofile/:id" component={UserProfile} />
         <Route exact path="/userprofile/:id/edituser" component={EditUser} />
         <Route exact path="/myarticle" component={UserArticleList} />
+        <Route exact path="/myarticle/:articleId" component={UserSingleArticle} />
         <Route exact path="/makeoffer" component={MakeOffer} />
 
         <Route exact path="/contactus" component={ContactPage} />

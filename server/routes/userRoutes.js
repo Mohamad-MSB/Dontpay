@@ -16,7 +16,11 @@ router.post('/imageupload',controller.uploadImage, controller.upload);  // new f
 
 router.get("/profileImage/:id", controller.getImage);  // new from saif multer
 
-router.get('/myarticle/:id', controller.userArticle)
+router.get('/myarticle/user/:id', controller.userArticle);
+
+router.get('/myarticle/:articleId', controller.userSingleArticle);
+
+
 
 
 // to authorize the user with the token /// and will protect every line below this function

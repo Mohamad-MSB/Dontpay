@@ -216,7 +216,20 @@ exports.userArticle = async (req, res) => {
 
         const article = await articleModel.find({user_id: req.params.id}).populate('user_id');
 
-        return res.status(200).json({success: 'Success', article : article})
+        return res.status(200).json({success: 'user list article', article : article})
+
+    } catch (error) {
+        return res.status(400).json({ message: "error happend", error: error.message });
+    }
+}
+
+exports.userSingleArticle = async (req, res) => {
+
+    try {
+
+        const article = await articleModel.findById(req.params.articleId);
+
+        return res.status(200).json({success: 'user single article', article : article})
 
     } catch (error) {
         return res.status(400).json({ message: "error happend", error: error.message });

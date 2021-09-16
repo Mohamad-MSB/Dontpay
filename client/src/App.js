@@ -26,7 +26,11 @@ import Agb from './components/footer/AGB/Agb';
 import Impressum from './components/footer/Impressum/Impressum';
 import Terms from './components/footer/Terms/Terms';
 import FAQ from './components/footer/Support/FAQ/FAQ';
+
+import Cookies from "./components/cookies/Cookies";
+
 import Messages from './components/offer/Messages';
+
 
 
 function App({children}) {
@@ -69,6 +73,9 @@ function App({children}) {
       {children}
 
     <Footer />
+    <Cookies />
+
+    
     </div>
   );
 }

@@ -1,24 +1,25 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { image } from "./heroImagesData";
 
 function HeroImage() {
 
+    const [index, setIndex] = useState(0)
 
-    const random = (image) => {
-        console.log('random generating is :', image)
-        return Math.floor(Math.random() * image.length -1) + 1;
+
+    const random = () => {
+
+        return Math.floor(Math.random() * 8);
+
     }
-
+    
+    useEffect(() => {
+        setIndex(random())
+    }, [])
     
     return (
-        <div>
-        <img src={image[random(image)]} alt="homepage hero" style={{width:"100%", margin:"15px 0"}}/>
-
-
-       
-        </div>
-
-      
+        <>
+        <img src={image[index]} alt="homepage hero" style={{width:"100%", margin:"15px 0"}}/>
+        </>
     )
 }
 

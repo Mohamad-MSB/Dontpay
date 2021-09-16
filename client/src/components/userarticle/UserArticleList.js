@@ -5,12 +5,12 @@ import { ContextAPI } from '../../store/context'
 function UserArticleList() {
 
     const [article, setArticles] = useState([]);
-    const { id } = useContext(ContextAPI)
+    const { userId } = useContext(ContextAPI)
 
     const getMyArticle = async () => {
 
         try {
-            const response = await axios.get(`/user/myarticle/${id}`);
+            const response = await axios.get(`/user/myarticle/${userId}`);
             setArticles(response.data.article)
         } catch (error) {
             console.log(error);

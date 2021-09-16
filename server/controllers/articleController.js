@@ -111,7 +111,7 @@ exports.article = async (req, res) => {
 exports.newArticle = async (req, res) => {
     try {
         const articles = await articleModel.find().populate("user_id").populate("articleimage_id")
-            .limit(20)
+            .limit(21)
             .sort('-created');
 
         return res.status(200).json({ message: "last article found", articles: articles });

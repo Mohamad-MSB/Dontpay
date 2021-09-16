@@ -27,6 +27,7 @@ import Impressum from './components/footer/Impressum/Impressum';
 import Terms from './components/footer/Terms/Terms';
 import FAQ from './components/footer/Support/FAQ/FAQ';
 import Messages from './components/offer/Messages';
+import UserSingleArticle from './components/userarticle/UserSingleArticle';
 
 
 function App({children}) {
@@ -50,6 +51,7 @@ function App({children}) {
         <Route exact path="/userprofile/:id" component={UserProfile} />
         <Route exact path="/userprofile/:id/edituser" component={EditUser} />
         <Route exact path="/myarticle" component={UserArticleList} />
+        <Route exact path="/myarticle/:articleId" component={UserSingleArticle} />
         <Route exact path="/makeoffer" component={MakeOffer} />
 
         <Route exact path="/contactus" component={ContactPage} />

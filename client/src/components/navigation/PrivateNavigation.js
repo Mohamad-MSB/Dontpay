@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import './privateNavigation.scss';
 import { useState, useEffect } from "react";
 
-export default function PrivateNavigation({ user, id }) {
+export default function PrivateNavigation({ user, userId }) {
 
 
     return (
@@ -13,7 +13,7 @@ export default function PrivateNavigation({ user, id }) {
                 <div className="dropdown-content">
                     <Link to="/myarticle">My Items</Link>
                     <Link to="/add">Add item</Link>
-                    <Link to={`/userprofile/${id}`}>Setting</Link>
+                    <Link to={`/userprofile/${userId}`}>Setting</Link>
                     <Link to="/inbox">Inbox</Link>
                 </div>
             </div>

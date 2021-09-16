@@ -12,7 +12,7 @@ function Agb() {
             </div>
 
             <h1>General terms and conditions for the use of the don't pay services</h1>
-<br />
+            <br />
             <h3>What does exchange mean in a legal sense?</h3>
 
             <p>Amazingly, the term “exchange” does not appear anywhere in the law. Strictly speaking, exchange is not a legal term, but it is widely used in everyday life and is used for completely different case constellations.
@@ -27,9 +27,9 @@ function Agb() {
 
             <p>In cases 1 and 2, the originally purchased goods are defective, whereas in the third case the goods are flawless. These findings are of great importance for the question of whether and how an exchange is carried out.</p>
 
-<br />
+            <br />
             <h3>When is the buyer eligible for an exchange?</h3>
-<br />
+            <br />
             <h4>Exchange of defective goods for flawless goods</h4>
 
             <p>The buyer's rights in the event of defects in the purchased item are regulated in Section 437 of the German Civil Code (BGB). If the purchased goods are defective, the buyer can initially demand supplementary performance in accordance with Section 439 (1) BGB. He has the right to vote in this regard. The buyer can either request the repair of the defective goods or the delivery of defect-free goods. The supplementary performance is also referred to as the right of the second tender and is intended to give the seller the opportunity to remedy the defect in the goods before the purchase contract is reversed. The seller can insist on this right.
@@ -49,7 +49,7 @@ function Agb() {
 
             <p>If you order goods from a private person, for example via dont Pay, the right of withdrawal does not apply.
             </p>
-<br />
+            <br />
             <h2>Important: The exchange depends on the agreement between the two parties as well as the exchange fees and the company is not responsible.
             </h2>
 

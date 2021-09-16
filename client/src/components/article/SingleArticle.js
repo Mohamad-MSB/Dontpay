@@ -104,9 +104,6 @@ function SingleArticle() {
                     <p>{description}</p>
                 </div>
             </div>
-
-            {console.log("selected article component",selectedArticle.user_id)}
-            {console.log("selected article component",user._id, userId)}
         </div>
     )
 }

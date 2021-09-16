@@ -1,24 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from '../../util/axiosInstance';
 import { useParams, Link, useHistory } from 'react-router-dom';
 import './SingleArticleStyle.scss';
 import HeroImage from '../heroImage/HeroImage';
+import { ContextAPI } from "../../store/context";
 
 // 2 september
 
 function SingleArticle() {
 
     const history = useHistory();
+    const { userId } = useContext(ContextAPI);
+    const { category, id } = useParams();
 
     const [selectedArticle, setSelectedArticle] = useState([]);
-    const [user, setUser] = useState([]);
+    const [user, setUser] = useState("");
     const [address, setAddress] = useState({});
 
     const [remove, setRemove] = useState(false);
 
     const { articlename, description, status, note, quantity, imagename, created, } = selectedArticle;
 
-    const { category, id } = useParams();
 
     const singleArticle = async (category, id) => {
         try {
@@ -39,6 +41,7 @@ function SingleArticle() {
         }
     }
 
+
     const removeArticle = async (category, id) => {
         try {
             await axios.delete(`/article/category/${category}/${id}`);
@@ -47,6 +50,8 @@ function SingleArticle() {
             console.log(error.message);
         }
     }
+
+    
 
     const removedArticle = () => {
         setRemove(true)
@@ -68,11 +73,12 @@ function SingleArticle() {
             <div className="image_offer">
                 <div className="image"> <img src="http://localhost:3001/uploads/articleimages/image-1631093043504.png" alt="" /> </div>
                 <div className="offer">
-                    <Link to="/">Send Message</Link>
+                    <Link to={`/messages/${user._id}`}>Send Message</Link>
                     <Link to="/makeoffer">Make Offer</Link>
 
                     <button onClick={() => makeFavorite(id)}>Add to Favorites</button>
-                    <button onClick={() => removedArticle()}>Delete Item</button>
+                    {userId === user._id && <button onClick={() => removedArticle()}>Delete Item</button>}
+                    
 
                     <button>Report Advert</button>
                     <div className="user">
@@ -99,7 +105,8 @@ function SingleArticle() {
                 </div>
             </div>
 
-            {console.log(selectedArticle, address)}
+            {console.log("selected article component",selectedArticle.user_id)}
+            {console.log("selected article component",user._id, userId)}
         </div>
     )
 }

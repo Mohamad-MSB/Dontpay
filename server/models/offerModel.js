@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const offerSchema = mongoose.Schema({
-    useroffer: [{type: mongoose.SchemaTypes.ObjectId, ref: "article"}],
+    useroffer: [{type: mongoose.SchemaTypes.ObjectId, ref: "article", required: true}],
     user_id: {type: mongoose.SchemaTypes.ObjectId, ref: "user", required: true}    
 })
 

@@ -6,7 +6,7 @@ import { Draggable, Droppable } from 'react-drag-and-drop';
 function MakeOffer() {
 
     const [article, setArticles] = useState([]);
-    const { id } = useContext(ContextAPI);
+    const { userId } = useContext(ContextAPI);
 
     const [drop , setDrop] = useState([]);
     const [walet, setWalet] = useState([]);
@@ -14,7 +14,7 @@ function MakeOffer() {
     const getMyArticle = async () => {
 
         try {
-            const response = await axios.get(`/user/myarticle/${id}`);
+            const response = await axios.get(`/user/myarticle/${userId}`);
             setArticles(response.data.article)
             setWalet(response.data.article)
         } catch (error) {

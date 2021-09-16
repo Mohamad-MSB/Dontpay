@@ -7,7 +7,7 @@ import { ContextAPI } from "../../store/context";
 
 function Navbar() {
 
-    const { loggedIn, user, id } = useContext(ContextAPI);
+    const { loggedIn, user, userId, search, setSearch } = useContext(ContextAPI);
 
 
     return (
@@ -30,7 +30,7 @@ function Navbar() {
                     </div>
                     <div className="nav_login">
                         <ul>
-                            {loggedIn ? <PrivateNavigation user={user} id={id} /> : <PublicNavigation />}
+                            {loggedIn ? <PrivateNavigation user={user} userId={userId} /> : <PublicNavigation />}
                         </ul>
                     </div>
                 </div>
@@ -38,7 +38,7 @@ function Navbar() {
                 {/**search bar side contains search bar and social media links */}
                 <div className="nav_search_container">
                     <div className="search_input">
-                        <input type="search" name="" id="" placeholder="Search for anything" />
+                        <input onChange={(e) => setSearch(e.target.value)} type="search" name="" value={search} id="" placeholder="Search for anything" />
                     </div>
                 </div>
             </div>

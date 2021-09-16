@@ -21,6 +21,7 @@ import Agb from './components/footer/AGB/Agb';
 import Impressum from './components/footer/Impressum/Impressum';
 import Terms from './components/footer/Terms/Terms';
 import FAQ from './components/footer/Support/FAQ/FAQ';
+import Messages from './components/offer/Messages';
 
 function App({children}) {
 
@@ -44,6 +45,7 @@ function App({children}) {
         <Route exact path="/userprofile/:id/edituser" component={EditUser} />
         <Route exact path="/myarticle" component={UserArticleList} />
         <Route exact path="/makeoffer" component={MakeOffer} />
+        <Route exact path="/messages/:id" component={Messages} />
         <Route exact path="/agb" component={Agb} />
         <Route exact path="/impressum" component={Impressum} />
         <Route exact path="/Terms" component={Terms} />

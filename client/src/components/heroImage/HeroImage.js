@@ -5,9 +5,11 @@ function HeroImage() {
 
     const [index, setIndex] = useState(0)
 
+
     const random = () => {
 
         return Math.floor(Math.random() * 8);
+
     }
     
     useEffect(() => {

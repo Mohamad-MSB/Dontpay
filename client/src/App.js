@@ -17,11 +17,17 @@ import UserProfile from './components/userProfile/UserProfile';
 import EditUser from './components/userProfile/EditUser';
 import UserArticleList from './components/userarticle/UserArticleList';
 import MakeOffer from './components/offer/MakeOffer';
+
+import ContactPage from './pages/contactPage/ContactPage';
+
+
+
 import Agb from './components/footer/AGB/Agb';
 import Impressum from './components/footer/Impressum/Impressum';
 import Terms from './components/footer/Terms/Terms';
 import FAQ from './components/footer/Support/FAQ/FAQ';
 import Messages from './components/offer/Messages';
+
 
 function App({children}) {
 
@@ -45,6 +51,9 @@ function App({children}) {
         <Route exact path="/userprofile/:id/edituser" component={EditUser} />
         <Route exact path="/myarticle" component={UserArticleList} />
         <Route exact path="/makeoffer" component={MakeOffer} />
+
+        <Route exact path="/contactus" component={ContactPage} />
+
         <Route exact path="/messages/:id" component={Messages} />
         <Route exact path="/agb" component={Agb} />
         <Route exact path="/impressum" component={Impressum} />
@@ -53,6 +62,7 @@ function App({children}) {
 
 
         
+
 
       </Switch>
 

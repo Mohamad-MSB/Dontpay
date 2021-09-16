@@ -2,7 +2,7 @@
     
 
     .heroImage {
-        height: 222px;
+        min-width: 755px;
         margin: 50px 0 50px 0;
 
         img { 
@@ -17,7 +17,7 @@
         background-color:#DBEEFF;
 
         display: grid;
-        grid-template-columns: repeat( auto-fit, minmax(200px, 1fr) );
+        grid-template-columns: repeat( auto-fit, minmax(211px, min-content) );
 
         
         .article {

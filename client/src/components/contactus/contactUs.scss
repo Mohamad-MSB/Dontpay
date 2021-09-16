@@ -1,0 +1,30 @@
+
+
+.container_contact{
+
+    border: solid;
+
+    height: 400px;
+
+    h2, p{
+        text-align: center;
+    }
+
+    .two_block{
+
+        display: flex;
+       
+
+
+        .info_contact{
+
+            flex: 35%;
+           
+        }
+
+        .form_contact{
+            flex: 65%;
+            
+        }
+    }
+}

@@ -11,22 +11,24 @@ export function DataContext({children}) {
 
     const [user, setUser] = useState(window.localStorage.getItem("username"))
     const [loggedIn, setLoggedIn] = useState(window.localStorage.getItem("loggedIn"));
-    const [id, setId] = useState(window.localStorage.getItem("userID"))
+    const [userId, setUserId] = useState(window.localStorage.getItem("userID"))
 
-    const handleLogin = (booleanState, token, id, user) => {
+    const [search, setSearch] = useState("")
+
+    const handleLogin = (booleanState, token, userId, user) => {
 
         if(booleanState){
             setLoggedIn(true)
             setUser(user)
-            setId(id)
+            setUserId(userId)
             window.localStorage.setItem("loggedIn","loggedIn");
             window.localStorage.setItem("token",token)
-            window.localStorage.setItem("userID", id)
+            window.localStorage.setItem("userID", userId)
             window.localStorage.setItem("username", user)
         } else {
             setLoggedIn(false)
             setUser(null)
-            setId(null)
+            setUserId(null)
             window.localStorage.removeItem("loggedIn");
             window.localStorage.removeItem("token");
             window.localStorage.removeItem("userID");
@@ -43,7 +45,7 @@ export function DataContext({children}) {
        
 
         <ContextAPI.Provider value={{ loggedIn, handleLogin,
-            user, id
+            user, userId, search, setSearch
 
         }}>
 

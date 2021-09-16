@@ -17,10 +17,13 @@ app.use('/uploads', express.static('uploads'));
 
 const userRoutes = require("./routes/userRoutes");
 const articleRoutes = require("./routes/articleRoutes");
+const messageRoutes = require("./routes/messageRoute");
 
 
 app.use('/user', userRoutes);
 app.use('/article', articleRoutes);
+app.use('/message', messageRoutes);
+
 // upload userRoute
 
 

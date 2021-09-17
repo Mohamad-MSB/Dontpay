@@ -28,6 +28,7 @@ import Terms from './components/footer/Terms/Terms';
 import FAQ from './components/footer/Support/FAQ/FAQ';
 
 import Cookies from "./components/cookies/Cookies";
+import Cookies_Policy from './components/footer/Cookies_Policy/Cookies_Policy';
 
 import Messages from './components/offer/Messages';
 import UserSingleArticle from './components/userarticle/UserSingleArticle';
@@ -65,9 +66,8 @@ function App({children}) {
         <Route exact path="/impressum" component={Impressum} />
         <Route exact path="/Terms" component={Terms} />
         <Route exact path="/faq" component={FAQ} />
+        <Route exact path="/cookiespolicy" component={Cookies_Policy} />
 
-
-        
 
 
       </Switch>

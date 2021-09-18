@@ -25,7 +25,7 @@ function Navbar() {
                         <Link to="/category">Categories</Link>
                         {loggedIn ? <Link to="/favorites">Favorites</Link> : <Link to="/login">Favorites</Link>}
                         <Link to="/">Premium Finds</Link>
-                        <Link to="/">About Us</Link>
+                        <Link to="/aboutus">About Us</Link>
                         </ul>
                     </div>
                     <div className="nav_login">

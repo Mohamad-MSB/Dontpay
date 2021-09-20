@@ -22,7 +22,7 @@ function Navbar() {
                 <div className="nav_links_container">
                     <div className="nav_links">
                         <ul>
-                        <Link className="nav_links_main" to="/category">Categories</Link>
+                        <Link href="#category" className="nav_links_main" to="/category">Categories</Link>
                         {loggedIn ? <Link to="/favorites">Favorites</Link> : <Link to="/login">Favorites</Link>}
                         <Link to="/">Premium Finds</Link>
                         <Link to="/aboutus">About Us</Link>

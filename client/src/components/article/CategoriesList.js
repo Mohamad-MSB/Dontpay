@@ -24,27 +24,27 @@ function CategoriesList() {
   }, []);
 
   return (
-    <div className="category">
-
+    <div>
       <div className="heroImage">
         <HeroImage />
       </div>
-
-      <div className="category_list">
+      <div id="category" className="category">
         {categories.map((item) => (
-          <Link key={item} to={`/category/${item}`} className="link">
-            <div className="image">
-              <img src={testImage} alt={item} />
-            </div>
-            <div className="title">
-              <p>{item}</p>
-            </div>
-          </Link>
+          <div className="category_card">
+            <Link className="category_link" key={item} to={`/category/${item}`}>
+              <div className="middle">
+                <div className="text">{item}</div>
+              </div>
+              <div className="category_image">
+                <img src={testImage} alt={item} />
+              </div>
+              <div className="category_title">
+                <p>{item}</p>
+              </div>
+            </Link>
+          </div>
         ))}
       </div>
-
-
-     
     </div>
   );
 }

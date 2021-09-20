@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './agb.scss'
 import HeroImage from '../../heroImage/HeroImage'
 
 
 function Agb() {
+
+
+
+    useEffect(() => {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          });
+    }, [])
+
     return (
         <div className="container_agb">
 

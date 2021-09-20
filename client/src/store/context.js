@@ -33,11 +33,12 @@ export function DataContext({children}) {
             window.localStorage.removeItem("token");
             window.localStorage.removeItem("userID");
             window.localStorage.removeItem("username")
+            window.localStorage.setItme("cookiesAccepted", false)
+
 
         }
     }
     
-
 
 
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './about_us.scss'
 import HeroImage from '../../heroImage/HeroImage'
 
@@ -7,6 +7,14 @@ function About_Us() {
     <div className="heroImage">
         <HeroImage />
     </div>
+
+    useEffect(() => {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }, [])
     return (
         <div className="Container_About_Us">
             <h2>Save the planet, bring the things thrown into storage to life, enjoy, trade and share what you've exchanged on our website.</h2>

@@ -1,30 +1,40 @@
 
+import React, {useState} from 'react';
+import {FaArrowCircleUp} from 'react-icons/fa';
 
-import React, { useEffect, useState } from "react";
-import { useWindowScroll } from "react-use";
-
-import './scroll.scss';
-import { FaChevronUp } from 'react-icons/fa';
+import { Button } from '../../components/scrolUp/Style';
 
 
 function ScrollToTop() {
 
 
-    const { x, y } = useWindowScroll();
-    const [scrolled, setScrolled] = useState(0);
-
-    useEffect(() => {
-        const height =
-            document.documentElement.scrollHeight -
-            document.documentElement.clientHeight;
-        setScrolled((y / height) * 100);
-    }, [y]);
+    const [visible, setVisible] = useState(false)
+  
+    const toggleVisible = () => {
+      const scrolled = document.documentElement.scrollTop;
+      if (scrolled > 300){
+        setVisible(true)
+      } 
+      else if (scrolled <= 300){
+        setVisible(false)
+      }
+    };
+    
+    const scrollToTop = () =>{
+      window.scrollTo({
+        top: 0, 
+        behavior: 'smooth'
+        
+      });
+    };
+    
+    window.addEventListener('scroll', toggleVisible);
 
     return (
-
-        <div className="scroll-to-top cursor-pointer">
-            <i className="icon fas fa-chevron-up"></i>
-        </div>
+        <Button>
+        <FaArrowCircleUp onClick={scrollToTop} 
+        style={{display: visible ? 'inline' : 'none'}} />
+       </Button>
     )
 }
 

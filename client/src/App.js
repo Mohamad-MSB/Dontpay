@@ -32,6 +32,7 @@ import Cookies_Policy from './components/footer/Cookies_Policy/Cookies_Policy';
 
 import Messages from './components/offer/Messages';
 import UserSingleArticle from './components/userarticle/UserSingleArticle';
+import ScrollPage from './pages/scrollPage/ScrollPage';
 
 
 
@@ -74,6 +75,7 @@ function App({ children }) {
 
       </Switch>
       {children}
+      <ScrollPage/>
       <Footer />
       <Cookies />
 

@@ -2,18 +2,20 @@
 
 .container_register{
 
-    border: solid;
-    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+
+
+   
 
     h1{
         text-align: center;
-        color: white;
+        color: rgb(114, 112, 112);
         margin-bottom: 15px;
     }
 
     form{
 
-        margin-left: 3px;
+       
+        margin-left: 10px;
 
         .fullname,
         .age,
@@ -26,13 +28,14 @@
 
                 display: block;
                 margin: 1px 0;
-                color: white;
+                color: #08488d; 
                 margin-left: 1px;
             }
             input{
 
                 width: 40%;
-                height: 25px;
+                height: 33px;
+                border-radius:8px;
             }
         }
 
@@ -41,37 +44,41 @@
 
                 display: block;
                 margin: 1px 0;
-                color: white;
+                color: #08488d; 
                 margin-left: 1px;
             }
             
 
             .street{        
                 width: 40%;
-                height: 25px;   
+                height: 33px;  
                 margin-right: 5px;  
-                margin-bottom: 5px;         
+                margin-bottom: 5px;  
+                border-radius:8px;       
 
             }
 
             .house{        
                 width: 20%;
-                height: 25px; 
-                margin-right: 5px;              
+                height: 33px;
+                margin-right: 5px;   
+                border-radius:8px;           
 
             }
 
             .code{        
                 width: 20%;
-                height: 25px; 
-                margin-right: 5px;              
+                height: 33px;
+                margin-right: 5px;  
+                border-radius:8px;            
 
             }
 
             .city, .land{        
                 width: 30%;
-                height: 25px; 
-                margin-right: 5px;              
+                height: 33px;
+                margin-right: 5px;    
+                border-radius:8px;          
 
             }
         }
@@ -81,7 +88,8 @@
             margin-top: 20px;
 
             label{
-                background-color:#342d72;
+               
+                background-color:#08488d;
                 padding: 6px 10px;
                 color : white;
                

@@ -11,7 +11,7 @@ function Navbar() {
 
 
     return (
-        <nav>
+        <nav className="navbar">
 
             {/*logo container*/}
             <div className="logo">
@@ -22,7 +22,7 @@ function Navbar() {
                 <div className="nav_links_container">
                     <div className="nav_links">
                         <ul>
-                        <Link to="/category">Categories</Link>
+                        <Link className="nav_links_main" to="/category">Categories</Link>
                         {loggedIn ? <Link to="/favorites">Favorites</Link> : <Link to="/login">Favorites</Link>}
                         <Link to="/">Premium Finds</Link>
                         <Link to="/aboutus">About Us</Link>

@@ -6,7 +6,9 @@
 .cookies-container-active {
     @include measurement (100%, 400px);
 
+
     background-color: #fff;
+
     color: var(--mainBlack);
     transition: all 400ms ease;
     box-shadow: 0 -2px 16px #666;

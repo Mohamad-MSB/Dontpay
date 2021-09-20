@@ -7,6 +7,8 @@ import LoginPage from './pages/loginPage/LoginPage';
 import RegisterPage from './pages/registerPage/RegisterPage';
 import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
+import About_Us from './components/navbar/About Us/About_Us';
+
 import AddArticle from './components/article/AddArticle';
 import Logout from './components/loggout/Loggout';
 import CategoriesList from './components/article/CategoriesList';
@@ -23,6 +25,11 @@ import Impressum from './components/footer/Impressum/Impressum';
 import Terms from './components/footer/Terms/Terms';
 import FAQ from './components/footer/Support/FAQ/FAQ';
 import Cookies from "./components/cookies/Cookies";
+
+
+import Cookies_Policy from './components/footer/Cookies_Policy/Cookies_Policy';
+
+
 import Messages from './components/offer/Messages';
 import UserSingleArticle from './components/userarticle/UserSingleArticle';
 
@@ -46,6 +53,8 @@ function App({ children }) {
         <Route exact path="/category/:category/:id" component={SingleArticle} />
         <Route exact path="/category/:category/:id/:favorite" component={SingleArticle} />
         <Route exact path="/favorites" component={FavoriteList} />
+        <Route exact path="/aboutus" component={About_Us} />
+
         <Route exact path="/userprofile/:id" component={UserProfile} />
         <Route exact path="/userprofile/:id/edituser" component={EditUser} />
         <Route exact path="/myarticle" component={UserArticleList} />
@@ -57,6 +66,11 @@ function App({ children }) {
         <Route exact path="/impressum" component={Impressum} />
         <Route exact path="/Terms" component={Terms} />
         <Route exact path="/faq" component={FAQ} />
+        <Route exact path="/cookiespolicy" component={Cookies_Policy} />
+
+
+
+
 
       </Switch>
       {children}

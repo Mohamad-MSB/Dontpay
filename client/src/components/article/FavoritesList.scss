@@ -1,17 +1,53 @@
 .favorite_list{
     width: 100%;
-    border: solid 1px black;
-    height: calc(100vh - 400px);
-
-
-
-
-
-
+    // height: calc(100vh - 400px);
 
 
     .card{
-        border: solid 1px #333;
+        display: flex;
+        background-color: #FEFDC6;
+        box-shadow: 0 3px 3px #333;
+        margin-bottom: 3px;
+        color:#333;
+        height: 150px;
+        align-items: center;
+
+
+
+
+        .fav_image{
+            img {
+                height: 130px;
+                margin: 5px;
+            }
+        }
+
+        .middle_column{
+            margin: 5px;
+            height: 100%;
+            width: 70%;
+            position:relative;
+
+            h2{
+                font-size:x-large;
+                margin-bottom: 10px;
+            }
+
+            .fav_toggle{
+                position: absolute;
+                bottom: 15px;
+                left: 15px;
+                font-size: 14px;
+                color: #FEFDC6;
+                background-color: #41A1FB;
+                padding: 5px 10px;
+                border-radius: 10px;
+
+
+
+            }
+        }
+
         
     }
 }

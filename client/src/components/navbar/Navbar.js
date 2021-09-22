@@ -24,7 +24,7 @@ function Navbar() {
                         <ul>
                         <Link href="#category" className="nav_links_main" to="/category">Categories</Link>
                         {loggedIn ? <Link to="/favorites">Favorites</Link> : <Link to="/login">Favorites</Link>}
-                        <Link to="/">Premium Finds</Link>
+                        <Link to="/premium">Premium Finds</Link>
                         <Link to="/aboutus">About Us</Link>
                         </ul>
                     </div>

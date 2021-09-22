@@ -4,6 +4,7 @@ import { ContextAPI } from '../../store/context'
 import { Link } from 'react-router-dom';
 import './userArticleList.scss';
 import firasIMG from '../../pages/homepage/dont-pay.jpg';
+import HeroImage from "../../components/heroImage/HeroImage";
 
 function UserArticleList() {
 
@@ -28,9 +29,15 @@ function UserArticleList() {
 
 
     return (
-        <div className="container_my_article">
+        <div className="container_article">
 
-            {article.map(item => (
+
+<div className="heroImage">
+        <HeroImage />
+      </div>
+
+          <div className="article_card">
+          {article.map(item => (
                 <Link key={item} to={`/myarticle/${item._id}`} className="article">
                 <img src={firasIMG} alt="test for now" />
               
@@ -45,6 +52,9 @@ function UserArticleList() {
 
             )
             )}
+
+
+          </div>
         {console.log(article.map(id => id._id))}
         </div>
     )

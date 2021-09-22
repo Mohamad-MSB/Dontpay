@@ -33,6 +33,7 @@ import Cookies_Policy from './components/footer/Cookies_Policy/Cookies_Policy';
 import Messages from './components/offer/Messages';
 import UserSingleArticle from './components/userarticle/UserSingleArticle';
 import ScrollPage from './pages/scrollPage/ScrollPage';
+import Membership from './components/membership/Membership';
 
 
 
@@ -55,6 +56,7 @@ function App({ children }) {
         <Route exact path="/category/:category/:id/:favorite" component={SingleArticle} />
         <Route exact path="/favorites" component={FavoriteList} />
         <Route exact path="/aboutus" component={About_Us} />
+        <Route exact path="/premium" component={Membership} />
 
         <Route exact path="/userprofile/:id" component={UserProfile} />
         <Route exact path="/userprofile/:id/edituser" component={EditUser} />

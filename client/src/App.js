@@ -34,6 +34,7 @@ import Messages from './components/offer/Messages';
 import UserSingleArticle from './components/userarticle/UserSingleArticle';
 import ScrollPage from './pages/scrollPage/ScrollPage';
 import Membership from './components/membership/Membership';
+import Platinum from './components/membership/Platinum';
 
 
 
@@ -70,6 +71,11 @@ function App({ children }) {
         <Route exact path="/Terms" component={Terms} />
         <Route exact path="/faq" component={FAQ} />
         <Route exact path="/cookiespolicy" component={Cookies_Policy} />
+
+        <Route exact path="/platinum" component={Platinum} />
+
+        
+
 
 
 

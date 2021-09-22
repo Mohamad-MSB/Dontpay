@@ -56,7 +56,7 @@ function Membership() {
             </div>
 
             <div className="btn_checkout">
-              <button>CHECKOUT</button>
+              <button> <Link to="/platinum">CHECKOUT</Link> </button>
             </div>
           </div>
         </div>

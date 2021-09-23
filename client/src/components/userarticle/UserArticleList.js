@@ -31,7 +31,7 @@ function UserArticleList() {
         <div className="container_my_article">
 
             {article.map(item => (
-                <Link key={item} to={`/myarticle/${item._id}`} className="article">
+                <Link key={item._id} to={`/myarticle/${item._id}`} className="article">
                 <img src={firasIMG} alt="test for now" />
               
                 

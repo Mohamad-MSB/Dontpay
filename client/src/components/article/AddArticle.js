@@ -11,7 +11,7 @@ function AddArticle() {
     const [status, setStatus] = useState("");
     const [note, setNote] = useState("");
     const [quantity, setQuantity] = useState("");
-    const [articleimage, setArticleimage] = useState(null);
+    const [articleimage] = useState(null);
     const [category, setCategory] = useState("");
     const [alert, setAlert] = useState("");
 

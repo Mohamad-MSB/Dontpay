@@ -30,8 +30,9 @@ import Cookies from "./components/cookies/Cookies";
 import Cookies_Policy from './components/footer/Cookies_Policy/Cookies_Policy';
 
 
-import Messages from './components/offer/Messages';
+import Inbox from './components/offer/Inbox';
 import UserSingleArticle from './components/userarticle/UserSingleArticle';
+import SingleChatRoom from './components/offer/SingleChatRoom';
 
 
 
@@ -54,6 +55,7 @@ function App({ children }) {
         <Route exact path="/category/:category/:id/:favorite" component={SingleArticle} />
         <Route exact path="/favorites" component={FavoriteList} />
         <Route exact path="/aboutus" component={About_Us} />
+        <Route exact path="/chatroom/:id/:reciever" component={SingleChatRoom} />
 
         <Route exact path="/userprofile/:id" component={UserProfile} />
         <Route exact path="/userprofile/:id/edituser" component={EditUser} />
@@ -61,7 +63,7 @@ function App({ children }) {
         <Route exact path="/myarticle/:articleId" component={UserSingleArticle} />
         <Route exact path="/makeoffer" component={MakeOffer} />
         <Route exact path="/contactus" component={ContactPage} />
-        <Route exact path="/messages/:id" component={Messages} />
+        <Route exact path="/inbox" component={Inbox} />
         <Route exact path="/agb" component={Agb} />
         <Route exact path="/impressum" component={Impressum} />
         <Route exact path="/Terms" component={Terms} />

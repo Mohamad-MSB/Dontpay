@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "../../util/axiosInstance";
 import { Link } from "react-router-dom";
 import "./FavoritesList.scss";
 import HeroImage from "../heroImage/HeroImage";
-import { ContextAPI } from "../../store/context";
 import image from "../../Images/laptop.jpg";
 
 function FavoriteList() {
@@ -55,7 +54,7 @@ function FavoriteList() {
                   </div>
                   <div>Shipping is Possible</div>
                   <div>
-                    Owner :{" "}
+                    Owner :{owner}
                     {article.user_id !== null ? (
                       <h4>{article.user_id.username} </h4>
                     ) : (
@@ -70,8 +69,6 @@ function FavoriteList() {
       ) : (
         <h1>there is no favorite articles</h1>
       )}
-
-      {console.log(articles)}
     </div>
   );
 }

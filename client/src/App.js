@@ -36,6 +36,9 @@ import ScrollPage from './pages/scrollPage/ScrollPage';
 import Membership from './components/membership/Membership';
 import Platinum from './components/membership/Platinum';
 
+// framerMotion requires
+
+
 
 
 function App({ children }) {

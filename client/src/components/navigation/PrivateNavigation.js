@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import './privateNavigation.scss';
-import { useState, useEffect } from "react";
+
 
 export default function PrivateNavigation({ user, userId }) {
 

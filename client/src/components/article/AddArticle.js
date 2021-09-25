@@ -73,7 +73,7 @@ function AddArticle() {
 
       <h2>Add your Article</h2>
 
-      <div className="container_form">
+      <div className="container_form_cont">
 
          
         <form onSubmit={addhandler}>

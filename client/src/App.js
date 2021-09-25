@@ -35,6 +35,7 @@ import UserSingleArticle from './components/userarticle/UserSingleArticle';
 import ScrollPage from './pages/scrollPage/ScrollPage';
 import Membership from './components/membership/Membership';
 import Platinum from './components/membership/Platinum';
+import ForgetPass from './components/forgetpassword/ForgetPass';
 
 // framerMotion requires
 
@@ -53,6 +54,10 @@ function App({ children }) {
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/logout" component={Logout} />
         <Route exact path="/register" component={RegisterPage} />
+        <Route exact path="/forgotPass" component={ForgetPass} />
+
+
+
         <Route exact path="/add" component={AddArticle} />
         <Route exact path="/category" component={CategoriesList} />
         <Route exact path="/category/:category" component={ViewCategory} />

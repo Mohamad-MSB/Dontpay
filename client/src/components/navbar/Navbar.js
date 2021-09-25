@@ -9,6 +9,12 @@ import {
 import { ContextAPI } from "../../store/context";
 import Fade from "react-reveal/Fade";
 
+
+import SearchIcon from "@material-ui/icons/Search";
+
+
+const style = {  color: '#0779fa' , fontSize:'25px', marginTop:'3px'}
+
 function Navbar() {
   const { loggedIn, user, userId, search, setSearch } = useContext(ContextAPI);
 
@@ -25,36 +31,25 @@ function Navbar() {
           </Fade>
         </Link>
       </div>
-      {/** it contains the right side after logo links, login , register and search bar */}
-      <div className="nav_right">
-        <div className="nav_links_container">
-          <div className="nav_links">
-            <ul>
-              <Link href="#category" className="nav_links_main" to="/category">
-                Categories
-              </Link>
-              {loggedIn ? (
-                <Link to="/favorites">Favorites</Link>
-              ) : (
-                <Link to="/login">Favorites</Link>
-              )}
-              <Link to="/premium">Premium Finds</Link>
-              <Link to="/aboutus">About Us</Link>
-            </ul>
-          </div>
-          <div className="nav_login">
-            <ul>
-              {loggedIn ? (
-                <PrivateNavigation user={user} userId={userId} />
-              ) : (
-                <PublicNavigation />
-              )}
-            </ul>
-          </div>
+
+      <div className="nav_links_container">
+        <div className="nav_links">
+          <ul>
+            <Link href="#category" className="nav_links_main" to="/category">
+              Categories
+            </Link>
+            {loggedIn ? (
+              <Link to="/favorites">Favorites</Link>
+            ) : (
+              <Link to="/login">Favorites</Link>
+            )}
+            <Link to="/premium">Premium Finds</Link>
+            <Link to="/aboutus">About Us</Link>
+          </ul>
         </div>
 
-        {/**search bar side contains search bar and social media links */}
         <div className="nav_search_container">
+          
           <div className="search_input">
             <input
               onChange={(e) => setSearch(e.target.value)}
@@ -64,7 +59,23 @@ function Navbar() {
               id=""
               placeholder="Search for anything"
             />
+            
           </div>
+         <div className="search_icon">
+         <SearchIcon style={style} />
+         </div>
+        </div>
+      </div>
+
+      <div className="nav_login">
+        <div className="my_account">
+          <ul>
+            {loggedIn ? (
+              <PrivateNavigation user={user} userId={userId} />
+            ) : (
+              <PublicNavigation />
+            )}
+          </ul>
         </div>
       </div>
     </nav>

@@ -4,28 +4,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
 
-.logo {
-  
 
-width: 20%;
-height:60px;
-
-overflow: hidden;
- 
-
-  h2::first-letter {
-    
-    color: #e2502b;
-    font-family: 'Alfa Slab One', cursive;
-    font-size:30px;
-    margin-left: 80px;
-   
-   
-  }
-
-}
 
 .navbar {
+
+  height: 90px;
+
+  border: 1px solid ;
 
   font-family: 'Roboto', sans-serif;
   background-color: rgb(255, 254, 254);
@@ -34,78 +19,117 @@ overflow: hidden;
   display: flex;
   justify-content: space-around;
   align-items: center;
+
+  .logo {
   
+    width: 13%;
+    height:50px;
+    margin-right: 20px;
+    
+    overflow: hidden;
+     
+    
+      h2::first-letter {
+        
+        color: #e2502b;
+        font-family: 'Alfa Slab One', cursive;
+        font-size:30px;
+        margin-left: 20px;   
+       
+      }
+    
+    }
 
-  .nav_right{
+    .nav_links_container {
 
-   
-    width:80%;
+      margin-right: 40px;
+      width:60%;
+     
+    
+      display: flex;
+      justify-content:space-between;
+     
 
 
-      .nav_links_container{
+      .nav_links{
+        padding:5px 0;
+       
 
-        margin-top: 30px;
+        width: 60%;
+
+        .nav_links_main{
+          color: #0779fa;
+        }
+
+        a{
+          color: #08488d;
+          font-size: 20px;
+          margin: 10px;
+
+          &:hover{
+            color: #0779fa;
+          }
+        }
+      }
+
+
+
+      .nav_search_container{
+
+        
+       
+        width:30%;
 
         display: flex;
-        justify-content:space-around;
+
+        input{
+          width:100%;
+          font-size: 20px;
+          padding:5px 0;
+        }
+
+        .search_icon{
+        border: 2px solid ;
         
-
-        .nav_links{
-
-          margin-right: 250px;
-
-          .nav_links_main{
-            color: #0779fa;
-          }
-
-          a{
-            color: #08488d;
-            margin-left: 20px;
-            font-size: 18px;
-
-            &:hover{
-              color: #0779fa;
-            }
-            
-          }
         }
-
-        .nav_login{
-         
-          a{
-           color: #08488d; 
-           margin-left: 7px;
-           font-size: 18px;
-
-           &:hover{
-            color: #0779fa;
-          }
-          }
-        }
-      }
-  }
-
-  .nav_search_container{
-
-    display: flex;
-    justify-content: center;
-    width: 70%;
-    
-
-    .search_input{
-     
-      width:500px;
-      margin-right:95px;
-
-      input{
-       
-        width: 100%;
-        height: 33px;
-        height: 33px;
-        margin-top: 5px;
-        margin-bottom: 7px;
-       
+        
       }
     }
-  }
+
+    .nav_login{
+
+      font-size: 20px;
+      .my_account{
+        
+        a{
+          color: #08488d;
+          margin: 0 5px;
+        }
+      }
+    }
+  
+
+  
+ 
 }
+
+
+// .nav_links{
+
+
+//   display: flex;
+//   flex-direction: column;
+
+//   margin-right: 250px;
+
+
+
+//   a{
+//     color: #08488d;
+//     margin-left: 20px;
+//     font-size: 18px;
+
+    
+    
+//   }
+// }

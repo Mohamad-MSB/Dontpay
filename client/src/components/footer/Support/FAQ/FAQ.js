@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './faq.scss'
 import HeroImage from '../../../heroImage/HeroImage';
 
 
 function FAQ() {
+
+    useEffect(() => {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          });
+    }, [])
+    
     return (
         <div className="container_faq">
             <div className="heroImage">

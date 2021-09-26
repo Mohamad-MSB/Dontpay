@@ -32,6 +32,7 @@ function UserArticleList() {
         <div className="container_article">
 
 
+
 <div className="heroImage">
         <HeroImage />
       </div>
@@ -39,6 +40,7 @@ function UserArticleList() {
           <div className="article_card">
           {article.map(item => (
                 <Link key={item} to={`/myarticle/${item._id}`} className="article">
+
                 <img src={firasIMG} alt="test for now" />
               
                 

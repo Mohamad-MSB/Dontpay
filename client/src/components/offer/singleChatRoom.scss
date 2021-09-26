@@ -1,0 +1,17 @@
+.single_chatroom {
+
+    background-color: yellowgreen;
+    display: flex;
+    flex-direction: column;
+    .chat_container {
+
+        .me {
+            background-color: green;
+        }
+    
+       .otheruser {
+           text-align: right;
+           background-color: blue;
+       }
+    }
+}

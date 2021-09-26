@@ -57,10 +57,11 @@
     margin: 15px 7px 0px;
   
     background-color: #c4c4c4;
+    
   }
   
   .slideshowDot.active {
-    background-color: #6a0dad;
+    background-color: #0779fa;
   }
   
   

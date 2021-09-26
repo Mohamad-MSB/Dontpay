@@ -23,53 +23,40 @@ footer {
         
         
         .container{
-            display: flex;
+           width: 100%;
+            display:flex;
+
+          
+
+         
+            padding: 3px 0;
+            height: auto;
+          
         
             .footerSection{
-                width: 100%;
+               
+             
+              width: 20%;
                 display: flex;
+                
+               
                 flex-direction: column;
-        
-                .footerImgTitle{
-                    width: 100%;
-                    text-align: center;
-                    margin: 35px 0 15px;
-
-                img{
-                width: 50%;
-                }
-            }
-            .footerImg{
-                width: 100%;
-                text-align: center;
-                img{
-                width: 45%;
-                }
-            }
-            .footerTitle{
-                color: #aaa;
-                padding-bottom: 5px;
-                margin-bottom: 10px;
-                margin-top: 35px;
-                position: relative;
-
-    
-                    img{
-                    width: 65%;
-                    }
-                }
-                .footerImg{
-                    width: 100%;
-                    text-align: center;
-                    img{
-                    width: 45%;
-                    }
-                }
+                margin-left: 50px;
+                height: 170px;
+               
+               
+       
+          
+         
+              
                 .footerTitle{
-                    color: #aaa;
+
+                    color: #fff;
                     padding-bottom: 5px;
                     margin-bottom: 10px;
                     margin-top: 35px;
+                  
+                   
                     position: relative;
         
                     &:after {
@@ -79,7 +66,7 @@ footer {
                         bottom: 0;
                         left: 0;
                         height: 1px;
-                        width: 65%;
+                        width: 30%;
                       }
                 }
                 a{
@@ -91,27 +78,24 @@ footer {
                         text-decoration: underline;
                     }
                 }
-                .paymentFooter{
-
-                    div{
-                        display: flex;
-                        flex-direction: row;
-                        padding-top: 5px;
-    
-                        img{
-                            
-                            width: 75%;
-                        }
-                    }
-                }
+            
                 .socialMedia{
                     display: flex;
                     flex-direction: row;
-                    padding: 5px 30px 0 0;
+                  margin-top: 15px;
                     
-                    img{
-                        width: 75%;
-                    }
+                   .face{
+                       
+                       padding:0 10px;
+                       color: blue;
+                   }
+
+                   .instagram{
+                       
+                    padding:0 10px;
+                    color: rgb(240, 85, 175);
+                   
+                }
                 }
             }
             .reach{

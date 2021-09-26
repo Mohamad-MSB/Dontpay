@@ -8,7 +8,7 @@ export default function PrivateNavigation({ user, userId }) {
     return (
         <>
             <span>hello {user} </span>
-            <div className="dropdown">
+            <div className="dropdown"> 
                 <button className="dropbtn">My Profile</button>
                 <div className="dropdown-content">
                     <Link to="/myarticle">My Items</Link>

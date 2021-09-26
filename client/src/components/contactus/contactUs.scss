@@ -1,16 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 
 .container_contact{
 
-    border: solid;
 
-    height: 400px;
+
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    height: auto;
 
     h2, p{
         text-align: center;
+        
     }
 
     .two_block{
+
+        margin-top: 30px;
 
         display: flex;
        
@@ -19,11 +25,83 @@
         .info_contact{
 
             flex: 35%;
+
+           border: 1px solid ;
+
+           h3{
+               text-align: center;
+               margin-bottom: 10px;
+               font-family: "Roboto", sans-serif;
+           }
+
+           p{
+            font-family: "Roboto", sans-serif;
+            font-size:16px;
+            margin-bottom: 30px;
+           }
+
+           .phone{
+
+            margin-bottom: 30px;
+            
+            font-size: 20px;
+            width:40%;
+            margin-left:20px;
+            display: flex;
+            align-items: center;
+
+            span{
+                margin-left:10px;
+            }
+           }
+
+
+           .email{
+            margin-bottom: 30px;
+           
+            font-size: 20px;
+            width:40%;
+            margin-left:20px;
+            display: flex;
+            align-items: center;
+
+            span{
+                margin-left:10px;
+            }
+           }
+
+           .location{
+
+         
+            font-size: 20px;
+            width:40%;
+            margin-left:20px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+           
+
+            span{
+                margin-left:10px;
+            }
+           }
+
+          
            
         }
 
         .form_contact{
             flex: 65%;
+            
+            
+
+            .form{
+
+                border: 1px solid ;
+
+                margin-left:15px;
+                padding:0 15px;
+            }
             
         }
     }

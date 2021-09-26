@@ -1,19 +1,16 @@
 import React from "react";
 import "./footer.scss";
 import { Link } from "react-router-dom";
-import footerVector from "../../Images/footer_vec.svg";
 
-
-import americanExpress from "../../Images/Icons/American_express_logo.png";
-import applePay from "../../Images/Icons/Apple_Pay_logo.png";
 import faceBook from "../../Images/Icons/Facebook_logo.png";
 import instagram from "../../Images/Icons/Instagram_logo.png";
-import klarna from "../../Images/Icons/Klarna_logo.png";
-import masterCard from "../../Images/Icons/Mastercard_logo.png";
-import paypal from "../../Images/Icons/PayPal_logo.png";
-import pinterest from "../../Images/Icons/Pinterest_logo.png";
+
 import twitter from "../../Images/Icons/Twitter_logo.png";
-import visa from "../../Images/Icons/Visa_logo.png";
+
+
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
 function Footer() {
   return (
@@ -24,36 +21,41 @@ function Footer() {
     <footer>
 
       <div className="footer">
+
         <div className="container">
-          <div className="footerSection"></div>
+         
           <div className="footerSection">
             <h4 className="footerTitle">Support</h4>
             <Link to="/faq">FAQ</Link>
             <Link to="/reportbugs">Report Bugs</Link>
             <Link to="/cookiespolicy">Cookies Policy</Link>
           </div>
+
           <div className="footerSection">
             <h4 className="footerTitle">About Us</h4>
             <Link to="/agb">AGB</Link>
             <Link to="/impressum">Impressum</Link>
             <Link to="/Terms">Terms and Privecy</Link>
           </div>
+
           <div className="footerSection">
           <div>
               <h4 className="footerTitle">Social Media</h4>
               <div className="socialMedia">
-                <Link to="facebook">
-                  <img src={faceBook} alt="Facebook Link" />
+                <Link className="face" to="facebook">
+                  {/* <img src={faceBook} alt="Facebook Link" /> */}
+                  <FacebookIcon/>
                 </Link>
-                <Link to="Twitter">
-                  <img src={twitter} alt="Twitter Link" />
+                <Link className="twitter" to="Twitter">
+                  {/* <img src={twitter} alt="Twitter Link" /> */}
+                  <TwitterIcon/>
+                 
                 </Link>
-                <Link to="Instagram">
-                  <img src={instagram} alt="Instagram Link" />
+                <Link className="instagram" to="Instagram">
+                  {/* <img src={instagram} alt="Instagram Link" /> */}
+                  <InstagramIcon/>
                 </Link>
-                <Link to="Pinterest">
-                  <img src={pinterest} alt="Pinterest Link" />
-                </Link>
+                
               </div>
             </div>
             

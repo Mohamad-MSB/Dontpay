@@ -11,7 +11,12 @@ import Fade from "react-reveal/Fade";
 
 import SearchIcon from "@material-ui/icons/Search";
 
-const style = { color: "#0779fa", fontSize: "25px", marginTop: "3px" };
+import FaHandshake from "react-icons"
+
+
+
+
+
 
 function Navbar() {
   const { loggedIn, user, userId, search, setSearch } = useContext(ContextAPI);
@@ -43,8 +48,10 @@ function Navbar() {
             <Link to="/premium">Premium Finds</Link>
             <Link to="/aboutus">About Us</Link>
           </ul>
+        
+        </div>
 
-          <div className="nav_search_container">
+        <div className="nav_search_container">
             <div className="search_input">
               <input
                 onChange={(e) => setSearch(e.target.value)}
@@ -54,19 +61,20 @@ function Navbar() {
                 id=""
                 placeholder="Search for anything"
               />
+               <span>  <SearchIcon  /></span>
             </div>
-            <div className="search_icon">
-              <SearchIcon style={style} />
-            </div>
+            
           </div>
-        </div>
 
       </div>
-      <button>Open</button>
+
+      
+     
 
       <div className="nav_login">
 
         <div className="my_account">
+
           <ul className="login_link">
             {loggedIn ? (
               <PrivateNavigation user={user} userId={userId} />

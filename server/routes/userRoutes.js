@@ -28,7 +28,7 @@ router.get('/myarticle/:articleId', controller.userSingleArticle);
 
 
 // to authorize the user with the token /// and will protect every line below this function
-//router.use(passport.authenticate('articleToken',{session: false}));
+router.use(passport.authenticate('articleToken',{session: false}));
 
 router.put("/userprofile/:id/edituser", controller.editUser)
 

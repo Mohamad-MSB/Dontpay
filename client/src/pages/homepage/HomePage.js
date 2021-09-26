@@ -4,7 +4,9 @@ import axios from '../../util/axiosInstance';
 import { Link } from 'react-router-dom';
 import { ContextAPI} from '../../store/context';
 import firasIMG from './dont-pay.jpg';
-import HeroImage from '../../components/heroImage/HeroImage';
+//import HeroImage from '../../components/heroImage/HeroImage';
+import Slider from '../../components/carousel/Slider'
+
 
 
 function HomePage() {
@@ -30,10 +32,21 @@ function HomePage() {
     return (
         <div className="homepage">
 
-            <div className="heroImage">
+            {/* <div className="heroImage">
             <HeroImage />
-            </div>
-            
+            </div> */}
+           
+               
+         
+
+<Slider />
+
+
+
+
+
+
+
             <div className="container_articles">
             {newArticles.length === 0 ? <h1>there is no articles</h1> : search ? newArticles.filter(item => item.articlename.startsWith(search)).map(article => {
                 return (

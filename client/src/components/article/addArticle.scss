@@ -1,0 +1,126 @@
+
+
+.article_container{
+
+   
+  
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    h2{
+        text-align: center;
+       
+    }
+
+    .container_form_cont{
+       
+
+        margin-left: 20px;
+       
+
+        .article_name{
+
+            label{
+                display: block;
+                margin-bottom: 2px;
+            }
+
+            input{
+                height:33px;
+                margin-bottom: 7px;
+            }
+        }
+
+        .article_options{
+
+            
+            .category{
+
+                margin-bottom:5px;
+                select{
+
+                    width:27%;
+                    height:33px;
+                }
+            }
+
+            .status{
+                margin-bottom:5px;
+                select{
+
+                    width:27%;
+                    height:33px;
+                }
+            }
+
+        }
+    }
+
+    .quantity{
+
+        margin-bottom: 5px;
+        label{
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        input{
+            height:33px;
+            margin-bottom: 7px;
+        }
+    }
+
+    .description{
+
+        margin-bottom: 5px;
+        label{
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        textarea{
+            width:60%;
+        }
+    }
+
+    .note{
+        label{
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        input{
+            height:33px;
+            margin-bottom: 7px;
+        }
+    }
+
+    .upload{
+
+        background: rgb(230, 228, 228);
+        width:27%;
+        padding:10px 20px;
+    }
+
+    .submit{
+
+        text-align: center;
+        margin-top: 20px;
+
+        input{
+            margin-bottom: 10px;
+            padding:10px 15px;
+            background: rgb(124, 190, 228);
+            color: rgb(49, 43, 43);
+            font-size: 18px;
+
+            &:hover{
+
+                background:#1844a9;
+                color: white;
+                transition: all 0.5s ease-in-out;
+                cursor: pointer;
+            }
+        }
+
+       
+    }
+}

@@ -1,47 +1,73 @@
-.category{
+.category {
+  // display: flex;
+  // flex-wrap: wrap;
+  // justify-content: space-around;
 
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
-    
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  padding: 3px 0;
 
-    .link {
+  .category_card {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 
-        padding: 10px;
-        margin: 10px;
-        border-radius: 8px;
-        text-align: center;
+    height: 320px;
+    position: relative;
+    margin: 10px;
+    border-radius: 7px;
 
-        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-
-        .image {
-            width: 100%;
-            padding: 5px;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
-        
-        .title {
-
-            p {
-                padding: 10px;
-                text-transform: uppercase;
-                color: #000;
-            }
-        }
-
-
-        &:hover {
-            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-            transition: all 0.5s linear;
-
-        }
+    &:hover {
+      opacity: 0.7;
+      transition: 0.5s ease;
+      backface-visibility: hidden;
     }
-   
-   
-  
+
+    .middle {
+      transition: 0.5s ease;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .text {
+      background-color: dodgerblue;
+      color: white;
+      font-size: 16px;
+      padding: 16px 32px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    .category_link {
+      .category_image {
+        display: flex;
+        justify-content: center;
+
+        img {
+          margin-top: 12px;
+          opacity: 1;
+          width: 250px;
+          height: 250px;
+
+          &:hover {
+          }
+        }
+      }
+
+      .category_title {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        color: dodgerblue;
+      }
+    }
+  }
 }

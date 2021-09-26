@@ -73,11 +73,15 @@ function Login() {
               <input type="checkbox" name="" id="loggedIn" />
               <label htmlFor="loggedIn">Keep me logged in</label>
               <button type="submit">Login</button>
+
+            
+            </div>
+            <div className="forgot_password">
+              
+              <Link to="/forgotPass">Forgot Password?</Link>
             </div>
 
-            <div className="forgot_password">
-              <Link to="/">Forgot Password?</Link>
-            </div>
+           
           </form>
         </div>
       </div>

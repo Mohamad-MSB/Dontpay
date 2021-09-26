@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const authHelper = require('../helpers/jwtissuer');
 const jwt = require('jsonwebtoken')
 const multer = require('multer');
+const dotenv = require("dotenv");
 
 // user register function controller
 //  need to check email address
@@ -248,3 +249,31 @@ exports.userSingleArticle = async (req, res) => {
         
 //     }
 // }
+
+
+// forget password 
+
+
+
+
+
+exports.getPassword = async (req, res) => {
+
+    res.send('hello world')
+}
+
+exports.postPassword= async (req, res) => {   
+
+        const {email} = req.body;
+       
+        
+        if (email !== user.email) {
+
+            res-send('user not registered')
+            return;
+        }
+    
+        
+}
+
+

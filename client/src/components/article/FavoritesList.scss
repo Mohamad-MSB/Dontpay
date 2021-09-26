@@ -1,3 +1,5 @@
+// test brfore merge
+
 .favorite_list{
     width: 100%;
     // height: calc(100vh - 400px);
@@ -13,7 +15,7 @@
         align-items: center;
 
 
-
+    .fav_container{
 
         .fav_image{
             img {
@@ -47,7 +49,45 @@
 
             }
         }
+          
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            padding: 3px 0;
 
-        
+
+            a{
+               
+                
+                box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                display: flex;
+                justify-content:center;
+                margin: 10px 5px;
+                height:150px;
+               
+                .card{
+
+                   
+                    text-align: center;
+                    margin: 25px 0;
+
+                    h2{
+
+                        margin: 5px 0;
+                        color: rgb(110, 108, 108);
+                    }
+
+                    h4{
+                        margin-top: 10px;
+                        color: rgb(110, 108, 108);
+                    }
+                }
+
+            }
+
+            a:hover{
+
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+       
     }
 }

@@ -32,7 +32,17 @@ import Cookies_Policy from './components/footer/Cookies_Policy/Cookies_Policy';
 
 import Inbox from './components/offer/Inbox';
 import UserSingleArticle from './components/userarticle/UserSingleArticle';
+
+import ScrollPage from './pages/scrollPage/ScrollPage';
+import Membership from './components/membership/Membership';
+import Platinum from './components/membership/Platinum';
+import ForgetPass from './components/forgetpassword/ForgetPass';
+
+
+
+
 import SingleChatRoom from './components/offer/SingleChatRoom';
+
 
 
 
@@ -48,6 +58,10 @@ function App({ children }) {
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/logout" component={Logout} />
         <Route exact path="/register" component={RegisterPage} />
+        <Route exact path="/forgotPass" component={ForgetPass} />
+
+
+
         <Route exact path="/add" component={AddArticle} />
         <Route exact path="/category" component={CategoriesList} />
         <Route exact path="/category/:category" component={ViewCategory} />
@@ -55,7 +69,11 @@ function App({ children }) {
         <Route exact path="/category/:category/:id/:favorite" component={SingleArticle} />
         <Route exact path="/favorites" component={FavoriteList} />
         <Route exact path="/aboutus" component={About_Us} />
+
+        <Route exact path="/premium" component={Membership} />
+
         <Route exact path="/chatroom/:id/:reciever" component={SingleChatRoom} />
+
 
         <Route exact path="/userprofile/:id" component={UserProfile} />
         <Route exact path="/userprofile/:id/edituser" component={EditUser} />
@@ -70,12 +88,18 @@ function App({ children }) {
         <Route exact path="/faq" component={FAQ} />
         <Route exact path="/cookiespolicy" component={Cookies_Policy} />
 
+        <Route exact path="/platinum" component={Platinum} />
+
+        
+
+
 
 
 
 
       </Switch>
       {children}
+      <ScrollPage/>
       <Footer />
       <Cookies />
 

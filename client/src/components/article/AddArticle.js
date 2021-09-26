@@ -7,46 +7,54 @@ import "./addArticle.scss";
 // 2 september
 
 function AddArticle() {
-  const [articlename, setArticlename] = useState("");
-  const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("");
-  const [note, setNote] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [articleimage, setArticleimage] = useState(null);
-  const [category, setCategory] = useState("");
-  const [alert, setAlert] = useState("");
 
-  const [categoriesOption, setCategoriesOption] = useState([]);
-  const [statusOption, setStatusOption] = useState([]);
+    const [articlename, setArticlename] = useState("");
+    const [description, setDescription] = useState("");
+    const [status, setStatus] = useState("");
+    const [note, setNote] = useState("");
+    const [quantity, setQuantity] = useState("");
+    const [articleimage] = useState(null);
+    const [category, setCategory] = useState("");
+    const [alert, setAlert] = useState("");
 
-  const addhandler = async (e) => {
-    e.preventDefault();
+    const [categoriesOption, setCategoriesOption] = useState([]);
+    const [statusOption, setStatusOption] = useState([]);
 
-    const formData = new FormData(e.target);
 
-    axios.post("http://localhost:3001/user/imageUpload", formData, {
-      headers: {
-        "content-Type": "multipart/form-data",
-      },
-    });
+    
 
-    try {
-      let data = {
-        user_id: window.localStorage.getItem("userID"),
-        articlename: articlename,
-        description: description,
-        status: status,
-        note: note,
-        quantity: quantity,
-        articleimage: articleimage,
-        category: category,
-      };
+    const addhandler = async (e) => {
+        e.preventDefault();   
+        
+        
+        const formData = new FormData(e.target);
 
-      const response = await axios.post("/article/add", data);
-      setAlert(response.data.message);
-      e.target.reset();
-    } catch (error) {
-      console.log(error.message);
+        axios.post('http://localhost:3001/user/imageUpload', formData, {
+            headers: {
+                "content-Type":"multipart/form-data"
+            }
+        });
+
+
+        try {
+            let data = {
+                user_id: window.localStorage.getItem("userID"),
+                articlename: articlename,
+                description: description,
+                status: status,
+                note: note,
+                quantity: quantity,
+                articleimage: articleimage,
+                category: category
+            };
+
+            const response = await axios.post('/article/add', data)
+            setAlert(response.data.message);
+            e.target.reset();
+        } catch (error) {
+            console.log(error.message);
+        }
+
     }
   };
 

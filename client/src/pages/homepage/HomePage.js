@@ -76,10 +76,6 @@ function HomePage() {
                 )
             })}
             </div>
-
-            {console.log("newArticles", newArticles)}
-
-
         </div>
     )
 }

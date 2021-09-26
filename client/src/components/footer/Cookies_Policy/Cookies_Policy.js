@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './cookies_policy.scss'
 import HeroImage from '../../heroImage/HeroImage'
 
 function Cookies_Policy() {
+
+    
+    useEffect(() => {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          });
+    }, [])
+
     return (
         <div className="container_CookiesPolicy">
             <h2>Cookies Policy</h2><br />

@@ -1,108 +1,135 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+.container_contact {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
-.container_contact{
+  height: auto;
 
+  h2,
+  p {
+    text-align: center;
+    margin: 10px 0;
+  }
 
+  .two_block {
+    margin-top: 30px;
 
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
 
-    height: auto;
+    .info_contact {
+      flex: 35%;
 
-    h2, p{
-        text-align: center;
-        
-    }
+      border-top: 3px solid dodgerblue;
+      border-bottom: 3px solid dodgerblue;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-    .two_block{
-
+      .phone {
+        margin-bottom: 30px;
         margin-top: 30px;
 
+        font-size: 20px;
+        width: 40%;
+        margin-left: 20px;
         display: flex;
-       
+        align-items: center;
 
-
-        .info_contact{
-
-            flex: 35%;
-
-           border: 1px solid ;
-
-           h3{
-               text-align: center;
-               margin-bottom: 10px;
-               font-family: "Roboto", sans-serif;
-           }
-
-           p{
-            font-family: "Roboto", sans-serif;
-            font-size:16px;
-            margin-bottom: 30px;
-           }
-
-           .phone{
-
-            margin-bottom: 30px;
-            
-            font-size: 20px;
-            width:40%;
-            margin-left:20px;
-            display: flex;
-            align-items: center;
-
-            span{
-                margin-left:10px;
-            }
-           }
-
-
-           .email{
-            margin-bottom: 30px;
-           
-            font-size: 20px;
-            width:40%;
-            margin-left:20px;
-            display: flex;
-            align-items: center;
-
-            span{
-                margin-left:10px;
-            }
-           }
-
-           .location{
-
-         
-            font-size: 20px;
-            width:40%;
-            margin-left:20px;
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-           
-
-            span{
-                margin-left:10px;
-            }
-           }
-
-          
-           
+        span {
+          margin-left: 10px;
         }
+      }
 
-        .form_contact{
-            flex: 65%;
-            
-            
+      .email {
+        margin-bottom: 30px;
 
-            .form{
+        font-size: 20px;
+        width: 40%;
+        margin-left: 20px;
+        display: flex;
+        align-items: center;
 
-                border: 1px solid ;
-
-                margin-left:15px;
-                padding:0 15px;
-            }
-            
+        span {
+          margin-left: 10px;
         }
+      }
+
+      .location {
+        font-size: 20px;
+        width: 40%;
+        margin-left: 20px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        span {
+          margin-left: 10px;
+        }
+      }
     }
+
+    .form_contact {
+      flex: 65%;
+
+      border-top: 3px solid dodgerblue;
+      border-bottom: 3px solid dodgerblue;
+      margin-left: 30px;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+      form {
+        position: relative;
+        margin-top: 50px;
+        margin-left: 30px;
+
+        .email_sending {
+            text-align: center;
+        }
+
+        label {
+          font-size: 20px;
+          margin-top: 3px;
+        }
+        input {
+            margin-top: 15px;
+          height: 35px;
+          width: 40%;
+          margin-bottom: 15px;
+        }
+
+        .form__containerItemName {
+          display: flex;
+          margin-bottom: 3px;
+        }
+
+        .form__container__Compose {
+          margin-top: 20px;
+
+          button {
+            margin-left: 350px;
+            margin-top: 50px;
+            font-size: 18px;
+            padding: 10px 30px;
+            background: #218efa;
+            color: #fff;
+            border-radius: 6px;
+
+            &:hover {
+              background-color: #004a99;
+              transition: all 0.5s ease-in-out;
+            }
+          }
+        }
+
+        .container__composeMail {
+          width: 50%;
+          height: 110px;
+          margin-left: 400px;
+          position: absolute;
+          top: 6%;
+
+          label {
+            padding-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
 }

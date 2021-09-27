@@ -1,7 +1,5 @@
 .dropdown {
 
- 
-
   position: relative;
   display: inline-block;
 
@@ -17,10 +15,15 @@
   .dropbtn {
     background-color: #fff;
    
-    color: #218efa;
+    color: #333;
     padding: 16px;
-    font-size: 20px;
+    font-size: 1rem;
     border: none;
+    
+    &:hover {
+      background-color: #6566cb;
+    }
+
   }
   .dropdown-content {
     display: none;

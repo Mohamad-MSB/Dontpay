@@ -12,10 +12,12 @@ function ViewCategory() {
 
     const { category, id } = useParams();
 
+
     const getArticles = async (category) => {
         try {
-            const response = await axios.get(`/article/category/${category}`)
+            const response = await axios.get(`/article/category/${category}`);
             setArticles(response.data.articles)
+
         } catch (error) {
             console.log(error);
         }

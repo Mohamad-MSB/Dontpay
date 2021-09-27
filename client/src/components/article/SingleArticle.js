@@ -117,7 +117,7 @@ function SingleArticle() {
             <HeroImage />
 
             <div className="image_offer">
-                <div className="image"> <img src="http://localhost:3001/uploads/articleimages/image-1631093043504.png" alt="" /> </div>
+                <div className="image"> <img src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${selectedArticle.articleimage}`} alt="" /> </div>
                 <div className="offer">
 
                     {userId !== user._id && <div className="user_button">
@@ -178,6 +178,7 @@ function SingleArticle() {
                 <button type="button">send the offer</button>
 
             </div> : ""}
+            {console.log(singleArticle)}
         </div>
     )
 }

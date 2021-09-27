@@ -12,7 +12,7 @@ const articleSchema = mongoose.Schema({
     created: {type: Date, default: Date.now()},
     category: {type: String, enum: ["electronics", "sports", "collectables", "home", "fashion", "tools", "music", "hobbies", "books", "services", "vehicels"], required: true},
     feautured: {type: Boolean, default: false},
-    articleimage_id: {type: mongoose.Schema.Types.ObjectId, ref: 'articleimage', required: false}
+    articleimage: {type:String}
     
 })
 

@@ -204,6 +204,8 @@ exports.getImage = async (req, res) => {
     try {
         const user = await userModel.findById(req.params.id);
 
+        console.log(user)
+
         res.sendFile(`${__dirname}/uploads/userimages/${user.userimage}`);
     } catch (error) {
         console.log(error)

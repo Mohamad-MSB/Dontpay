@@ -1,190 +1,98 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Caramel&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caramel&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap");
 
 .navbar {
-
+  width: 100%;
   height: 90px;
-
-background:#fff;
-
-
-  font-family: 'Roboto', sans-serif;
-
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: #fff;
+  border-bottom: 3px solid dodgerblue;
 
   display: flex;
   justify-content: space-around;
   align-items: center;
 
-  .logo {
+  margin-bottom: 50px;
 
-  
-   
-    // width: 13%;
-    // height:60px;
-    // margin-right: 20px;
-    
-    overflow: hidden;
-    
- 
-    
-     
-    img{
-      
-      width:80px;
-      height:80px;
-      
+  .logo {    
+
+    a {
+      padding: 15px;
+      color:#333;
+      p {
+        font-size: 2rem;
+      }
     }
-    
-      h2::first-letter {
-        
-        color: #e2502b;
-        font-family: 'Alfa Slab One', cursive;
-        font-size:30px;
-        margin-left: 20px;   
-       
-      }     
-    
-    }
+  }
 
+  .nav_links_container {
+    padding: 10px;
+    width: 50%;
 
-    .nav_links_container {
+    display: flex;
+    align-items: center;
 
-     
-      
-      padding: 10px;
+    .nav_links {
+      padding: 5px 0;
+      margin-right: 30px;
 
-      margin-right: 40px;
-      width:60%;
-     
-    
-      display: flex;
-      justify-content:space-between;
-      align-items:center;
-     
+    ul {
+      a {
+        font-size: 1rem;
+        padding: 10px;
+        color: #333;
 
-
-      .nav_links{
-       
-        padding:5px 0;
-       
-
-        width: 60%;
-
-        .nav_links_main{
-          // color: #0779fa;
-        
+        &:hover {
+          background-color: #6566cb;
         }
+      }
+    }
+    }
 
-        a{
+    .nav_search_container {
+      width: 35%;
 
-          font-size: 20px;
-          margin: 10px;
-         
-          transition: all 0.5s ease;
-          padding: 10px 5px;
-          color: #0779fa;
-        
+      .search_input {
+        position: relative;
+        width: 100%;
+
+        input {
+          width: 100%;
+          padding: 10px;
+          outline: none;
           border-radius: 8px;
-
-          &:hover{
-           
-            color: #6566cb;
-            
-          
-
-          }
-        }
-      }
-
-      .nav_search_container{
-
-width:30%;
-    
-        display: flex; 
-
-
-       
-        
-        .search_input{
-          position: relative;
-         
-          width:100%;
-          input{
-            width:100%;
-            height: 100%;
-            padding: 5px ;
-            outline: none;
-        
-          }
-
-          span{
-            position: absolute;
-            right: 0;
-           padding: 3px;
-
-          }
-
         }
 
-       
-      }
-
-      
-      
-      
-    }
-   
-    
-
-
-    .nav_login{
-
-     
-     width: 25%;
-    
-     
-
-      font-size: 20px;
-      .my_account{
-
-       text-align: center;
-
-        .login_link{
-         padding: 10px;
-
-          a{
-            // color: #08488d;
-           
-            margin: 0 8px;
-            color: #0779fa;
-         
-          
-            padding: 10px 5px;
-
-            &:hover{
-           
-              color: #6566cb;
-            
-             
-  
-            }
-          }
-
-          
+        span {
+          position: absolute;
+          right: 0;
+          padding: 7px 5px;
 
         }
-        
-        
       }
     }
+  }
 
- 
+  .nav_login {
+    width: 30%;
+    font-size: 1rem;
+
+    .my_account {
+      text-align: center;
+
+      .login_link {
+
+        a {
+          color: #333;
+          padding: 10px;
+          &:hover {
+            background-color: #6566cb;
+          }
+        }
+      }
+    }
+  }
 }
-
-

@@ -1,8 +1,8 @@
 
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 
 import axios from "../../util/axiosInstance";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./FavoritesList.scss";
 import HeroImage from "../heroImage/HeroImage";
 import image from "../../Images/laptop.jpg";
@@ -10,6 +10,8 @@ import image from "../../Images/laptop.jpg";
 function FavoriteList() {
   const [articles, setArticles] = useState([]);
   const [owner, setOwner] = useState([]);
+
+  const [refresh, setRefresh] = useState(false)
 
   const favoriteArticles = async () => {
     try {
@@ -21,9 +23,19 @@ function FavoriteList() {
     }
   };
 
+  const removeFromFavoriteList = async (id) => {
+  try {
+    await axios.get(`/user/favorites/remove/${id}`);
+    setRefresh(!refresh)
+    
+  } catch (error) {
+    console.log(error.message);
+  }
+  }
+
   useEffect(() => {
     favoriteArticles();
-  }, []);
+  }, [refresh]);
 
   return (
     <div className="favorite_list">
@@ -31,41 +43,42 @@ function FavoriteList() {
       {articles.length !== 0 ? (
         articles.map((article) => {
           return (
-            <Link
-              to={`/category/${article.category}/${article._id}`}
-              key={article._id}
-            >
-              <div className="card">
-                <div className="fav_image">
-                  <img src={image} alt="Favorite Article" />
-                </div>
-                <div className="middle_column">
-                  <h2> {article.articlename}</h2>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quae harum neque alias Facere
-                  </p>
-                  <div className="fav_toggle">Remove from Favorites</div>
-                </div>
-                <div className="right_column">
-                  <div>22/07/2021</div>
-                  <div>
-                    <span>25336</span>
-                    <span> </span>
-                    <span>Pinneberg</span>
-                  </div>
-                  <div>Shipping is Possible</div>
-                  <div>
-                    Owner :{owner}
-                    {article.user_id !== null ? (
-                      <h4>{article.user_id.username} </h4>
-                    ) : (
-                      <h4>no username</h4>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </Link>
+           <>
+           <Link
+           to={`/category/${article.category}/${article._id}`}
+           key={article._id}
+         >  <div className="fav_image">
+         <img src={image} alt="Favorite Article" />
+       </div></Link>
+         <div className="card">
+        
+         <div className="middle_column">
+           <h2> {article.articlename}</h2>
+           <p>
+             {article.description}
+           </p>
+           <button onClick={() => removeFromFavoriteList(article._id)} className="fav_toggle">Remove from Favorites</button>
+           {console.log(article._id)}
+         </div>
+         <div className="right_column">
+           <div>22/07/2021</div>
+           <div>
+             <span>25336</span>
+             <span> </span>
+             <span>Pinneberg</span>
+           </div>
+           <div>Shipping is Possible</div>
+           <div>
+             Owner :{owner}
+             {article.user_id !== null ? (
+               <h4>{article.user_id.username} </h4>
+             ) : (
+               <h4>no username</h4>
+             )}
+           </div>
+         </div>
+       </div>
+           </>
           );
         })
       ) : (

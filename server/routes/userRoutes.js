@@ -36,6 +36,8 @@ router.put('/addToFavorite/:article_id', controller.addToFavorites);
 
 router.get('/favorites', controller.favoritesList);
 
+router.get('/favorites/remove/:id', controller.removeFromFavorite);
+
 
 
 

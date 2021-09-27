@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from '../../util/axiosInstance';
-import { useParams } from 'react-router-dom';
 import {ContextAPI} from '../../store/context';
-import './singleChatRoom.scss'
+import './singleChatRoom.scss';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+
+const arrowStyle = {color: '#000'}
 
 
-function SingleChatRoom() {
+function SingleChatRoom( { id, reciever, setId }) {
 
-    const { id, reciever } = useParams();
     const [chatRoom, setChatRoom] = useState([])
 
     const [owner, setOwner] = useState({})
@@ -18,7 +19,7 @@ function SingleChatRoom() {
     const [message, setMessage] = useState("")
     const [refresh, setRefresh] = useState(false)
 
-    const [chatRoomID, setChatRoomID] = useState([])
+    const [chatRoomID, setChatRoomID] = useState("")
 
 
     const getRoom = async () => {
@@ -48,43 +49,45 @@ function SingleChatRoom() {
                 message: message
             })
             setRefresh(!refresh)
+
+            window.scroll({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+              });
+
         } catch (error) {
             console.log(error.message);
         }
     }
 
 
+
     useEffect(() => {
         getRoom()
-    }, [refresh])
+    }, [refresh,chatRoomID])
 
     return (
         <div className="single_chatroom">
-            chat room single chat room
+            
+            <div onClick={() =>setId("")} className="chat_close">X</div>
             <div className="chat_container">
             {chatRoom.map(message => {
                 return (
                    
-                   <div className={message.sender.username === user ? "me" : "otheruser"}>
-                   <p>send on : {new Date(message.created_at).toLocaleString()}</p>
-                   <p>{message.sender.username} : {message.message_body}</p>
-               
+                   <div key={message._id} className={message.sender.username === user ? "me" : "otheruser"}>
+                   <p className="message_content"><span>{message.sender.username}</span> : {message.message_body}</p>
+                   <p className="message_date">{new Date(message.created_at).toLocaleString()}</p>
                    </div>
                 )
             })}
             </div>
-            <form>
+            <form className="form_chat">
                 <div className="user">
-                    <label htmlFor="message">message</label>
-                    <textarea onChange={(e) => setMessage(e.target.value)} name="message" id="message" cols="30" rows="10">send message</textarea>
+                    <textarea onChange={(e) => setMessage(e.target.value)} name="message" id="message" cols="30" rows="10"></textarea>
+                    <span onClick={(e) => handleSendingMessage(e)} className="send_icon"><ArrowForwardIcon style={arrowStyle}/></span>
                 </div>
-                <button type="button" onClick={(e) => handleSendingMessage(e)}>send message</button>
             </form>
-
-            {console.log("chatRoom =>", chatRoom)}
-            {console.log(chatRoomID)}
-            {console.log("sender => ", sender)}
-            {console.log("owner => ", owner)}
         </div>
     )
 }

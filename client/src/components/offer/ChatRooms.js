@@ -1,10 +1,32 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
-function ChatRooms({item}) {
+import './chatRoom.scss';
+import SingleChatRoom from './SingleChatRoom';
+
+function ChatRooms({ item }) {
+
+    const [id, setId] = useState("");
+    const [reciever, setReciever] = useState("");
+
+
+    useEffect(() => {
+
+    }, [id, item])
+
     return (
-        <div>
-            <Link to={`/chatroom/${item.article_id._id}/${item.reciever._id}`}>{item.article_id.articlename}</Link>
+        <div className="wrapper">
+            <div className="chat_inbox">
+                <div className="chat_article_room">
+                    <div onClick={() => setId(item.article_id._id) & setReciever(item.reciever._id)} className="chat_head">
+                        <div className="image">img</div>
+                        <div className="username">{item.article_id.articlename}</div>
+                    </div>
+                </div>
+
+                {id ? <SingleChatRoom key={item.article_id._id} id={id} setId={setId} reciever={reciever} /> : <div className="single_chatroom"></div>}
+
+            </div>
+        {console.log(item)}
         </div>
     )
 }

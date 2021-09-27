@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 import "./contactUs.scss";
-import PersonIcon from "@material-ui/icons/Person";
 
-import BusinessIcon from "@material-ui/icons/Business";
-import SubjectIcon from "@material-ui/icons/Subject";
-import ReactQuill from "react-quill";
+
 import "react-quill/dist/quill.snow.css"; // ES6
 
 import axios from "axios";
 
 import HeroImage from "../../components/heroImage/HeroImage";
-import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
-import PhoneIcon from "@mui/icons-material/Phone";
-import EmailIcon from "@mui/icons-material/Email";
+// import AddLocationAltIcon from "@mui/icons-material/AddLocationAlt";
+// import PhoneIcon from "@mui/icons-material/Phone";
+// import EmailIcon from "@mui/icons-material/Email";
 
 
 const styleIcon = {background:'#004a99', fontSize:'60px', borderRadius:'100%', color: 'white'};
@@ -85,14 +82,11 @@ function ContactUs() {
          
 
             <div className="phone">
-              <PhoneIcon style={styleIcon} /> <span>838383773883</span>
             </div>
             <div className="email">
-              <EmailIcon  style={styleIcon} /> <span>email@email.com</span>
             </div>
 
             <div className="location">
-              <AddLocationAltIcon  style={styleIcon} /> <span>address 99</span>
             </div>
 
             <div className="map">
@@ -119,7 +113,7 @@ function ContactUs() {
                       <div className="form__containerItem">
                         <div className="form__containerItemName">
                           <label>Name</label>
-                          <PersonIcon />
+                         
                         </div>
                         <div className="form__containerItemField">
                           <input
@@ -135,7 +129,7 @@ function ContactUs() {
                       <div className="form__containerItem">
                         <div className="form__containerItemName">
                           <label>Email</label>
-                          <EmailIcon />
+                       
                         </div>
                         <div className="form__containerItemField">
                           <input
@@ -151,7 +145,7 @@ function ContactUs() {
                       <div className="form__containerItem">
                         <div className="form__containerItemName">
                           <label>Company</label>
-                          <BusinessIcon />
+                         
                         </div>
                         <div className="form__containerItemField">
                           <input
@@ -166,7 +160,7 @@ function ContactUs() {
                       <div className="form__containerItem">
                         <div className="form__containerItemName">
                           <label>Subject</label>
-                          <SubjectIcon />
+                         
                         </div>
                         <div className="form__containerItemField">
                           <input
@@ -193,13 +187,7 @@ function ContactUs() {
                         </div>
                       </div>
                       <div className="container__composeMail">
-                        <ReactQuill
-                          id="message"
-                          value={message}
-                          onChange={handleQuillChange}
-                          className="quill"
-                          placeholder="Enter Content from here..."
-                        />
+                       
                       </div>
                     </div>
                   </div>

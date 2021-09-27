@@ -55,7 +55,7 @@ function AddArticle() {
             console.log(error.message);
         }
 
-    }
+    
   };
 
   const getOptions = async () => {

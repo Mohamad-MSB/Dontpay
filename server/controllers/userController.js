@@ -237,6 +237,19 @@ exports.userSingleArticle = async (req, res) => {
     }
 }
 
+exports.removeFromFavorite = async (req, res) => {
+
+    try {
+        const user = await userModel.findByIdAndUpdate(req.user._id,            
+            { $pull: { favorite: {$in: [`${req.params.id}`]}} },
+            { new: true });
+
+        res.status(200).json({message: 'article removed from favorites successfully', article: user})
+    } catch (error) {
+        return res.status(400).json({ message: "error happend", error: error.message });
+    }
+}
+
 // exports.makeOffer = async (req, res) => {
 //     try {
 

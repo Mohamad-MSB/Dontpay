@@ -1,17 +1,99 @@
 .single_chatroom {
 
-    background-color: yellowgreen;
+    background-color: #fff;
     display: flex;
     flex-direction: column;
+    position: relative;
+    padding: 20px;
+
+
+    .chat_close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        color: #fff;
+        padding: 5px;
+        border: 1px solid #fff;
+        border-radius: 8px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+
     .chat_container {
+
+        margin-top: 30px;
+        height: 400px;
+        overflow-y: auto;
 
         .me {
             background-color: green;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            
+            .message_date {
+                font-size: 12px;
+            }
+            .message_content {
+
+                span {
+
+                    font-size: 16px;
+                }
+
+            }
         }
     
        .otheruser {
-           text-align: right;
            background-color: blue;
+           display: flex;
+           justify-content: space-between;
+           flex-direction: row-reverse;
+           padding: 10px;
+           
+           .message_date {
+               font-size: 12px;
+           }
+           .message_content {
+               font-size: 22px;
+
+            span {
+
+                font-size: 16px;
+            }
+
+           }
        }
+    }
+
+    .form_chat {
+        width: 100%;
+        margin: 20px 0;
+        .user {
+            position: relative;
+            
+            textarea {
+                width: 100%;
+                height: 60px;
+                border-radius: 20px;
+                padding: 20px 20px 10px;
+                outline: none;
+                font-size:16px;
+            }
+
+            .send_icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+                padding: 20px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
     }
 }

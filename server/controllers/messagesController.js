@@ -66,7 +66,7 @@ exports.singleChatRoom = async (req, res) => {
 
     try {
 
-        const chat = await roomModel.findOne({ article_id : req.params.id, $or:[{ reciever: req.user._id }, { sender:req.user._id}]}).populate({path:"article_id messages sender reciever", populate: {path: "sender reciever"}});
+        const chat = await roomModel.findOne({ article_id : req.params.id, $or:[{ reciever: req.user._id }, { sender:req.user._id}]}).populate({path:"article_id messages sender reciever", populate: {path: "sender reciever user_id"}});
 
         return res.status(200).json({ messages: "single chat room", chat: chat.messages,id: chat._id });
         

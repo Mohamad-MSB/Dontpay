@@ -8,9 +8,9 @@ import instagram from "../../Images/Icons/Instagram_logo.png";
 import twitter from "../../Images/Icons/Twitter_logo.png";
 
 
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
+// import FacebookIcon from '@mui/icons-material/Facebook';
+// import InstagramIcon from '@mui/icons-material/Instagram';
+// import TwitterIcon from '@mui/icons-material/Twitter';
 
 function Footer() {
   return (
@@ -44,16 +44,16 @@ function Footer() {
               <div className="socialMedia">
                 <Link className="face" to="facebook">
                   {/* <img src={faceBook} alt="Facebook Link" /> */}
-                  <FacebookIcon/>
+            
                 </Link>
                 <Link className="twitter" to="Twitter">
                   {/* <img src={twitter} alt="Twitter Link" /> */}
-                  <TwitterIcon/>
+         
                  
                 </Link>
                 <Link className="instagram" to="Instagram">
                   {/* <img src={instagram} alt="Instagram Link" /> */}
-                  <InstagramIcon/>
+                 
                 </Link>
                 
               </div>

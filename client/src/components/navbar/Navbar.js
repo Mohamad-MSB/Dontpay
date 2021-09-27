@@ -9,7 +9,7 @@ import {
 import { ContextAPI } from "../../store/context";
 import Fade from "react-reveal/Fade";
 
-import SearchIcon from "@material-ui/icons/Search";
+// import SearchIcon from "@material-ui/icons/Search";
 
 import FaHandshake from "react-icons"
 
@@ -61,7 +61,7 @@ function Navbar() {
                 id=""
                 placeholder="Search for anything"
               />
-               <span>  <SearchIcon  /></span>
+               <span> </span>
             </div>
             
           </div>

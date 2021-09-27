@@ -41,9 +41,6 @@ import ForgetPass from './components/forgetpassword/ForgetPass';
 
 
 
-import SingleChatRoom from './components/offer/SingleChatRoom';
-
-
 
 
 function App({ children }) {
@@ -72,7 +69,6 @@ function App({ children }) {
 
         <Route exact path="/premium" component={Membership} />
 
-        <Route exact path="/chatroom/:id/:reciever" component={SingleChatRoom} />
 
 
         <Route exact path="/userprofile/:id" component={UserProfile} />

@@ -41,7 +41,7 @@ function UserArticleList() {
           {article.map(item => (
                 <Link key={item} to={`/myarticle/${item._id}`} className="article">
 
-                <img src={firasIMG} alt="test for now" />
+                <img src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${item.articleimage}`} alt="test for now" />
               
                 
                 <div className="thumbnail_text">

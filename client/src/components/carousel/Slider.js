@@ -10,13 +10,13 @@ import heroFour from '../../Images/heroImages/4.png'
 
 
 
-const images = [heroOne, heroTwo,  heroThree,heroFour];
+const images = [heroOne, heroTwo, heroThree, heroFour];
 const delay = 10000;
 
 function Slider() {
 
 
-    const [index, setIndex] = React.useState(0);
+  const [index, setIndex] = React.useState(0);
   const timeoutRef = React.useRef(null);
 
   function resetTimeout() {
@@ -41,37 +41,37 @@ function Slider() {
   }, [index]);
 
 
-    return (
+  return (
 
 
-        <div>
+    <div>
 
-<div className="slideshow">
-      <div
-        className="slideshowSlider"
-        style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
-      >
-       <img src={heroOne} alt="" />
-       <img src={heroTwo} alt="" />
-       <img src={heroThree} alt="" />
-       <img src={heroFour} alt="" />
-      </div>
-
-      <div className="slideshowDots">
-        {images.map((_, idx) => (
-          <div
-            key={idx}
-            className={`slideshowDot${index === idx ? " active" : ""}`}
-            onClick={() => {
-              setIndex(idx);
-            }}
-          ></div>
-        ))}
-      </div>
-    </div>
-            
+      <div className="slideshow">
+        <div
+          className="slideshowSlider"
+          style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
+        >
+          <img src={heroOne} alt="" />
+          <img src={heroTwo} alt="" />
+          <img src={heroThree} alt="" />
+          <img src={heroFour} alt="" />
         </div>
-    )
+
+        <div className="slideshowDots">
+          {images.map((_, idx) => (
+            <div
+              key={idx}
+              className={`slideshowDot${index === idx ? " active" : ""}`}
+              onClick={() => {
+                setIndex(idx);
+              }}
+            ></div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  )
 }
 
 export default Slider

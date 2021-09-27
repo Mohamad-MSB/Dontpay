@@ -16,13 +16,14 @@ function UserSingleArticle() {
 
   const [selectedArticle, setSelectedArticle] = useState([]);
 
+
   const {
     articlename,
     description,
     status,
     note,
     quantity,
-    imagename,
+    articleimage,
     created,
   } = selectedArticle;
 
@@ -59,7 +60,7 @@ function UserSingleArticle() {
         <div className="image">
           {" "}
           <img
-            src="http://localhost:3001/uploads/articleimages/image-1631093043504.png"
+            src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${articleimage}`}
             alt=""
           />{" "}
         </div>
@@ -83,7 +84,7 @@ function UserSingleArticle() {
         </div>
       </div>
 
-      {console.log("article id", articleId)}
+      {console.log("article id", selectedArticle)}
     </div>
   );
 }

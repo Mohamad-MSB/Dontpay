@@ -1,17 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.scss";
-import logo from "../../Images/logo.svg";
-import {
-  PublicNavigation,
-  PrivateNavigation,
-} from "../../components/navigation/index";
+import {PublicNavigation, PrivateNavigation} from "../../components/navigation/index";
 import { ContextAPI } from "../../store/context";
-import Fade from "react-reveal/Fade";
-
-// import SearchIcon from "@material-ui/icons/Search";
-
-import FaHandshake from "react-icons"
+import SearchIcon from '@mui/icons-material/Search';
 
 
 
@@ -19,25 +11,23 @@ import FaHandshake from "react-icons"
 
 
 function Navbar() {
+
   const { loggedIn, user, userId, search, setSearch } = useContext(ContextAPI);
 
-
-  const [showlinks, setShowLinks] = useState(false)
 
   return (
     <nav className="navbar">
       {/*logo container*/}
       <div className="logo">
         <Link to="/">
-          {" "}
-         <img src={logo} alt="" />
+         <p>Don'tPay</p>
         </Link>
       </div>
 
       <div className="nav_links_container">
         <div className="nav_links">
           <ul>
-            <Link href="#category" className="nav_links_main" to="/category">
+            <Link to="/category">
               Categories
             </Link>
             {loggedIn ? (
@@ -56,14 +46,11 @@ function Navbar() {
               <input
                 onChange={(e) => setSearch(e.target.value)}
                 type="search"
-                name=""
                 value={search}
-                id=""
-                placeholder="Search for anything"
+                placeholder="Search for anything or by city"
               />
-               <span> </span>
+               <span> <SearchIcon/></span>
             </div>
-            
           </div>
 
       </div>

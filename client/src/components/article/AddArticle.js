@@ -13,7 +13,6 @@ function AddArticle() {
     const [status, setStatus] = useState("");
     const [note, setNote] = useState("");
     const [quantity, setQuantity] = useState("");
-    const [articleimage] = useState(null);
     const [category, setCategory] = useState("");
     const [alert, setAlert] = useState("");
 
@@ -29,7 +28,7 @@ function AddArticle() {
         
         const formData = new FormData(e.target);
 
-        axios.post('http://localhost:3001/user/imageUpload', formData, {
+        const res = await axios.post('/article/imageupload', formData, {
             headers: {
                 "content-Type":"multipart/form-data"
             }
@@ -44,7 +43,7 @@ function AddArticle() {
                 status: status,
                 note: note,
                 quantity: quantity,
-                articleimage: articleimage,
+                articleimage: res.data.articleimage,
                 category: category
             };
 

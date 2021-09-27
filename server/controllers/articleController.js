@@ -13,17 +13,14 @@ exports.add = async (req, res) => {
         if (user == null) {
             res.status(400).json({ message: 'user not found' });
         } else {
-            const image = await imageModel.create({
-                articleimage: req.body.articleimage
-            })
             const article = await articleModel.create({
                 user_id: req.body.user_id,
                 articlename: req.body.articlename,
                 description: req.body.description,
                 status: req.body.status.toLowerCase(),
+                articleimage: req.body.articleimage,
                 note: req.body.note,
                 quantity: req.body.quantity,
-                articleimage_id: image._id,
                 category: req.body.category.toLowerCase()
             })
             
@@ -91,7 +88,7 @@ exports.categorieslist = async (req, res) => {
 
 exports.category = async (req, res) => {
     try {
-        const articles = await articleModel.find({ category: req.params.category }).populate("user");
+        const articles = await articleModel.find({ category: req.params.category }).populate("user articleimage_id");
         return res.status(200).json({ message: "All Article", articles: articles })
     } catch (error) {
         return res.status(400).json({ message: "error happend" })
@@ -100,7 +97,7 @@ exports.category = async (req, res) => {
 
 exports.article = async (req, res) => {
     try {
-        const article = await articleModel.findById(req.params.article).populate("user_id").populate("articleimage_id");
+        const article = await articleModel.findById(req.params.article).populate("user_id");
         const address = article.user_id.address;
         return res.status(200).json({ message: "signle Article", article: article, address: address });
     } catch (error) {
@@ -110,11 +107,14 @@ exports.article = async (req, res) => {
 
 exports.newArticle = async (req, res) => {
     try {
-        const articles = await articleModel.find().populate("user_id").populate("articleimage_id")
+        const articles = await articleModel.find().populate("user_id")
             .limit(21)
             .sort('-created');
 
-        return res.status(200).json({ message: "last article found", articles: articles });
+        const allArticles = await articleModel.find().populate("user_id")
+            .sort('-created');
+
+        return res.status(200).json({ message: "last article found", articles: articles, allArticles: allArticles });
     } catch (error) {
         return res.status(400).json({ message: "error happend", error: error.message })
     }
@@ -160,15 +160,16 @@ exports.uploadImage = upload.single('photo')
 
 exports.upload = (req, res) => {
 
-    console.log(req.file)
-
-    res.status(200).json({ success: 'Success' })
+    res.status(200).json({success: 'Success', articleimage: req.file.filename});
 }
 
 exports.getImage = async (req, res) => {
 
     try {
-        const article = await articleModel.findById(req.params["userId"]);
+        const article = await articleModel.findById(req.params.id);
+
+        console.log(article)
+
 
         res.sendFile(`${__dirname}/uploads/articleimages/${article.articleimage}`);
     } catch (error) {

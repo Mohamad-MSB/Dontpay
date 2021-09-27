@@ -37,7 +37,7 @@ function UserProfile() {
                     <h1>My Profile setting</h1>
                     <div className="profile_img">
                         <img
-                            src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMG}/${image}`}
+                            src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGU}/${image}`}
                             alt=""
                         />
                     </div>

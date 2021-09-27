@@ -97,8 +97,6 @@ function App({ children }) {
       {children}
       <ScrollPage/>
       <Footer />
-      <Cookies />
-
     </div>
   );
 }

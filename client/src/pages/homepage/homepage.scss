@@ -1,63 +1,65 @@
-.homepage{ 
-    
- 
-    
-
-    // .heroImage {
-    //     min-width: 755px;
-    //     margin: 50px 0 50px 0;
-
-      
-    // }
+.homepage {
+  .container_center {
+    margin: 0 auto;
 
     .container_articles {
-       
-        width: 100%;
-        padding: 20px;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      width: 100%;
+      padding: 20px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
-        
-        display: grid;
-        grid-template-columns: repeat( auto-fit, minmax(200px, min-content) );
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, min-content));
 
-        
-        .article {
-            
-            height: 240px;
-           
-           
-            
-           
-           
-            border-radius: 8px;
+      h1 {
+        text-align: center;
+        color: gray;
+      }
 
-            
-                                img{
-                                    width: 100%;
-                                    height: 185px;
-                                    object-fit: cover;
-                                    border-radius: 8px 8px 0 0;
-                
-                                }
-                
-                   
+      .article {
+        height: 275px;
+        border-radius: 8px;
+        position: relative;
+        border-top: 3px solid dodgerblue;
+        border-bottom: 3px solid dodgerblue;
 
-
-                    .thumbnail_text {
-                        color: #4585fa;
-                        padding: 10px 7px 0;
-                       background:rgb(236, 235, 233);
-                       border-bottom-left-radius: 8px;
-                       border-bottom-right-radius: 8px;
-                    }
-                
-
-                &:hover {
-                    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-                    
-                    
-                }
+        img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          border-radius: 8px 8px 0 0;
+          padding-top: 10px;
         }
 
+        .thumbnail_text {
+          position: absolute;
+          bottom: 0;
+          text-align: center;
+
+          p {
+            color: #333;
+            padding: 5px;
+            font-size: 1.2rem;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+          }
+
+          .location {
+               display: flex;
+               justify-content:center;
+               align-items: center;
+               span {
+                   text-transform: uppercase;
+               }
+               span:nth-child(3) {
+                   padding-left: 5px;
+               }
+          }
+        }
+
+        &:hover {
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+      }
     }
+  }
 }

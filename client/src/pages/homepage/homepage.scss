@@ -14,9 +14,9 @@
         text-align: center;
         color: gray;
       }
-
+ 
       .article {
-        height: 275px;
+        height: auto;
         border-radius: 8px;
         position: relative;
         border-top: 3px solid #CC611E;
@@ -31,8 +31,7 @@
         }
 
         .thumbnail_text {
-          position: absolute;
-          bottom: 0;
+          margin: 10px 0;
           text-align: center;
 
           p {

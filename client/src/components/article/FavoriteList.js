@@ -5,7 +5,6 @@ import axios from "../../util/axiosInstance";
 import { Link, useParams } from "react-router-dom";
 import "./FavoritesList.scss";
 import HeroImage from "../heroImage/HeroImage";
-import image from "../../Images/laptop.jpg";
 
 function FavoriteList() {
   const [articles, setArticles] = useState([]);
@@ -48,7 +47,7 @@ function FavoriteList() {
            to={`/category/${article.category}/${article._id}`}
            key={article._id}
          >  <div className="fav_image">
-         <img src={image} alt="Favorite Article" />
+         <img src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${articles.articleimage}`} alt="Favorite Article" />
        </div></Link>
          <div className="card">
         

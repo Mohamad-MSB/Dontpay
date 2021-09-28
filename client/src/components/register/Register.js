@@ -66,86 +66,86 @@ function Register() {
 
         <form onSubmit={handelRegister}>
           <div className="fullname">
-            <label htmlFor="firstname">Name</label>
+
             <input
               onChange={(e) => setfirstname(e.target.value)}
               type="text"
               id="firstname"
               name="firstname"
+              placeholder="First Name"
               required
             />
-            <label htmlFor="lastname">Last Name</label>
+
             <input
               onChange={(e) => setLastname(e.target.value)}
               type="text"
               id="lastname"
               name="lastname"
+              placeholder="Last Name"
+
               required
             />
-          </div>
 
-          <div className="age">
-            <label htmlFor="age">your Age</label>
             <input
+              className="age"
               onChange={(e) => setAge(e.target.value)}
-              type="number"
+              type="text"
               id="age"
               name="age"
+              placeholder="Age"
+              maxLength="2"
               required
             />
           </div>
 
           <div className="email">
-            <label htmlFor="email">Email</label>
-            <input
-              onChange={(e) => setEmail(e.target.value)}
-              type="email"
-              id="email"
-              name="email"
-              required
-            />
-          </div>
 
-          <div className="username">
-            <label htmlFor="username">Username</label>
             <input
               onChange={(e) => setUsername(e.target.value)}
               type="text"
               id="username"
               name="username"
+              placeholder="username"
               required
             />
-          </div>
-
-          <div className="password">
-            <label htmlFor="password">Password</label>
             <input
               onChange={(e) => setPassword(e.target.value)}
               type="password"
               id="password"
               name="password"
+              placeholder="Password"
+              required
+            />
+
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              id="email"
+              name="email"
+              placeholder="E-Mail"
               required
             />
           </div>
 
           <div className="phone">
-            <label htmlFor="phone">Phone Number</label>
+
             <input
               onChange={(e) => setPhoneNumber(e.target.value)}
               type="text"
               id="phone"
               name="phone"
+              placeholder="Phone Number"
               required
             />
           </div>
 
           <div className="address">
-            <label htmlFor="address">Address</label>
+
             <input
               className="street"
               onChange={(e) => setStreetname(e.target.value)}
               type="text"
-              placeholder="street"
+              placeholder="Street"
               name="street"
               required
             />
@@ -153,7 +153,7 @@ function Register() {
               className="house"
               onChange={(e) => setHausnumber(e.target.value)}
               type="text"
-              placeholder="hausnumber"
+              placeholder="Nr."
               name="hausnumber"
               required
             />
@@ -161,7 +161,7 @@ function Register() {
               className="code"
               onChange={(e) => setZipcode(e.target.value)}
               type="text"
-              placeholder="zip code"
+              placeholder="Zip Code"
               name="zip"
               required
             />
@@ -169,7 +169,7 @@ function Register() {
               className="city"
               onChange={(e) => setCity(e.target.value)}
               type="text"
-              placeholder="city"
+              placeholder="City"
               name="city"
               required
             />
@@ -177,7 +177,7 @@ function Register() {
               className="land"
               onChange={(e) => setLand(e.target.value)}
               type="text"
-              placeholder="land"
+              placeholder="Land"
               name="land"
               required
             />

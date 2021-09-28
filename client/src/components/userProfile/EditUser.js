@@ -31,46 +31,46 @@ function EditUser() {
         land: land,
       },
     });
-    console.log(response.data.user);
   };
 
   return (
-    <div>
+    <div className="user_edit">
       <div className="heroImage">
         <HeroImage />
       </div>
 
       <div className="form_container">
+
+      <h1>Update user Account</h1>
         <form onSubmit={handelUpdates}>
           <div className="email">
-            <label htmlFor="email">Email</label>
             <input
               onChange={(e) => setEmail(e.target.value)}
               type="email"
               id="email"
               name="email"
+              placeholder="E-Mail"
               required
             />
           </div>
 
           <div className="phone">
-            <label htmlFor="phone">Phone Number</label>
             <input
               onChange={(e) => setPhoneNumber(e.target.value)}
               type="text"
               id="phone"
               name="phone"
+              placeholder="Phone Number"
               required
             />
           </div>
 
           <div className="address">
-            <label htmlFor="address">Address</label>
             <input
             className="street"
               onChange={(e) => setStreetname(e.target.value)}
               type="text"
-              placeholder="street"
+              placeholder="Street"
               name="street"
               required
             />
@@ -78,7 +78,7 @@ function EditUser() {
             className="house"
               onChange={(e) => setHausnumber(e.target.value)}
               type="text"
-              placeholder="hausnumber"
+              placeholder="Nr."
               name="hausnumber"
               required
             />
@@ -86,7 +86,7 @@ function EditUser() {
             className="code"
               onChange={(e) => setZipcode(e.target.value)}
               type="text"
-              placeholder="zip code"
+              placeholder="Zip Code"
               name="zip"
               required
             />
@@ -94,7 +94,7 @@ function EditUser() {
             className="city"
               onChange={(e) => setCity(e.target.value)}
               type="text"
-              placeholder="city"
+              placeholder="City"
               name="city"
               required
             />
@@ -102,27 +102,28 @@ function EditUser() {
             className="land"
               onChange={(e) => setLand(e.target.value)}
               type="text"
-              placeholder="land"
+              placeholder="Land"
               name="land"
               required
             />
           </div>
 
           <div className="password">
-            <label htmlFor="password">
-              put your password to confirm changes
-            </label>
             <input
               onChange={(e) => setPassword(e.target.value)}
               type="password"
               id="password"
               name="password"
+              placeholder="Your Password"
               required
             />
+            <label htmlFor="password">
+            put your password to confirm changes
+          </label>
           </div>
 
           <div className="button">
-            <button type="submit">Update</button>
+            <button type="submit">update changes</button>
           </div>
         </form>
       </div>

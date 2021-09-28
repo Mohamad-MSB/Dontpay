@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
     age: { type: Number, min: 18, max: 80, required: true },
     email: { type: String, unique: true, required: true },
     userimage: { type: String },
-    phone: { type: Number, unique: true },
+    phone: { type: Number },
     rating: { type: String },
     created: {type: Date, default: Date.now()},
     offer:[{type: mongoose.SchemaTypes.ObjectId, ref: "offer"}],

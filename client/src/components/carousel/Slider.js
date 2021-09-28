@@ -3,14 +3,13 @@
 
 import React from 'react'
 import './carousel.css';
-import heroOne from '../../Images/heroImages/1.png'
-import heroTwo from '../../Images/heroImages/2.png'
-import heroThree from '../../Images/heroImages/3.png'
-import heroFour from '../../Images/heroImages/4.png'
+import heroOne from '../../Images/heroImages/caro1.jpg'
+import heroTwo from '../../Images/heroImages/caro2.jpg'
+import heroThree from '../../Images/heroImages/caro3.jpg'
 
 
 
-const images = [heroOne, heroTwo, heroThree, heroFour];
+const images = [heroOne, heroTwo, heroThree];
 const delay = 10000;
 
 function Slider() {
@@ -54,7 +53,6 @@ function Slider() {
           <img src={heroOne} alt="" />
           <img src={heroTwo} alt="" />
           <img src={heroThree} alt="" />
-          <img src={heroFour} alt="" />
         </div>
 
         <div className="slideshowDots">

@@ -19,8 +19,8 @@
         height: 275px;
         border-radius: 8px;
         position: relative;
-        border-top: 3px solid dodgerblue;
-        border-bottom: 3px solid dodgerblue;
+        border-top: 3px solid #CC611E;
+        border-bottom: 3px solid #CC611E;
 
         img {
           width: 100%;
@@ -58,6 +58,7 @@
 
         &:hover {
           box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          transform: scale(1.1);
         }
       }
     }

@@ -6,9 +6,9 @@ const cors = require('cors');
 const passport = require("passport");
 const authenticate = require('./passport-config');
 
-
-
 const app = express();
+const port = process.env.PORT || 3001;
+
 dotenv.config();
 
 app.use(cors());
@@ -45,4 +45,4 @@ mongoose
   .then(() => console.log("Database connected! 😍☕"))
   .catch((error) => console.log(error, "Database did not connect! ☹️❌"));
 
-app.listen(3001, () => console.log("The server is listening on port 3001... 🐒"));
+app.listen(port, () => console.log("The server is listening on port 3001... 🐒"));

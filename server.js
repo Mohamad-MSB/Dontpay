@@ -28,8 +28,11 @@ app.use('/message', messageRoutes);
 
 // upload userRoute
 
-
-
+// serve react frontend /client/build folder
+app.use(express.static(path.join(__dirname, 'client/build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/build/index.html'))
+});
 
 console.log("Connecting to database. Put the kettle on while you wait... 🫖");
 

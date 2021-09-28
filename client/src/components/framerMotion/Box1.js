@@ -17,10 +17,10 @@ function Box1() {
      
       animate={{ 
 
-        x:isAnimating ? 590: 0,
-        //   x: 590,
-          opacity: isAnimating ? 1: 0.5,
-         rotate: isAnimating ? 360 : 0
+        // x:isAnimating ? 590: 0,
+           x: 590,
+          opacity: 1,//isAnimating ? 1: 0.5,
+         rotate: 360//isAnimating ? 360 : 0
       }}      
 
       initial={{ 

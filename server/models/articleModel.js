@@ -10,7 +10,7 @@ const articleSchema = mongoose.Schema({
     views: {type: Number, default: 0},
     quantity: {type: Number, min : 1, required: true},
     created: {type: Date, default: Date.now()},
-    category: {type: String, enum: ["electronics", "sports", "collectables", "home", "fashion", "tools", "music", "hobbies", "books", "services", "vehicels"], required: true},
+    category: {type: String, enum: ["electronics", "sports", "collectables", "home", "fashion", "tools", "music", "books", "services", "vehicels"], required: true},
     feautured: {type: Boolean, default: false},
     articleimage: {type:String}
     

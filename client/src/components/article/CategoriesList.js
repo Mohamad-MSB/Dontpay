@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "../../util/axiosInstance";
 import { Link } from "react-router-dom";
 import "./categoriesList.scss";
-import testImage from "../../Images/laptop.jpg";
 import HeroImage from "../../components/heroImage/HeroImage";
+
+import electronicsImage from '../../Images/category/appliance-electronics-industry (1).jpg'
 
 // 2 september
 
@@ -36,10 +37,10 @@ function CategoriesList() {
                 <div className="text">{item}</div>
               </div>
               <div className="category_image">
-                <img src={testImage} alt={item} />
+                <img src={item === "electronics" ? electronicsImage : ""} alt={item} />
               </div>
               <div className="category_title">
-                <p>{item}</p>
+                <p style={{textTransform: "uppercase"}}>{item}</p>
               </div>
             </Link>
           </div>

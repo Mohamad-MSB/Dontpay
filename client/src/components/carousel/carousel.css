@@ -3,7 +3,7 @@
 /* Slideshow */
 
 .slideshow {
-    margin: 40px auto;
+    margin: 0 auto;
     overflow: hidden;
     max-width: 100%;
    
@@ -13,17 +13,11 @@
     white-space: nowrap;
     transition: ease 1000ms;
    
-    height:600px;
-    
-  
-  
-   
+    height:700px;
   }
 
   .slideshowSlider img{
 
- 
- 
    height:100%;
    width:100%;
    object-fit: fill;
@@ -33,7 +27,6 @@
   
   .slide {
     display: inline-block;
-  
     height: 400px;
     width: 100%;
    
@@ -59,7 +52,7 @@
   }
   
   .slideshowDot.active {
-    background-color: #0779fa;
+    background-color: #CC611E;
   }
   
   

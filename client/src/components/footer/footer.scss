@@ -6,8 +6,7 @@ footer {
   height: 200px;
   position: relative;
   background-color:#fff;
-  border-top: 3px solid dodgerblue;
-  border-bottom: 3px solid dodgerblue;
+  border-top: 3px solid #CC611E;
 
   .footer {
     .container {
@@ -23,21 +22,73 @@ footer {
 
         h4 {
           padding: 10px 0;
+          position: relative;
+          margin-bottom: 10px;
+
+          &::after {
+            content: "";
+            height:3px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color:#CC611E;
+          }
         }
 
         a {
-          padding: 5px 10px;
+          padding: 5px 5px;
           color: #333;
+          position: relative;
+          transition: all 0.5s ease;
 
-          &:hover {
-              background-color: green;
+          &::after {
+            content: "";
+            width:0%;
+            height:5px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            
+
+            transition: width 0.5s;
+            width: 20%;
           }
+
+          &:hover::after {
+            content: "";
+            height: 2px;
+            width: 100%;
+            background-color:#CC611E;
+          }
+
         }
 
       }
       .footer_section:nth-of-type(3){
         .social_links {
             text-align: center;
+            padding: 0;
+
+            h4 {
+              padding: 10px 0;
+              position: relative;
+              margin-bottom: 10px;
+    
+              &::after {
+                content: "";
+                height:3px;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color:#CC611E;
+              }
+            }
+
+            a {
+              margin: 0 5px;
+            }
 
             .face {
                 color: dodgerblue;

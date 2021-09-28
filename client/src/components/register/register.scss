@@ -1,133 +1,110 @@
+.container_register {
 
+    border: 1px solid;
+  h1 {
+    text-align: center;
+    color:#8D5F2D;
+    margin-bottom: 15px;
+    font-weight: 900;
+  }
 
-.container_register{
+  form {
+    margin-left: 10px;
 
-
-
-   
-
-    h1{
-        text-align: center;
-        color: rgb(114, 112, 112);
-        margin-bottom: 15px;
+    .fullname,
+    .age,
+    .email,
+    .username,
+    .password,
+    .phone {
+      label {
+        display: block;
+        margin: 1px 0;
+        color: #08488d;
+        margin-left: 1px;
+      }
+      input {
+        width: 40%;
+        height: 33px;
+        border-radius: 8px;
+      }
     }
 
-    form{
+    .address {
+      label {
+        display: block;
+        margin: 1px 0;
+        color: #08488d;
+        margin-left: 1px;
+      }
 
-       
-        margin-left: 10px;
+      .street {
+        width: 40%;
+        height: 33px;
+        margin-right: 5px;
+        margin-bottom: 5px;
+        border-radius: 8px;
+      }
 
-        .fullname,
-        .age,
-        .email,
-        .username,
-        .password,
-        .phone {
+      .house {
+        width: 20%;
+        height: 33px;
+        margin-right: 5px;
+        border-radius: 8px;
+      }
 
-            label{
+      .code {
+        width: 20%;
+        height: 33px;
+        margin-right: 5px;
+        border-radius: 8px;
+      }
 
-                display: block;
-                margin: 1px 0;
-                color: #08488d; 
-                margin-left: 1px;
-            }
-            input{
-
-                width: 40%;
-                height: 33px;
-                border-radius:8px;
-            }
-        }
-
-        .address {
-            label{
-
-                display: block;
-                margin: 1px 0;
-                color: #08488d; 
-                margin-left: 1px;
-            }
-            
-
-            .street{        
-                width: 40%;
-                height: 33px;  
-                margin-right: 5px;  
-                margin-bottom: 5px;  
-                border-radius:8px;       
-
-            }
-
-            .house{        
-                width: 20%;
-                height: 33px;
-                margin-right: 5px;   
-                border-radius:8px;           
-
-            }
-
-            .code{        
-                width: 20%;
-                height: 33px;
-                margin-right: 5px;  
-                border-radius:8px;            
-
-            }
-
-            .city, .land{        
-                width: 30%;
-                height: 33px;
-                margin-right: 5px;    
-                border-radius:8px;          
-
-            }
-        }
-
-        .upload{
-
-            margin-top: 20px;
-
-            label{
-               
-                background-color:#08488d;
-                padding: 6px 10px;
-                color : white;
-               
-            }
-
-        }
-
-        .agree{
-
-            margin-top: 20px;
-            color: white;
-            label{
-                margin-left: 3px;
-            }
-        }
-
-        .button{
-
-            margin-top: 20px;
-            text-align: center;
-            margin-bottom: 20px;
-
-            button{
-                font-size: 18px;
-                padding:6px 20px;
-                background-color:#342d72;
-                color: white;
-
-            }
-            button:hover{
-
-                outline:none;
-                background-color:#316c9c;
-     
-                transition: all 1s ease;
-                cursor: pointer;
-             }
-
-        }
+      .city,
+      .land {
+        width: 30%;
+        height: 33px;
+        margin-right: 5px;
+        border-radius: 8px;
+      }
     }
+
+    .upload {
+      margin-top: 20px;
+
+      label {
+        background-color: #08488d;
+        padding: 6px 10px;
+        color: white;
+      }
+    }
+
+    .agree {
+      margin-top: 20px;
+      color: white;
+      label {
+        margin-left: 3px;
+      }
+    }
+
+    .button {
+      margin-top: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+
+      button {
+        font-size: 18px;
+        padding: 6px 20px;
+        background-color: #342d72;
+        color: white;
+      }
+      button:hover {
+        outline: none;
+        background-color: #316c9c;
+
+        transition: all 1s ease;
+        cursor: pointer;
+      }
+    }
+  }
 }

@@ -49,24 +49,26 @@ function Login() {
 
         <div className="form">
           <form onSubmit={handleSubmitForm}>
-            <div className="username">
-              <label htmlFor="username">Username</label>
-              <input
-                onChange={(e) => setUsername(e.target.value)}
-                type="text"
-                name="username"
-                id="username"
-              />
-            </div>
+            <div className="user">
+              <div className="username">
+                <label htmlFor="username">Username</label>
+                <input
+                  onChange={(e) => setUsername(e.target.value)}
+                  type="text"
+                  name="username"
+                  id="username"
+                />
+              </div>
 
-            <div className="password">
-              <label htmlFor="password">Password</label>
-              <input
-                onChange={(e) => setPassword(e.target.value)}
-                type="password"
-                name="password"
-                id="password"
-              />
+              <div className="password">
+                <label htmlFor="password">Password</label>
+                <input
+                  onChange={(e) => setPassword(e.target.value)}
+                  type="password"
+                  name="password"
+                  id="password"
+                />
+              </div>
             </div>
 
             <div className="login">
@@ -74,14 +76,14 @@ function Login() {
               <label htmlFor="loggedIn">Keep me logged in</label>
               <button type="submit">Login</button>
 
-            
+
             </div>
             <div className="forgot_password">
-              
+
               <Link to="/forgotPass">Forgot Password?</Link>
             </div>
 
-           
+
           </form>
         </div>
       </div>

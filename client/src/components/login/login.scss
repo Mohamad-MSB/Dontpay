@@ -1,76 +1,81 @@
+.login {
+border: 1px solid;
 
+box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
 .container_login{
-
   
-    margin-top: 150px;
-    margin-bottom:150px;
-
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-   
 
     h1{
-        text-align: center;
-        color: rgb(129, 127, 127);
-        margin-bottom:100px;
-
-
+        color: #CC611E;
+        padding:10px 40px;
     }
 
-    form{
+    .form {
 
-        margin-left: 10px;
+        border: 1px solid;
 
-        .username, .password{
 
-            label{
+        form{
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+    
+            .user {
 
-                display: block;
-                margin: 1px 0;
-                color: #08488d; 
-                margin-left: 1px;
+                display:flex;
+                
+                .username, .password{
+    
+                    label{
+                        color: #CC611E;
+                        display: block;
+                    }
+                    input{
+                    height: 33px;
+                    border: none;
+                    border-bottom: #CC611E 3px solid;
+                    margin: 0 5px;
+                    }
+                }
             }
-            input{
-
-                width: 40%;
-                height: 33px;
-               border-radius: 8px;
+    
+            .login{
+    
+                margin-top: 15px;
+                 
+                button{
+                    margin-top: 4px;
+                    display: block;
+                    font-size: 18px;
+                    padding:4px 12px;
+                    background-color:#342d72;
+                    color: white;
+    
+                }
+                button:hover{
+    
+                    outline:none;
+                    background-color:#316c9c;
+         
+                    transition: all 1s ease;
+                    cursor: pointer;
+                 }
             }
+    
+            .forgot_password{
+    
+                margin-top: 15px;
+                margin-bottom: 15px;
+               
+                a{
+                    color: rgb(22, 8, 8);
+                }
+            }
+    
+    
         }
-
-        .login{
-
-            margin-top: 15px;
-             
-            button{
-                margin-top: 4px;
-                display: block;
-                font-size: 18px;
-                padding:4px 12px;
-                background-color:#342d72;
-                color: white;
-
-            }
-            button:hover{
-
-                outline:none;
-                background-color:#316c9c;
-     
-                transition: all 1s ease;
-                cursor: pointer;
-             }
-        }
-
-        .forgot_password{
-
-            margin-top: 15px;
-            margin-bottom: 15px;
-           
-            a{
-                color: rgb(22, 8, 8);
-            }
-        }
-
-
     }
+}
+
 }

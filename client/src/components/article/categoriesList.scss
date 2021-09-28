@@ -16,29 +16,25 @@
     margin: 10px;
     border-radius: 7px;
 
-    &:hover {
-      opacity: 0.7;
-      transition: 0.5s ease;
-      backface-visibility: hidden;
-    }
+    // .middle {
+    //   transition: 0.5s ease;
+    //   opacity: 0;
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   transform: translate(-50%, -50%);
+    //   -ms-transform: translate(-50%, -50%);
+    //   text-align: center;
 
-    .middle {
-      transition: 0.5s ease;
-      opacity: 0;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      text-align: center;
-
-      &:hover {
-        opacity: 1;
-      }
-    }
+    //   &:hover {
+    //     opacity: 2;
+    //     display: block;
+    //   }
+    // }
 
     .text {
-      background-color: dodgerblue;
+      background-color: #CC611E;
+      text-transform: uppercase;
       color: white;
       font-size: 16px;
       padding: 16px 32px;
@@ -47,9 +43,12 @@
     }
 
     .category_link {
+      transition: all 0.5s ease-in-out;
       .category_image {
         display: flex;
         justify-content: center;
+        position: relative;
+        transition: all 0.5s ease-in-out;
 
         img {
           margin-top: 12px;
@@ -57,8 +56,12 @@
           width: 250px;
           height: 250px;
 
-          &:hover {
-          }
+        }
+
+        &:hover {
+          opacity: 0.5;
+          transition: all 0.5s ease-in-out;
+          backface-visibility: hidden;
         }
       }
 
@@ -66,8 +69,39 @@
         display: flex;
         justify-content: center;
         margin-top: 10px;
-        color: dodgerblue;
+        color: #CC611E;
       }
-    }
+
+      &::after {
+        content: "Check";
+        position: absolute;
+        color: #fff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #CC611E;
+        padding: 15px;
+        font-size:20px;
+        border-radius: 8px;
+        display: none;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+  
+      }
+  
+      &:hover::after {
+        display: block;
+        transition: all 0.5s ease-in-out;
+
+      }
+  
+      &:hover .category_image {
+        opacity: 0.5;
+        transition: all 0.5s ease;
+
+      }
+
+    }   
+   
   }
 }

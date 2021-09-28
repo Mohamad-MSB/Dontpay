@@ -3,8 +3,10 @@ import axios from '../../util/axiosInstance';
 import { ContextAPI } from '../../store/context'
 import { Link } from 'react-router-dom';
 import './userArticleList.scss';
-import firasIMG from '../../pages/homepage/dont-pay.jpg';
+import noArticle from '../../Images/heroImages/noarticle.png';
 import HeroImage from "../../components/heroImage/HeroImage";
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+
 
 function UserArticleList() {
 
@@ -30,34 +32,27 @@ function UserArticleList() {
 
     return (
         <div className="container_article">
+            <div className="heroImage">
+                <HeroImage />
+            </div>
+            {article.length !== 0 ? <div className="article_card">
+                {article.map(item => (
+                    <Link key={item} to={`/myarticle/${item._id}`} className="article">
+                        <img src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${item.articleimage}`} alt="test for now" />
+                        <div className="thumbnail_text">
+                            <p>{item.articlename}</p>
+                            <div className="location">
+                                <span className="icon"><LocationOnIcon /></span>
+                                <span>{item.user_id.address.zipcode}</span>
+                                <span>{item.user_id.address.city}</span>
+                            </div>
+                        </div>
+                    </Link>
+                )
+                )}
 
 
-
-<div className="heroImage">
-        <HeroImage />
-      </div>
-
-          <div className="article_card">
-          {article.map(item => (
-                <Link key={item} to={`/myarticle/${item._id}`} className="article">
-
-                <img src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${item.articleimage}`} alt="test for now" />
-              
-                
-                <div className="thumbnail_text">
-                <p>{item.articlename}</p>
-                <p>Note : {item.note}</p>
-                </div>
-                </Link>
-
-              
-
-            )
-            )}
-
-
-          </div>
-        {console.log(article.map(id => id._id))}
+            </div> : <Link to="/add" className="no_article"><img src={noArticle} alt="add_article" /></Link>}
         </div>
     )
 }

@@ -6,7 +6,7 @@ import { ContextAPI } from '../../store/context';
 import Slider from '../../components/carousel/Slider';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-
+ 
 
 function HomePage() {
 
@@ -24,7 +24,7 @@ function HomePage() {
         } catch (error) {
             console.log(error.message);
         }
-    }
+    } 
 
     useEffect(() => {
         articles()
@@ -55,10 +55,7 @@ function HomePage() {
                     }) : newArticles.map(article => {
                         return (
                             <Link to={`/category/${article.category}/${article._id}`} key={article._id} className="article">
-
                                 <img src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${article.articleimage}`} alt="test for now" />
-
-
                                 <div className="thumbnail_text">
                                     <p>{article.articlename}</p>
                                     <div className="location">

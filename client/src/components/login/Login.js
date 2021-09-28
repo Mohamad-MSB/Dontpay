@@ -39,7 +39,8 @@ function Login() {
   };
 
   return (
-    <div className="login">
+    <div className="login_container">
+    
       <div className="heroImage">
         <HeroImage />
       </div>
@@ -50,36 +51,27 @@ function Login() {
         <div className="form">
           <form onSubmit={handleSubmitForm}>
             <div className="user">
-              <div className="username">
-                <label htmlFor="username">Username</label>
                 <input
                   onChange={(e) => setUsername(e.target.value)}
                   type="text"
                   name="username"
                   id="username"
+                  placeholder="username"
                 />
-              </div>
-
-              <div className="password">
-                <label htmlFor="password">Password</label>
                 <input
                   onChange={(e) => setPassword(e.target.value)}
                   type="password"
                   name="password"
                   id="password"
+                  placeholder="password"
                 />
-              </div>
+                <button type="submit">Login</button>
             </div>
-
             <div className="login">
-              <input type="checkbox" name="" id="loggedIn" />
+              <input type="checkbox" id="loggedIn" />
               <label htmlFor="loggedIn">Keep me logged in</label>
-              <button type="submit">Login</button>
-
-
             </div>
             <div className="forgot_password">
-
               <Link to="/forgotPass">Forgot Password?</Link>
             </div>
 

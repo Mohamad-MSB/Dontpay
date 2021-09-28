@@ -4,7 +4,7 @@ import axios from "../../util/axiosInstance";
 import HeroImage from "../../components/heroImage/HeroImage";
 import "./addArticle.scss";
 
-// 2 september
+// 2 september 
 
 function AddArticle() {
 
@@ -78,20 +78,19 @@ function AddArticle() {
         <HeroImage />
       </div>
 
-      <h2>Add your Article</h2>
-
+      
       <div className="container_form_cont">
-
+      
+      <h1>Add your Item</h1>
          
         <form onSubmit={addhandler}>
 
           <div className="article_name">
-            <label htmlFor="articlename">Article Name</label>
             <input
               onChange={(e) => setArticlename(e.target.value)}
               type="text"
               name="articlename"
-              placeholder="articlename"
+              placeholder="item name"
             />
           </div>
 
@@ -125,7 +124,6 @@ function AddArticle() {
           </div>
 
           <div className="quantity">
-            <label htmlFor="quantity">Quantity:</label>
             <input
               onChange={(e) => setQuantity(e.target.value)}
               type="text"
@@ -135,20 +133,18 @@ function AddArticle() {
           </div>
 
           <div className="description">
-            <label htmlFor="description">Description</label>
             <textarea
               onChange={(e) => setDescription(e.target.value)}
               name="description"
               id="description"
               cols="30"
               rows="10"
+              placeholder="item details"
             >
-              article details
             </textarea>
           </div>
 
           <div className="note">
-            <label htmlFor="note">Note</label>
             <input
               onChange={(e) => setNote(e.target.value)}
               type="text"
@@ -164,26 +160,12 @@ function AddArticle() {
               name="photo"
               id="img1"
               style={{ display: "none" }}
-            />{" "}
+            />
             <label htmlFor="img1">Upload Image </label>
-            <input
-              type="file"
-              name="uploadfile"
-              id="img2"
-              style={{ display: "none" }}
-            />{" "}
-            {/* <label htmlFor="img2">Click hier to upload image 2</label>
-            <input
-              type="file"
-              name="uploadfile"
-              id="img3"
-              style={{ display: "none" }}
-            />{" "}
-            <label htmlFor="img3">Click hier to upload image 3</label> */}
           </div>
 
           <div className="submit">
-            <input type="submit" value="add Article" />
+            <button type="submit" >Add Item</button>
           </div>
         </form>
       </div>

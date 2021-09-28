@@ -1,9 +1,12 @@
 .container_register {
-
-    border: 1px solid;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  margin: 0 auto;
+  width: 45%;
+  padding:30px;
   h1 {
     text-align: center;
-    color:#8D5F2D;
+    color: #8d5f2d;
     margin-bottom: 15px;
     font-weight: 900;
   }
@@ -11,79 +14,109 @@
   form {
     margin-left: 10px;
 
+
+
     .fullname,
-    .age,
     .email,
-    .username,
-    .password,
     .phone {
-      label {
-        display: block;
-        margin: 1px 0;
-        color: #08488d;
-        margin-left: 1px;
-      }
+
+      padding: 20px 0;
       input {
-        width: 40%;
-        height: 33px;
+        background-color: #faf9f9;
+        height: 40px;
+        border: none;
+        border-bottom: #cc611e 3px solid;
+        margin: 0 5px;
+        padding: 10px;
+        color: #cc611e;
+        font-size: 1rem;
+        outline: none;
         border-radius: 8px;
+
+        &::placeholder {
+          padding: 10px;
+          color: #9c8f1b;
+          font-size: 1rem;
+        }
+      }
+
+      .age {
+        width: 70px;
       }
     }
 
     .address {
-      label {
-        display: block;
-        margin: 1px 0;
-        color: #08488d;
-        margin-left: 1px;
+      input {
+        height: 40px;
+        background-color: #faf9f9;
+
+        border: none;
+        border-bottom: #cc611e 3px solid;
+        margin: 0 5px;
+        padding: 10px;
+        color: #cc611e;
+        font-size: 1rem;
+        outline: none;
+        border-radius: 8px;
+
+        &::placeholder {
+          padding: 10px;
+          color: #9c8f1b;
+          font-size: 1rem;
+        }
       }
 
-      .street {
-        width: 40%;
-        height: 33px;
-        margin-right: 5px;
-        margin-bottom: 5px;
-        border-radius: 8px;
-      }
+      // .street {
+
+      // }
 
       .house {
-        width: 20%;
-        height: 33px;
-        margin-right: 5px;
-        border-radius: 8px;
+        width: 60px;
       }
 
       .code {
-        width: 20%;
-        height: 33px;
-        margin-right: 5px;
-        border-radius: 8px;
+        width: 100px;
       }
 
       .city,
       .land {
-        width: 30%;
-        height: 33px;
-        margin-right: 5px;
-        border-radius: 8px;
+        width: 130px;
       }
     }
 
     .upload {
-      margin-top: 20px;
+      padding: 30px 0;
+      margin-top: 10px;
 
       label {
-        background-color: #08488d;
-        padding: 6px 10px;
-        color: white;
+        color: #9c8f1b;
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #cc611e;
+        border-radius: 8px;
+        transition: all 0.5s ease;
+
+        &:hover {
+          background-color: #cc611e;
+          color: #fff;
+          cursor: pointer;
+        transition: all 0.5s ease;
+
+          }
       }
     }
 
     .agree {
-      margin-top: 20px;
-      color: white;
+      margin: 20px 10px;
+      color: #cc611e;
       label {
-        margin-left: 3px;
+        margin: 0 5px;
+        cursor: pointer;
+      }
+      input[type="checkbox"] {
+        cursor: pointer;
+        width: 15px;
+        height: 15px;
       }
     }
 
@@ -94,16 +127,23 @@
 
       button {
         font-size: 18px;
-        padding: 6px 20px;
-        background-color: #342d72;
+        padding: 10px 20px;
+        background-color: #cc611e;
         color: white;
-      }
-      button:hover {
+        transition: all 0.5s ease;
+        border: 1px solid transparent;
         outline: none;
-        background-color: #316c9c;
+        border-radius: 8px;
 
-        transition: all 1s ease;
-        cursor: pointer;
+        &:hover {
+          background-color: #fff;
+          color:#cc611e;
+          cursor: pointer;
+        transition: all 0.5s ease;
+        border: 1px solid #cc611e;
+
+
+          }
       }
     }
   }

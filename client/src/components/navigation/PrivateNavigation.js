@@ -20,7 +20,7 @@ export default function PrivateNavigation({ user, userId }) {
 
     return (
         <>
-            <span>Welcome {user} </span>
+            <span className="welcome">Welcome {user} </span>
             <div className="dropdown"> 
                 <button className="dropbtn">My Account</button>
                 <div className="dropdown-content">

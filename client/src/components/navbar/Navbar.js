@@ -50,7 +50,7 @@ function Navbar() {
              value={search}
              placeholder="Search for anything or by city"
            />
-            <span> <SearchIcon/></span>
+            <span> <SearchIcon style={{color: "#9c8f1b"}}/></span>
          </div>
        </div>
 

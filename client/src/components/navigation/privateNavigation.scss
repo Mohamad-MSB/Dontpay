@@ -19,10 +19,6 @@
     padding: 16px;
     font-size: 1rem;
     border: none;
-    
-    &:hover {
-      background-color: #6566cb;
-    }
 
   }
   .dropdown-content {
@@ -37,9 +33,27 @@
       padding: 12px 16px;
       text-decoration: none;
       display: block;
-      &:hover {
-        background-color: #fff;
-        color: #4296d2;
+      position: relative;
+      
+      
+      &::after {
+        content: "";
+        width:0%;
+        height:5px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        
+
+        transition: width 0.5s;
+        width: 20%;
+      }
+
+      &:hover::after {
+        content: "";
+        height: 2px;
+        width: 100%;
+        background-color:#CC611E;
       }
     }
   }

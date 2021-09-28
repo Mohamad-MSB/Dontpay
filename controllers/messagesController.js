@@ -53,9 +53,9 @@ exports.writeMessage = async (req, res) => {
 exports.showMessages = async (req, res) => {
 
     try {
-        const messages = await roomModel.find({ $or:[{ reciever: req.user._id }, { sender:req.user._id}]}).populate({path:"article_id messages sender reciever", populate: {path: "sender reciever"}});
-                                                                            
-       return res.status(200).json({ messages: messages, });
+        const messages = await roomModel.find({ $or:[{ reciever: req.user._id }, { sender: req.user._id}]}).populate({path:"article_id messages sender reciever", populate: {path: "sender reciever"}});
+                                                           
+       return res.status(200).json({ messages: messages });
 
     } catch (error) {
        return res.status(500).json({ message: "error happens here", error: error.message })

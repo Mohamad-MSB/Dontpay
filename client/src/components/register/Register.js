@@ -51,7 +51,7 @@ function Register() {
     }
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   return (
     <div className="register">

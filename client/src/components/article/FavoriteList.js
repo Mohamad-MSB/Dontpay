@@ -47,7 +47,7 @@ function FavoriteList() {
            to={`/category/${article.category}/${article._id}`}
            key={article._id}
          >  <div className="fav_image">
-         <img src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${articles.articleimage}`} alt="Favorite Article" />
+         <img src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${article.articleimage}`} alt="Favorite Article" />
        </div></Link>
          <div className="card">
         

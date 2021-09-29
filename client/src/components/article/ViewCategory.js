@@ -3,6 +3,7 @@ import axios from '../../util/axiosInstance';
 import { useParams } from 'react-router-dom';
 import Articles from './Articles';
 import './viewcategory.scss';
+import HeroImage from "../../components/heroImage/HeroImage";
 
 // 2 september
 
@@ -29,6 +30,10 @@ function ViewCategory() {
 
     return (
         <div className="atricl_container">
+
+<div className="heroImage">
+        <HeroImage />
+      </div>
 
         <div className="article_list">
             {articles.length === 0 ? <h1>there is no articles in this category</h1> : articles.map((article) => <Articles key={article._id} article={article} category={category} itemId={id}/>)}

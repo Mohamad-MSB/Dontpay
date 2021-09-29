@@ -14,7 +14,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 
 const styleIcon = {
-  background: "#004a99",
+  background: "#cc611e",
   fontSize: "55px",
   borderRadius: "100%",
   color: "white",

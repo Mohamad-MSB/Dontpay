@@ -147,7 +147,7 @@ exports.addToFavorites = async (req, res) => {
         },
             { new: true });
 
-        return res.status(200).json({ message: "Article added to favorites", user: user });
+        return res.status(200).json({ message: "Article is in favorite list", user: user });
 
     } catch (error) {
         return res.status(400).json({ message: "error happend", error: error.message });
@@ -246,7 +246,7 @@ exports.removeFromFavorite = async (req, res) => {
             { $pull: { favorite: {$in: [`${req.params.id}`]}} },
             { new: true });
 
-        res.status(200).json({message: 'article removed from favorites successfully', article: user})
+        res.status(200).json({message: 'Article removed from favorites successfully', article: user})
     } catch (error) {
         return res.status(400).json({ message: "error happend", error: error.message });
     }

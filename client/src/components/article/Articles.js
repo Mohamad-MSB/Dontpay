@@ -25,7 +25,6 @@ function Articles({ article, category, itemId }) {
                 <p>{article.articlename}</p>
                 <p>Note : {article.note}</p>
             </div>
-        {console.log(article.articleimage)} 
         </Link>
     )
 }

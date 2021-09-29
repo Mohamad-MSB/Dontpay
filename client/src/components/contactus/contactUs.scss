@@ -9,6 +9,7 @@
   p {
     text-align: center;
     margin: 10px 0;
+    color:#cc611e;
   }
 
   .two_block {
@@ -87,13 +88,26 @@
         label {
           font-size: 20px;
           margin-top: 3px;
+          color:#cc611e;
         }
         input {
             margin-top: 15px;
           height: 35px;
           width: 40%;
           margin-bottom: 15px;
+          outline: none;
+          border: none;
+          border-bottom: 1px solid #cc611e;
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+
+          &::placeholder {
+            padding: 10px;
+            color: #9c8f1b;
+            font-size: 1rem;
+          }
         }
+      
 
         .form__containerItemName {
           display: flex;
@@ -130,15 +144,17 @@
         .container__composeMail {
           width: 50%;
           height: 110px;
-          margin-left: 400px;
+          margin-left: 450px;
           position: absolute;
           top: 6%;
 
-          label {
-            padding-bottom: 10px;
-          }
+         
         }
       }
+    }
+
+    .email_sending{
+      color:#cc611e;
     }
   }
 }

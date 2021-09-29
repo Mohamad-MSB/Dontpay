@@ -44,50 +44,43 @@ function FavoriteList() {
       {articles.length !== 0 ? (
         articles.map((article) => {
           return (
-            <>
-              <Link
-                to={`/category/${article.category}/${article._id}`}
-                key={article._id}
-              >
-                {" "}
-                <div className="fav_image">
-                  <img
-                    src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${articles.articleimage}`}
-                    alt="Favorite Article"
-                  />
-                </div>
-              </Link>
-              <div className="card">
-                <div className="middle_column">
-                  <h2> {article.articlename}</h2>
-                  <p>{article.description}</p>
-                  <button
-                    onClick={() => removeFromFavoriteList(article._id)}
-                    className="fav_toggle"
-                  >
-                    Remove from Favorites
-                  </button>
-                  {console.log(article._id)}
-                </div>
-                <div className="right_column">
-                  <div>22/07/2021</div>
-                  <div>
-                    <span>25336</span>
-                    <span> </span>
-                    <span>Pinneberg</span>
-                  </div>
-                  <div>Shipping is Possible</div>
-                  <div>
-                    Owner :{owner}
-                    {article.user_id !== null ? (
-                      <h4>{article.user_id.username} </h4>
-                    ) : (
-                      <h4>no username</h4>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </>
+
+           <>
+           <Link
+           to={`/category/${article.category}/${article._id}`}
+           key={article._id}
+         >  <div className="fav_image">
+         <img src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${article.articleimage}`} alt="Favorite Article" />
+       </div></Link>
+         <div className="card">
+        
+         <div className="middle_column">
+           <h2> {article.articlename}</h2>
+           <p>
+             {article.description}
+           </p>
+           <button onClick={() => removeFromFavoriteList(article._id)} className="fav_toggle">Remove from Favorites</button>
+           {console.log(article._id)}
+         </div>
+         <div className="right_column">
+           <div>22/07/2021</div>
+           <div>
+             <span>25336</span>
+             <span> </span>
+             <span>Pinneberg</span>
+           </div>
+           <div>Shipping is Possible</div>
+           <div>
+             Owner :{owner}
+             {article.user_id !== null ? (
+               <h4>{article.user_id.username} </h4>
+             ) : (
+               <h4>no username</h4>
+             )}
+           </div>
+         </div>
+       </div>
+           </>
           );
         })
       ) : (

@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './articles.scss';
-import firasIMG from './dont-pay.jpg';
-import axios from '../../util/axiosInstance';
+
 
 // 2 september
 

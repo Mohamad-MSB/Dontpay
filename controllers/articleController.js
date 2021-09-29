@@ -108,7 +108,7 @@ exports.article = async (req, res) => {
 exports.newArticle = async (req, res) => {
     try {
         const articles = await articleModel.find().populate("user_id")
-            .limit(21)
+            .limit(24)
             .sort('-created');
 
         const allArticles = await articleModel.find().populate("user_id")

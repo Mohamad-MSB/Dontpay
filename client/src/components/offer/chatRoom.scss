@@ -1,5 +1,4 @@
 .wrapper {
-  border: 1px solid;
   width: 100%;
 
   .chat_inbox {
@@ -11,10 +10,12 @@
     border-radius: 20px;
 
     .chat_article_room {
-      padding: 30px;
-      width: 400px;
+      margin: 0 10px;
+      width: 600px;
 
       .image {
+        display: flex;
+        
         width: 125px;
         height: 125px;
         border-radius: 50%;
@@ -57,7 +58,7 @@
 
     .single_chatroom {
       background-color: #cc611e;
-      
+
       padding: 20px;
       flex: 100%;
       border-radius: 20px;

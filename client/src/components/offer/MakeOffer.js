@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from '../../util/axiosInstance';
 import { ContextAPI } from '../../store/context';
 import { Draggable, Droppable } from 'react-drag-and-drop';
+import './makeOffer.scss';
 
 function MakeOffer() {
 
@@ -38,14 +39,14 @@ function MakeOffer() {
     return (
         <div className="offer_container">
             <div style={{ display: "flex" }}>
-                <ul style={{ width: "200px", height: "200px", background: "green" }}>
+                <ul className="SmoothieOne" >
                     {walet.map(item => <Draggable key={item._id} type="article" data={item._id}><li>{item.articlename}</li></Draggable>)}
                 </ul>
-                <Droppable
+                <Droppable className="Droppable"
                     types={['article']}
                     onDrop={handleDrop}
                 >
-                    <ul className="Smoothie" style={{ width: "200px", height: "200px", background: "dodgerblue" }}>
+                    <ul className="SmoothieTwo" >
                         {drop.map(item => <li>{item.articlename}</li>)}
                     </ul>
                 </Droppable>

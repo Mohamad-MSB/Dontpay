@@ -125,31 +125,97 @@ function SingleArticle() {
           </div>
         </div>
 
-
         <div className="details">
+          <div className="details_card">
+            <div className="title">
+              <h2>{articlename}</h2>
+              <p>Status: {status}</p>
+              <p>Note : {note}</p>
+              <span className="create_date">
+                {" "}
+                {new Date(created).toLocaleDateString()}
+              </span>
 
-            <div className="details_card">
-              <div className="title">
-                <h2>{articlename}</h2>
-                <p>Status: {status}</p>
-                <p>Note : {note}</p>
-                <span className="create_date">
-                  {" "}
-                  {new Date(created).toLocaleDateString()}
-                </span>
-              </div>
-
-              <div className="user">
-                <h3>{user.username}</h3>
-                <p className="address">
-                  <span>{address.zipcode},</span>
-                  <span className="user_zip">{address.city}</span>
-                </p>
-              </div>
+              
+              <h3>{user.username}</h3>
+              <p className="address">
+                <span>{address.zipcode},</span>
+                <span className="user_zip">{address.city}</span>
+              </p>
+           
             </div>
 
+            
 
-            <div className="offer">
+            <div className="send_message_container">
+              {sendMessage ? (
+                <form>
+                  <div className="user">
+                    <label htmlFor="message">message</label>
+                    <textarea
+                      onChange={(e) => setMessage(e.target.value)}
+                      name="message"
+                      id="message"
+                      cols="30"
+                      rows="10"
+                    >
+                      send message
+                    </textarea>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={(e) => handleSendingMessage(e)}
+                  >
+                    send message
+                  </button>
+                </form>
+              ) : makeoffer ? (
+                <div className="offer_container">
+                  <div style={{ display: "flex" }}>
+                    <ul
+                      style={{
+                        width: "200px",
+                        height: "200px",
+                        background: "red",
+                        width: "50%",
+                      }}
+                    >
+                      {walet.map((item) => (
+                        <Draggable
+                          key={item._id}
+                          type="article"
+                          data={item._id}
+                        >
+                          <li>{item.articlename}</li>
+                        </Draggable>
+                      ))}
+                    </ul>
+                    <Droppable types={["article"]} onDrop={handleDrop}>
+                      <ul
+                        className="Smoothie"
+                        style={{
+                          width: "200px",
+                          height: "200px",
+                          background: "dodgerblue",
+                         
+                        }}
+                      >
+                        {drop.map((item) => (
+                          <li>{item.articlename}</li>
+                        ))}
+                      </ul>
+                    </Droppable>
+                  </div>
+                  <button type="button">send the offer</button>
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+          </div>
+
+          <div className="offer">
             {userId !== user._id && (
               <div className="user_button">
                 <button onClick={() => setSendMessage(!sendMessage)}>
@@ -171,60 +237,8 @@ function SingleArticle() {
               <button onClick={() => removedArticle()}>Delete Item</button>
             )}
           </div>
-          
         </div>
 
-        {sendMessage ? (
-          <form>
-            <div className="user">
-              <label htmlFor="message">message</label>
-              <textarea
-                onChange={(e) => setMessage(e.target.value)}
-                name="message"
-                id="message"
-                cols="30"
-                rows="10"
-              >
-                send message
-              </textarea>
-            </div>
-
-            <button type="button" onClick={(e) => handleSendingMessage(e)}>
-              send message
-            </button>
-          </form>
-        ) : makeoffer ? (
-          <div className="offer_container">
-            <div style={{ display: "flex" }}>
-              <ul
-                style={{ width: "200px", height: "200px", background: "green" }}
-              >
-                {walet.map((item) => (
-                  <Draggable key={item._id} type="article" data={item._id}>
-                    <li>{item.articlename}</li>
-                  </Draggable>
-                ))}
-              </ul>
-              <Droppable types={["article"]} onDrop={handleDrop}>
-                <ul
-                  className="Smoothie"
-                  style={{
-                    width: "200px",
-                    height: "200px",
-                    background: "dodgerblue",
-                  }}
-                >
-                  {drop.map((item) => (
-                    <li>{item.articlename}</li>
-                  ))}
-                </ul>
-              </Droppable>
-            </div>
-            <button type="button">send the offer</button>
-          </div>
-        ) : (
-          ""
-        )}
         {console.log(singleArticle)}
       </div>
     </div>

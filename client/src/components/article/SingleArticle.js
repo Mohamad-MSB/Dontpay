@@ -215,8 +215,8 @@ function SingleArticle() {
             </div>
           </div>
 
-          <div className="offer">
-            {userId !== user._id && (
+            <div className="offer">
+            {userId === user._id && (
               <div className="user_button">
                 <button onClick={() => setSendMessage(!sendMessage)}>
                   Send Message

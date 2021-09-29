@@ -24,6 +24,11 @@ function UserProfile() {
 
     useEffect(() => {
         getuser();
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          })
     }, []);
 
     return (

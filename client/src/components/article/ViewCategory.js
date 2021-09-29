@@ -26,6 +26,11 @@ function ViewCategory() {
 
     useEffect(() => {
         getArticles(category)
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          })
     },[])
 
     return (

@@ -22,6 +22,7 @@ function UserSingleArticle() {
     description,
     status,
     note,
+    category,
     quantity,
     articleimage,
     created,
@@ -58,14 +59,13 @@ function UserSingleArticle() {
 
       <div className="image_delete">
         <div className="image">
-          {" "}
           <img
             src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${articleimage}`}
             alt=""
-          />{" "}
+          />
         </div>
         <div className="delete">
-          <button onClick={() => removeArticle()}>Delete Item</button>
+          <button onClick={() => removeArticle(category, articleId)}>Delete Item</button>
         </div>
       </div>
       <div className="details">
@@ -74,7 +74,6 @@ function UserSingleArticle() {
           <p>Status: {status}</p>
           <p>Note : {note}</p>
           <span className="create_date">
-            {" "}
             {new Date(created).toLocaleDateString()}
           </span>
         </div>
@@ -83,8 +82,6 @@ function UserSingleArticle() {
           <p>{description}</p>
         </div>
       </div>
-
-      {console.log("article id", selectedArticle)}
     </div>
   );
 }

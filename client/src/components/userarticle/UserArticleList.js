@@ -37,7 +37,7 @@ function UserArticleList() {
             </div>
             {article.length !== 0 ? <div className="article_card">
                 {article.map(item => (
-                    <Link key={item} to={`/myarticle/${item._id}`} className="article">
+                    <Link key={item} to={`/category/${item.category}/${item._id}`} className="article">
                         <img src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${item.articleimage}`} alt="test for now" />
                         <div className="thumbnail_text">
                             <p>{item.articlename}</p>

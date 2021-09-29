@@ -16,6 +16,8 @@ function SingleArticle() {
   const [selectedArticle, setSelectedArticle] = useState([]);
   const { articlename, description, status, note, created } = selectedArticle;
 
+  const [refresh, setRefresh] = useState(false);
+
   const [user, setUser] = useState("");
   const [address, setAddress] = useState({});
 
@@ -101,6 +103,12 @@ function SingleArticle() {
   useEffect(() => {
     singleArticle(category, id);
     getMyArticle();
+
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
   }, [id, remove]);
 
   return (
@@ -108,136 +116,126 @@ function SingleArticle() {
       <div className="hero_image">
         <HeroImage />
       </div>
-
-      <div className="container_add_fav">
-        <div className="image_offer">
-          <div className="image">
-            {" "}
-            <img
-              src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${selectedArticle.articleimage}`}
-              alt=""
-            />{" "}
-          </div>
-
-          <div className="description">
-            <h2>Description</h2>
-            <p>{description}</p>
-          </div>
-        </div>
-
-        <div className="details">
-          <div className="details_card">
-            <div className="title">
-              <h2>{articlename}</h2>
-              <p>Status: {status}</p>
-              <p>Note : {note}</p>
-              <span className="create_date">
-                {" "}
-                {new Date(created).toLocaleDateString()}
-              </span>
-
-              
-              <h2>{user.username}</h2>
-              <p className="address">
-                <span>{address.zipcode},</span>
-                <span className="user_zip">{address.city}</span>
-              </p>
-           
+      <div className="big_container">
+        <div className="container_add_fav">
+          <div className="image_offer">
+            <div className="image">
+              <img
+                src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${selectedArticle.articleimage}`} alt="" />
             </div>
 
-            
-
-            <div className="send_message_container">
-              {sendMessage ? (
-                <form>
-                  <div className="user">
-                    <label htmlFor="message">message</label>
-                    <textarea
-                      onChange={(e) => setMessage(e.target.value)}
-                      name="message"
-                      id="message"
-                      cols="30"
-                      rows="10"
-                    >
-                      send message
-                    </textarea>
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={(e) => handleSendingMessage(e)}
-                  >
-                    send message
-                  </button>
-                </form>
-              ) : makeoffer ? (
-                <div className="offer_container">
-                  <div className="Smoothie_container" style={{ display: "flex" }}>
-                    <ul className="SmoothieOne"
-                    
-                    >
-                      {walet.map((item) => (
-                        <Draggable
-                          key={item._id}
-                          type="article"
-                          data={item._id}
-                        >
-                          <li>{item.articlename}</li>
-                        </Draggable>
-                      ))}
-                    </ul>
-                    <Droppable types={["article"]} onDrop={handleDrop}>
-                      <ul
-                        className="SmoothieTwo"
-                        style={{
-                          width: "200px",
-                          height: "250px",
-                          border: "1px solid #cc611e",
-                          color:' #9c8f1b',
-                         
-                        }}
-                      >
-                        {drop.map((item) => (
-                          <li>{item.articlename}</li>
-                        ))}
-                      </ul>
-                    </Droppable>
-                  </div>
-                  <button type="button">send the offer</button>
-                </div>
-              ) : (
-                ""
-                
-              )}
-              
+            <div className="description">
+              <h2>Description</h2>
+              <p>{description}</p>
             </div>
           </div>
+
+          <div className="details">
+            <div className="details_card">
+              <div className="title">
+                <h2>{articlename}</h2>
+                <p>Status: {status}</p>
+                <p>Note : {note}</p>
+                <span className="create_date">
+                  {new Date(created).toLocaleDateString()}
+                </span>
+
+
+                <h2>{user.username}</h2>
+                <p className="address">
+                  <span>{address.zipcode},</span>
+                  <span className="user_zip">{address.city}</span>
+                </p>
+
+              </div>
+            </div>
 
             <div className="offer">
-            {userId !== null && (
-              <div className="user_button">
-                <button onClick={() => setSendMessage(!sendMessage)}>
-                  Send Message
-                </button>
-                <button
-                  onClick={() =>
-                    setSendMessage(false) & setMakeoffer(!makeoffer)
-                  }
-                >
-                  Make offer
-                </button>
-                <button onClick={() => makeFavorite(id)}>
-                  Add to Favorites
-                </button>
-              </div>
-            )}
-            {userId === user._id && (
-              <button onClick={() => removedArticle()}>Delete Item</button>
-            )}
+              {userId !== null && userId !== user._id ? (
+                <div className="user_button">
+                  <button onClick={() => setSendMessage(!sendMessage)}>
+                    Send Message
+                  </button>
+                  <button
+                    onClick={() =>
+                      setSendMessage(false) & setMakeoffer(!makeoffer)
+                    }
+                  >
+                    Make offer
+                  </button>
+                  <button onClick={() => makeFavorite(id)}>
+                    Add to Favorites
+                  </button>
+                  </div>
+                  ) : ""}
+                  {userId === user._id && (
+                    <button className="remove_item" onClick={() => removedArticle()}>Delete Item</button>
+                  )}
+            </div>
           </div>
         </div>
 
-        {console.log(singleArticle)}
+        <div className="send_message_container">
+          {sendMessage ? (
+            <form>
+              <div className="user">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  onChange={(e) => setMessage(e.target.value)}
+                  name="message"
+                  id="message"
+                  cols="30"
+                  rows="10"
+                >
+                  send message
+                </textarea>
+              </div>
+              <button
+                type="button"
+                onClick={(e) => handleSendingMessage(e)}>
+                Send message
+              </button>
+
+            </form>
+          ) : makeoffer ? (
+            <div className="offer_container">
+              <div className="Smoothie_container" >
+                <div className="first_smothie">
+                  <ul >
+                    {walet.map((item) => (
+                      <Draggable
+                        key={item._id}
+                        type="article"
+                        data={item._id}
+                        className="my_item"
+                      >
+                        <li><img
+                          src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${item.articleimage}`} alt="" /></li>
+                      </Draggable>
+                    ))}
+                  </ul>
+                </div>
+                <div className="second_smothie">
+                  <Droppable types={["article"]} onDrop={handleDrop}>
+                    <ul
+                      className="SmoothieTwo">
+                      {drop.map((item) => (
+                        <li><img
+                        src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${item.articleimage}`} alt="" /></li>
+                      ))}
+                    </ul>
+                  </Droppable>
+                </div>
+              </div>
+
+              <button onClick={() => window.location.reload() & window.scroll({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+              })} type="button">send the offer</button>
+            </div>
+          ) : ("")}
+        </div>
       </div>
     </div>
   );

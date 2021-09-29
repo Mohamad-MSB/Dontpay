@@ -134,7 +134,6 @@ function SingleArticle() {
                 <p>Status: {status}</p>
                 <p>Note : {note}</p>
                 <span className="create_date">
-                  {" "}
                   {new Date(created).toLocaleDateString()}
                 </span>
               </div>
@@ -150,7 +149,7 @@ function SingleArticle() {
 
 
             <div className="offer">
-            {userId !== user._id && (
+            {userId === user._id && (
               <div className="user_button">
                 <button onClick={() => setSendMessage(!sendMessage)}>
                   Send Message

@@ -1,16 +1,15 @@
-
 import React, { useState, useEffect } from "react";
 
 import axios from "../../util/axiosInstance";
 import { Link, useParams } from "react-router-dom";
 import "./FavoritesList.scss";
-import HeroImage from "../heroImage/HeroImage";
+import HeroImage from "../../components/heroImage/HeroImage";
 
 function FavoriteList() {
   const [articles, setArticles] = useState([]);
   const [owner, setOwner] = useState([]);
 
-  const [refresh, setRefresh] = useState(false)
+  const [refresh, setRefresh] = useState(false);
 
   const favoriteArticles = async () => {
     try {
@@ -23,14 +22,13 @@ function FavoriteList() {
   };
 
   const removeFromFavoriteList = async (id) => {
-  try {
-    await axios.get(`/user/favorites/remove/${id}`);
-    setRefresh(!refresh)
-    
-  } catch (error) {
-    console.log(error.message);
-  }
-  }
+    try {
+      await axios.get(`/user/favorites/remove/${id}`);
+      setRefresh(!refresh);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   useEffect(() => {
     favoriteArticles();
@@ -38,10 +36,15 @@ function FavoriteList() {
 
   return (
     <div className="favorite_list">
-      <HeroImage />
+
+<h1>hello here</h1>
+<div className="heroImage">
+        <HeroImage />
+      </div>
       {articles.length !== 0 ? (
         articles.map((article) => {
           return (
+
            <>
            <Link
            to={`/category/${article.category}/${article._id}`}
@@ -83,7 +86,8 @@ function FavoriteList() {
       ) : (
         <h1>there is no favorite articles</h1>
       )}
-
+    
+    
     </div>
   );
 }

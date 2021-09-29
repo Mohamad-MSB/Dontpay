@@ -20,7 +20,7 @@ const styleIcon = {
   color: "white",
 };
 
-const styleIconTow = { fontSize: "30px", marginLeft: "10px" };
+const styleIconTow = { fontSize: "30px", marginLeft: "10px" , color: "#cc611e"};
 const styleThree = { fontSize: "25px", height: "285px", background: "#fff", marginTop: "10px" };
 
 function ContactUs() {

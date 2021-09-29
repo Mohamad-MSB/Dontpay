@@ -19,8 +19,9 @@
     .info_contact {
       flex: 35%;
 
-      border-top: 3px solid dodgerblue;
-      border-bottom: 3px solid dodgerblue;
+    
+      border-bottom: #9c8f1b 3px solid;
+      border-top: #9c8f1b 3px solid;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
       .phone {
@@ -69,8 +70,8 @@
     .form_contact {
       flex: 65%;
 
-      border-top: 3px solid dodgerblue;
-      border-bottom: 3px solid dodgerblue;
+      border-bottom: #9c8f1b 3px solid;
+      border-top: #9c8f1b 3px solid;
       margin-left: 30px;
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
@@ -101,20 +102,28 @@
 
         .form__container__Compose {
           margin-top: 20px;
+          text-align: center;
 
           button {
-            margin-left: 350px;
-            margin-top: 50px;
             font-size: 18px;
-            padding: 10px 30px;
-            background: #218efa;
-            color: #fff;
-            border-radius: 6px;
-
+            padding: 10px 20px;
+            background-color: #cc611e;
+            color: white;
+            transition: all 0.5s ease;
+            border: 1px solid transparent;
+            outline: none;
+            border-radius: 8px;
+         
+    
             &:hover {
-              background-color: #004a99;
-              transition: all 0.5s ease-in-out;
-            }
+              background-color: #fff;
+              color:#cc611e;
+              cursor: pointer;
+            transition: all 0.5s ease;
+            border: 1px solid #cc611e;
+    
+    
+              }
           }
         }
 

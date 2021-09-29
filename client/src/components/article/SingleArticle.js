@@ -137,7 +137,7 @@ function SingleArticle() {
               </span>
 
               
-              <h3>{user.username}</h3>
+              <h2>{user.username}</h2>
               <p className="address">
                 <span>{address.zipcode},</span>
                 <span className="user_zip">{address.city}</span>
@@ -172,14 +172,9 @@ function SingleArticle() {
                 </form>
               ) : makeoffer ? (
                 <div className="offer_container">
-                  <div style={{ display: "flex" }}>
-                    <ul
-                      style={{
-                        width: "200px",
-                        height: "200px",
-                        background: "red",
-                        width: "50%",
-                      }}
+                  <div className="Smoothie_container" style={{ display: "flex" }}>
+                    <ul className="SmoothieOne"
+                    
                     >
                       {walet.map((item) => (
                         <Draggable
@@ -193,11 +188,12 @@ function SingleArticle() {
                     </ul>
                     <Droppable types={["article"]} onDrop={handleDrop}>
                       <ul
-                        className="Smoothie"
+                        className="SmoothieTwo"
                         style={{
                           width: "200px",
-                          height: "200px",
-                          background: "dodgerblue",
+                          height: "250px",
+                          border: "1px solid #cc611e",
+                          color:' #9c8f1b',
                          
                         }}
                       >
@@ -211,7 +207,9 @@ function SingleArticle() {
                 </div>
               ) : (
                 ""
+                
               )}
+              
             </div>
           </div>
 

@@ -4,6 +4,8 @@ import axios from "../../util/axiosInstance";
 import { Link, useParams } from "react-router-dom";
 import "./FavoritesList.scss";
 import HeroImage from "../../components/heroImage/HeroImage";
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+
 
 function FavoriteList() {
   const [articles, setArticles] = useState([]);
@@ -37,57 +39,34 @@ function FavoriteList() {
   return (
     <div className="favorite_list">
 
-<h1>hello here</h1>
-<div className="heroImage">
+      <h1>hello here</h1>
+      <div className="heroImage">
         <HeroImage />
       </div>
-      {articles.length !== 0 ? (
-        articles.map((article) => {
-          return (
+     <div className="favorite_container">  
+     {articles.length !== 0 ? (
+      articles.map((article) => {
+        return (
 
-           <>
-           <Link
-           to={`/category/${article.category}/${article._id}`}
-           key={article._id}
-         >  <div className="fav_image">
-         <img src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${article.articleimage}`} alt="Favorite Article" />
-       </div></Link>
-         <div className="card">
-        
-         <div className="middle_column">
-           <h2> {article.articlename}</h2>
-           <p>
-             {article.description}
-           </p>
-           <button onClick={() => removeFromFavoriteList(article._id)} className="fav_toggle">Remove from Favorites</button>
-           {console.log(article._id)}
-         </div>
-         <div className="right_column">
-           <div>22/07/2021</div>
-           <div>
-             <span>25336</span>
-             <span> </span>
-             <span>Pinneberg</span>
-           </div>
-           <div>Shipping is Possible</div>
-           <div>
-             Owner :{owner}
-             {article.user_id !== null ? (
-               <h4>{article.user_id.username} </h4>
-             ) : (
-               <h4>no username</h4>
-             )}
-           </div>
-         </div>
-       </div>
-           </>
-          );
-        })
-      ) : (
-        <h1>there is no favorite articles</h1>
-      )}
-    
-    
+          <>
+            <Link key={article} to={`/category/${article.category}/${article._id}`} className="article">
+              <img src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGA}/${article.articleimage}`} alt="test for now" />
+              <div className="thumbnail_text">
+                <p>{article.articlename}</p>
+                <div className="location">
+                  <span className="icon"><LocationOnIcon /></span>
+                  <span>{article.user_id.address.zipcode}</span>
+                  <span>{article.user_id.address.city}</span>
+                </div>
+              </div>
+            </Link>
+          </>
+        );
+      })
+    ) : (
+      <h1>there is no favorite articles</h1>
+    )}
+     </div>
     </div>
   );
 }

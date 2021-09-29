@@ -9,7 +9,7 @@
 
     .chat_close {
         position: absolute;
-        right: 10px;
+        left: 10px;
         top: 10px;
         color: #fff;
         padding: 5px;
@@ -29,26 +29,25 @@
         overflow-y: auto;
 
         .me {
-            background-color: green;
+            margin: 5px 0;
+            background-color: #FAF9F9;
             display: flex;
             justify-content: space-between;
             padding: 10px;
+            border-radius: 8px;
             
             .message_date {
                 font-size: 12px;
             }
             .message_content {
 
-                span {
 
-                    font-size: 16px;
-                }
 
             }
         }
     
        .otheruser {
-           background-color: blue;
+           background-color: #FAF9F9;
            display: flex;
            justify-content: space-between;
            flex-direction: row-reverse;

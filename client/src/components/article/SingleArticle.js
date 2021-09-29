@@ -33,6 +33,8 @@ function SingleArticle() {
 
   const [remove, setRemove] = useState(false);
 
+  const [messageAlert , setMessageAlert] = useState("")
+
   // to get one article
   const singleArticle = async (category, id) => {
     try {
@@ -48,7 +50,8 @@ function SingleArticle() {
   // set the article to favorite list
   const makeFavorite = async (id) => {
     try {
-      await axios.put(`/user/addToFavorite/${id}`);
+      const response = await axios.put(`/user/addToFavorite/${id}`);
+      setMessageAlert(response.data.message)
     } catch (error) {
       console.log(error.message);
     }
@@ -64,6 +67,20 @@ function SingleArticle() {
     }
   };
 
+  // remove from favorites list 
+
+  const removeFromFavoriteList = async (id) => {
+    try {
+      const response = await axios.get(`/user/favorites/remove/${id}`);
+      setMessageAlert(response.data.message)
+      setRefresh(!refresh);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+
+  // remove article
   const removedArticle = () => {
     setRemove(true);
     removeArticle(category, id);
@@ -117,6 +134,7 @@ function SingleArticle() {
         <HeroImage />
       </div>
       <div className="big_container">
+      {messageAlert ? <h1>{messageAlert}</h1> : ""}
         <div className="container_add_fav">
           <div className="image_offer">
             <div className="image">
@@ -166,6 +184,7 @@ function SingleArticle() {
                   <button onClick={() => makeFavorite(id)}>
                     Add to Favorites
                   </button>
+                  <button onClick={() => removeFromFavoriteList(selectedArticle._id)} className="fav_toggle">Remove from Favorites</button>
                   </div>
                   ) : ""}
                   {userId === user._id && (
@@ -237,6 +256,7 @@ function SingleArticle() {
           ) : ("")}
         </div>
       </div>
+      {console.log(selectedArticle)}
     </div>
   );
 }

@@ -12,6 +12,8 @@ import booksImage from '../../Images/category/books.jpg';
 import fashionImage from '../../Images/category/fashion.jpg';
 import musicImage from '../../Images/category/music.jpg';
 import vehicleImage from '../../Images/category/Vehicle.jpg';
+import collectablesImage from '../../Images/category/collectables.jpg';
+import servicesImage from '../../Images/category/services.jpg';
 
 
 // 2 september
@@ -45,7 +47,7 @@ function CategoriesList() {
         </div>*/}
             <Link className="category_link" key={item} to={`/category/${item}`}>
               <div className="category_image">
-                <img src={item === "electronics" ? electronicsImage : item === "sports" ? sportImage : item === "home" ? homeImage : item === "tools" ? toolsImage : item === "books" ? booksImage : item === "vehicels" ? vehicleImage : item === "music" ? musicImage : item === "fashion" ? fashionImage : ""} alt={item} />
+                <img src={item === "electronics" ? electronicsImage : item === "sports" ? sportImage : item === "home" ? homeImage : item === "tools" ? toolsImage : item === "books" ? booksImage : item === "vehicels" ? vehicleImage : item === "music" ? musicImage : item === "fashion" ? fashionImage : item === "services" ? servicesImage : item === "collectables" ? collectablesImage : ""} alt={item} />
               </div>
               <div className="category_title">
                 <p style={{textTransform: "uppercase"}}>{item}</p>

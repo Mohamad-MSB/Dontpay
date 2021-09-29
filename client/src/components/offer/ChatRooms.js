@@ -24,9 +24,8 @@ function ChatRooms({ item }) {
                 </div>
 
                 {id ? <SingleChatRoom key={item.article_id._id} id={id} setId={setId} reciever={reciever} /> : <div className="single_chatroom"></div>}
+                </div>
 
-            </div>
-        {console.log(item)}
         </div>
     )
 }

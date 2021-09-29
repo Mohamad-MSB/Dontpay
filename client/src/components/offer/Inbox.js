@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../../util/axiosInstance';
-import { useParams } from "react-router-dom";
 import ChatRooms from './ChatRooms';
 import './inbox.scss';
 
@@ -24,8 +23,8 @@ function Inbox() {
 
     return (
             <div className="conversaition">
-                {chatRoom.map(item => <ChatRooms item={item} />)}
-                
+            hello from inbox
+                {chatRoom !== null ? chatRoom.map(item => item.article_id !== null ? <ChatRooms item={item} /> : <h1>there are no messages</h1> ) : <h1>there is no chat room</h1>}
             </div>
 
     )

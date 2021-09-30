@@ -22,7 +22,7 @@
          grid-template-columns: repeat( auto-fit, minmax(200px, min-content) );
 
          .article {
-                height: 275px;
+                height: 350px;
                 border-radius: 8px;
                 position: relative;
                 border-top: 3px solid #CC611E;
@@ -37,8 +37,7 @@
                 }
         
                 .thumbnail_text {
-                  position: absolute;
-                  bottom: 0;
+
                   text-align: center;
         
                   p {

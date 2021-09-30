@@ -10,15 +10,15 @@
     position: absolute;
     left: 10px;
     top: 10px;
-    color: #fff;
+    color: #cc611e;
     padding: 8px;
-    border: 1px solid #fff;
+    border: 1px solid #cc611e;
     border-radius: 8px;
 
     &:hover {
       cursor: pointer;
-      color: #cc611e;
-      background-color: #fff;
+      color: #fff;
+      background-color: #cc611e;
 
 
     }
@@ -48,7 +48,7 @@
       border: 1px solid #cc611e;
       display: flex;
       justify-content: space-between;
-      flex-direction: row-reverse;
+
       padding: 10px;
       border-radius: 8px;
 

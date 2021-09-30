@@ -24,7 +24,8 @@ function Inbox() {
     return (
             <div className="conversaition">
             <h1>Inbox</h1>
-                {chatRoom !== null ? chatRoom.map(item => item.article_id !== null ? <ChatRooms item={item} /> : <h1>there are no messages</h1> ) : <h1>there is no chat room</h1>}
+                {chatRoom.length !== 0 ? chatRoom.map(item => item.article_id !== null ? <ChatRooms item={item} /> : "" ) : <h1>There are no messages in your inbox</h1>}
+                {console.log(chatRoom)}
             </div>
 
     )

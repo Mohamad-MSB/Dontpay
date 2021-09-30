@@ -11,6 +11,7 @@ function Login() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [messageAlert, setMessageAlert] = useState("");
 
   const handleSubmitForm = async (e) => {
     e.preventDefault();
@@ -20,10 +21,9 @@ function Login() {
         username: username,
         password: password,
       });
-
-      // console.log(response.data.token, response.data);
+      setMessageAlert(response.data.message)
+      console.log(response.data.token, response.data);
       if (response.status === 200) {
-        console.log("logged in");
         handleLogin(
           true,
           response.data.token,
@@ -31,10 +31,11 @@ function Login() {
           response.data.username
         );
         history.push("/");
-      }
+      } 
     } catch (error) {
       console.log(error.message);
       handleLogin(false, null);
+      
     }
   };
 
@@ -47,7 +48,7 @@ function Login() {
 
       <div className="container_login">
         <h1>User Login</h1>
-
+        {messageAlert ? <h3>{messageAlert}</h3> : ""}
         <div className="form">
           <form onSubmit={handleSubmitForm}>
             <div className="user">
@@ -74,7 +75,7 @@ function Login() {
             <div className="forgot_password">
               <Link to="/forgotPass">Forgot Password?</Link>
             </div>
-
+{console.log(messageAlert)}
 
           </form>
         </div>

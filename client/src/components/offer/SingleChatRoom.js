@@ -4,7 +4,7 @@ import { ContextAPI } from '../../store/context';
 import './singleChatRoom.scss';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-const arrowStyle = { color: '#000' }
+const arrowStyle = { color: '#9c8f1b' }
 
 
 function SingleChatRoom({ id, reciever, setId }) {
@@ -49,6 +49,7 @@ function SingleChatRoom({ id, reciever, setId }) {
                 message: message
             })
             setRefresh(!refresh)
+            setMessage("")
 
         } catch (error) {
             console.log(error.message);
@@ -72,10 +73,10 @@ function SingleChatRoom({ id, reciever, setId }) {
                             
 
                             {message.sender.username === user ? <div key={message._id} className="me">
-                                <p className="message_content"><span>{message.sender.username}</span> : {message.message_body}</p>
+                                <p className="message_content" style={{color: "#fff"}}><span style={{color:"#fff"}}>{message.sender.username}</span> : {message.message_body}</p>
                                 <p className="message_date">{new Date(message.created_at).toLocaleString()}</p>
                             </div> : <div key={message._id} className="otheruser">
-                                <p className="message_content">{message.message_body} : <span>{message.sender.username}</span> </p>
+                                <p className="message_content" style={{color:"#cc611e"}}>{message.message_body} : <span style={{color: "#cc611e"}}>{message.sender.username}</span> </p>
                                 <p className="message_date">{new Date(message.created_at).toLocaleString()}</p>
                             </div>}
 
@@ -87,7 +88,7 @@ function SingleChatRoom({ id, reciever, setId }) {
             </div>
             <form className="form_chat">
                 <div className="user">
-                    <textarea onChange={(e) => setMessage(e.target.value)} name="message" id="message" cols="30" rows="10"></textarea>
+                    <textarea onChange={(e) => setMessage(e.target.value)} name="message" id="message" cols="30" rows="10" placeholder="write a message" value={message}></textarea>
                     <span onClick={(e) => handleSendingMessage(e)} className="send_icon"><ArrowForwardIcon style={arrowStyle} /></span>
                 </div>
             </form>

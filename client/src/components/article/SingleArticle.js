@@ -74,6 +74,9 @@ function SingleArticle() {
       const response = await axios.get(`/user/favorites/remove/${id}`);
       setMessageAlert(response.data.message)
       setRefresh(!refresh);
+      setInterval(() => {
+        setMessageAlert("")
+      }, 3000);
     } catch (error) {
       console.log(error.message);
     }
@@ -91,9 +94,14 @@ function SingleArticle() {
   const handleSendingMessage = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`/message/sendmessage/${id}/${owner}`, {
+      const response = await axios.post(`/message/sendmessage/${id}/${owner}`, {
         message: message,
       });
+      setMessageAlert(response.data.note)
+      setMessage("")
+      setInterval(() => {
+        setMessageAlert("")
+      }, 3000);
     } catch (error) {
       console.log(error.message);
     }
@@ -120,12 +128,12 @@ function SingleArticle() {
   useEffect(() => {
     singleArticle(category, id);
     getMyArticle();
-
     window.scroll({
-      top: 0,
+      top: 100,
       left: 0,
       behavior: 'smooth'
     })
+    
   }, [id, remove]);
 
   return (
@@ -134,7 +142,7 @@ function SingleArticle() {
         <HeroImage />
       </div>
       <div className="big_container">
-      {messageAlert ? <h1>{messageAlert}</h1> : ""}
+      {messageAlert && messageAlert != "message has been sent" ? <h1>{messageAlert}</h1> : ""}
         <div className="container_add_fav">
           <div className="image_offer">
             <div className="image">
@@ -198,6 +206,7 @@ function SingleArticle() {
           {sendMessage ? (
             <form>
               <div className="user">
+              {messageAlert === "message has been sent" && <h3 style={{color: "#9c8f1b"}}>message has been sent</h3> }
                 <label htmlFor="message">Message</label>
                 <textarea
                   onChange={(e) => setMessage(e.target.value)}
@@ -205,8 +214,9 @@ function SingleArticle() {
                   id="message"
                   cols="30"
                   rows="10"
+                  placeholder="write a message"
+                  value={message}
                 >
-                  send message
                 </textarea>
               </div>
               <button

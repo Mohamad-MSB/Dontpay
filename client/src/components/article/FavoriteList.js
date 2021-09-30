@@ -39,10 +39,10 @@ function FavoriteList() {
   return (
     <div className="favorite_list">
 
-      <h1>hello here</h1>
       <div className="heroImage">
         <HeroImage />
       </div>
+      <h1>Favorites</h1>
      <div className="favorite_container">  
      {articles.length !== 0 ? (
       articles.map((article) => {
@@ -64,7 +64,7 @@ function FavoriteList() {
         );
       })
     ) : (
-      <h1>there is no favorite articles</h1>
+      <h2>there is no favorite articles</h2>
     )}
      </div>
     </div>

@@ -37,7 +37,6 @@ function Footer() {
             <h4 className="footerTitle">Reach to Us</h4>
             <Link to="/contactus">Contact US</Link>
             <Link to="/career">Career</Link>
-            <Link to="/career">Career</Link>
           </div>
         </div>
         <div className="copyright">

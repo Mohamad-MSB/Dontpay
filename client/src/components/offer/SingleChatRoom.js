@@ -3,6 +3,7 @@ import axios from '../../util/axiosInstance';
 import { ContextAPI } from '../../store/context';
 import './singleChatRoom.scss';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import defaulImage from '../../Images/unnamed.png';
 
 const arrowStyle = { color: '#9c8f1b' }
 
@@ -72,16 +73,22 @@ function SingleChatRoom({ id, reciever, setId }) {
                         <>
                             
 
-                            {message.sender.username === user ? <div key={message._id} className="me">
-                                <p className="message_content" style={{color: "#fff"}}><span style={{color:"#fff"}}>{message.sender.username}</span> : {message.message_body}</p>
+                            {message.sender.username === user ? 
+                                <div key={message._id} className="me">
+                                <p className="message_content" style={{color: "#fff"}}>
+                                <span style={{color:"#fff"}}>
+                                <img src={`${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGU}/${chatRoom[0].reciever.userimage}`} alt="user_image"  style={{width: "100px", height: "100px", borderRadius: "50%", objectFit: "cover", marginRight: "3px"}} />
+                                </span> {message.message_body}</p>
                                 <p className="message_date">{new Date(message.created_at).toLocaleString()}</p>
-                            </div> : <div key={message._id} className="otheruser">
-                                <p className="message_content" style={{color:"#cc611e"}}>{message.message_body} : <span style={{color: "#cc611e"}}>{message.sender.username}</span> </p>
+                            </div> : 
+                            
+                            <div key={message._id} className="otheruser">
+                                <p className="message_content" style={{color:"#cc611e"}}>
+                                <span style={{color: " #9c8f1b"}}>
+                                <img src={defaulImage}  style={{width: "100px", height: "100px", borderRadius: "50%", objectFit: "cover", marginRight: "3px", border:"2px solid #cc611e"}} alt="user_image" />
+                                </span>  {message.message_body} </p>
                                 <p className="message_date">{new Date(message.created_at).toLocaleString()}</p>
                             </div>}
-
-
-
                         </>
                     )
                 })}
@@ -97,3 +104,15 @@ function SingleChatRoom({ id, reciever, setId }) {
 }
 
 export default SingleChatRoom
+
+
+// <img src={image !== null ? `${process.env.REACT_APP_SERVER_URL}/${process.env.REACT_APP_IMGU}/${image}` : defaultImage} alt="user_image" />
+
+
+// {message.sender.username === user ? <div key={message._id} className="me">
+//                                 <p className="message_content" style={{color: "#fff"}}><span style={{color:"#fff"}}>{message.sender.username}</span> : {message.message_body}</p>
+//                                 <p className="message_date">{new Date(message.created_at).toLocaleString()}</p>
+//                             </div> : <div key={message._id} className="otheruser">
+//                                 <p className="message_content" style={{color:"#cc611e"}}>{message.message_body} : <span style={{color: " #9c8f1b"}}>{message.sender.username}</span> </p>
+//                                 <p className="message_date">{new Date(message.created_at).toLocaleString()}</p>
+//                             </div>}

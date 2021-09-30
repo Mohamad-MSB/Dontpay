@@ -47,7 +47,7 @@ function FavoriteList() {
       <div className="heroImage">
         <HeroImage />
       </div>
-      <h1>Favorites</h1>
+      <h2>Favorites</h2>
      <div className="favorite_container">  
      {articles.length !== 0 ? (
       articles.map((article) => {
@@ -69,7 +69,7 @@ function FavoriteList() {
         );
       })
     ) : (
-      <h2>there is no favorite articles</h2>
+      <h3>There is no any favorite item</h3>
     )}
      </div>
     </div>

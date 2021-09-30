@@ -1,9 +1,19 @@
 .favorite_list {
+
+  h1 {
+    text-align: center;
+    color: #cc611e;
+    padding: 10px 0;
+  }
+  
   .favorite_container {
  
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, min-content));
     padding: 3px 0;
+
+
+
     .article {
       height: 300px;
       border: 1px solid rgb(218, 215, 215);

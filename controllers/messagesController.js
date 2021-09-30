@@ -44,7 +44,7 @@ exports.writeMessage = async (req, res) => {
                 }]
             });
         }
-        return res.status(200).json({ note: "message send success", message: articleRoom });
+        return res.status(200).json({ note: "message has been sent", message: articleRoom });
     } catch (error) {
         res.status(500).json({ message: "error happens here", error: error.message })
     }

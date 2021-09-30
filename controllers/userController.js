@@ -63,7 +63,7 @@ exports.login = async (req, res) => {
             })
             return res.status(200).json({ message: "user is logged in", token: token, userID: user._id, username: user.username, user: user })
         } else {
-            return res.status(400).json({ message: "user or password does not match" })
+            return res.status(400).json({ message: "username or password does not match" })
         }
     } catch (error) {
         return res.status(500).json({ message: "error happens when password is incorrect", error: error.message })

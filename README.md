@@ -14,46 +14,80 @@ Here comes the role of Don't Pay whatever thing you don't use with a device with
  
  
 Team members: 
+
 Mohamad alhussaini
+
 Saif Obaidi
-Hossam Othman
+
 Mohammad Firas Sharaf
  
 Demo
+
 These are screenshots of almost complete pages on our Website.
+
  
 Motivation
+
 Final Project for one-year course at DCI.
+
 A team which is passionate about exchanges.
+
 helping others and saving money.
+
 Curiosity for website development
+
 Ambition to learn React native
+
 Technologies used
+
 Virtual Video Code
+
 React JS
+
 Express JS
+
 Node
+
 SASS
+
 Redux
+
 Google Services
+
 Dialog Flow
+
 github
+
 Trello
+
 Figma
+
 Insomania
+
  
  
 Getting started
+
 Clone our Don't Pay repository.
+
 $ git clone https://github.com/Mohamad-MSB/Dontpay.git
+
 cd client.
-Install npm : $ npm i 
-run npm: $ yarn start
-cd server.
+
 Install npm : $ npm i 
 
+run npm: $ yarn start
+
+cd server.
+
+Install npm : $ npm i 
+
+
 run npm: $ node server
+
 Enjoy!
+
  
 License
+
 © Don't Pay

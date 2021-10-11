@@ -23,7 +23,6 @@ function Impressum() {
             <ul>
                 <li>Mohamad Alhussaini</li>
                 <li>Saif Alobaidi</li>
-                <li>Hossam Othman</li>
                 <li>Mohammad Firas Sharaf</li>
             </ul>
             <h2>Commercial register</h2>
